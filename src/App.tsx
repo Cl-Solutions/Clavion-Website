@@ -7,6 +7,7 @@ const Impressum   = lazy(() => import('./pages/Impressum').then(m => ({ default:
 const Datenschutz = lazy(() => import('./pages/Datenschutz').then(m => ({ default: m.Datenschutz })));
 const Blog        = lazy(() => import('./pages/Blog').then(m => ({ default: m.Blog })));
 const BlogPost    = lazy(() => import('./pages/BlogPost').then(m => ({ default: m.BlogPost })));
+const NotFound    = lazy(() => import('./pages/NotFound').then(m => ({ default: m.NotFound })));
 
 const PageFallback = () => (
   <div style={{ minHeight: '100vh', background: '#0a0a0a' }} />
@@ -82,6 +83,7 @@ function App() {
               <Route path="/datenschutz" element={<Datenschutz />} />
               <Route path="/blog"        element={<Blog />} />
               <Route path="/blog/:slug"  element={<BlogPost />} />
+              <Route path="*"            element={<NotFound />} />
             </Routes>
           </Suspense>
         </BrowserRouter>

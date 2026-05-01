@@ -1,18 +1,14 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { LogoMark } from '../components/Logo';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export function Datenschutz() {
-  useEffect(() => {
-    document.title = 'Datenschutzerklärung | CL-Solutions';
-    const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute('href', 'https://cl-solutions.pro/datenschutz');
-    return () => {
-      document.title = 'KI-Automatisierung für deutsche Unternehmen | CL-Solutions';
-      if (canonical) canonical.setAttribute('href', 'https://cl-solutions.pro/');
-    };
-  }, []);
+  usePageMeta({
+    title: 'Datenschutzerklärung | CL-Solutions',
+    description: 'Datenschutzerklärung der CL-Solutions GbR gemäß DSGVO.',
+    canonical: 'https://cl-solutions.pro/datenschutz',
+  });
 
   return (
     <div className="min-h-screen bg-dark">

@@ -5,6 +5,13 @@
 import { useRef, useCallback } from 'react';
 import { cn } from '../../lib/utils';
 
+interface GlowCardStyle extends React.CSSProperties {
+  '--glow-x': string;
+  '--glow-y': string;
+  '--glow-opacity': string;
+  '--border-opacity': string;
+}
+
 interface GlowCardProps {
   children: React.ReactNode;
   className?: string;
@@ -55,7 +62,7 @@ export function GlowCard({ children, className, intensity = 'medium' }: GlowCard
         backdropFilter: 'blur(12px) saturate(1.4)',
         WebkitBackdropFilter: 'blur(12px) saturate(1.4)',
         transition: 'background 0.15s ease, border-color 0.2s ease, box-shadow 0.2s ease',
-      } as React.CSSProperties}
+      } as GlowCardStyle}
       className={cn(
         'relative rounded-2xl',
         'hover:shadow-[0_0_30px_rgba(0,212,255,0.1)]',

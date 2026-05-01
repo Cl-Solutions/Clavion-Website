@@ -1,18 +1,14 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { LogoMark } from '../components/Logo';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export function Impressum() {
-  useEffect(() => {
-    document.title = 'Impressum | CL-Solutions';
-    const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute('href', 'https://cl-solutions.pro/impressum');
-    return () => {
-      document.title = 'KI-Automatisierung für deutsche Unternehmen | CL-Solutions';
-      if (canonical) canonical.setAttribute('href', 'https://cl-solutions.pro/');
-    };
-  }, []);
+  usePageMeta({
+    title: 'Impressum | CL-Solutions',
+    description: 'Impressum der CL-Solutions GbR, Mühlacker – Angaben gemäß § 5 TMG.',
+    canonical: 'https://cl-solutions.pro/impressum',
+  });
 
   return (
     <div className="min-h-screen bg-dark">

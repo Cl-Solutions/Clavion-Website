@@ -3,7 +3,7 @@
 // Replaces 3D panel system with scroll-triggered animations per section.
 // Nav + Footer + dark/cyan theme + StarField + CustomCursor preserved.
 
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 gsap.registerPlugin(SplitText);
@@ -82,7 +82,10 @@ function useGsapCarousel(words: string[]) {
       timerRef.current?.kill();   // kills the pending delayedCall
       gsap.killTweensOf(el);      // kills any in-progress tweens on the element
     };
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // Intentionally empty: GSAP animation runs once on mount; `words` is a stable
+  // module-level constant so no re-run is needed when it "changes".
+  }, []);
 
   return wordRef;
 }
@@ -256,9 +259,14 @@ function MouseGlow() {
   const [scrolling, setScrolling] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
   useEffect(() => {
+    let rafId: number | null = null;
     const onMove = (e: MouseEvent) => {
-      if (outerRef.current)
-        outerRef.current.style.transform = `translate(${e.clientX - 150}px, ${e.clientY - 150}px)`;
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        if (outerRef.current)
+          outerRef.current.style.transform = `translate(${e.clientX - 150}px, ${e.clientY - 150}px)`;
+        rafId = null;
+      });
     };
     const onScroll = () => {
       setScrolling(true);
@@ -271,6 +279,7 @@ function MouseGlow() {
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('scroll', onScroll);
       clearTimeout(timerRef.current);
+      if (rafId !== null) cancelAnimationFrame(rafId);
     };
   }, []);
   return (
@@ -893,9 +902,9 @@ function ShowcaseSection() {
   const inView       = useInView(ref, { once: true, margin: '-8% 0px' });
   const { headRef, subRef } = useSplitHeadline(inView);
 
-  const prev = () => { setDir(-1); setCurrent((c) => (c - 1 + total) % total); };
-  const next = () => { setDir(1);  setCurrent((c) => (c + 1) % total); };
-  const goTo = (i: number) => { setDir(i > current ? 1 : -1); setCurrent(i); };
+  const prev = useCallback(() => { setDir(-1); setCurrent((c) => (c - 1 + total) % total); }, [total]);
+  const next = useCallback(() => { setDir(1);  setCurrent((c) => (c + 1) % total); }, [total]);
+  const goTo = useCallback((i: number) => { setDir(i > current ? 1 : -1); setCurrent(i); }, [current]);
 
   const card = showcaseCards[current];
 
@@ -1183,9 +1192,12 @@ function CTASection() {
   const inView = useInView(ref, { once: true, margin: '-8% 0px' });
 
   useEffect(() => {
+    // Avoid double-loading if Tally is already present
+    if (document.querySelector('script[src*="tally.so"]')) return;
     const script = document.createElement('script');
     script.src   = 'https://tally.so/widgets/embed.js';
     script.async = true;
+    script.onerror = () => console.warn('Tally form script failed to load.');
     document.body.appendChild(script);
     return () => { if (document.body.contains(script)) document.body.removeChild(script); };
   }, []);
@@ -1252,7 +1264,12 @@ function CTASection() {
 
               <ShimmerButton as="button" onClick={() => {
                 const el = document.querySelector('[data-tally-open="2Evere"]') as HTMLElement;
-                el?.click();
+                if (el) {
+                  el.click();
+                } else {
+                  // Fallback if Tally script hasn't loaded yet
+                  window.open('https://tally.so/r/2Evere', '_blank', 'noopener,noreferrer');
+                }
               }} className="w-full justify-center py-3.5 mb-4">
                 Jetzt Anfrage stellen
                 <ArrowRight className="w-4 h-4" />

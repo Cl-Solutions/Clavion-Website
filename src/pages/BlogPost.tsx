@@ -1,7 +1,18 @@
 import { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
+import DOMPurify from 'dompurify';
 import { getPostBySlug, formatDate } from '../data/blogPosts';
 import { CustomCursor } from '../components/CustomCursor';
+import { usePageMeta } from '../hooks/usePageMeta';
+
+function BlogPostMeta({ post }: { post: NonNullable<ReturnType<typeof getPostBySlug>> }) {
+  usePageMeta({
+    title: `${post.title} | CL-Solutions`,
+    description: post.excerpt,
+    canonical: `https://cl-solutions.pro/blog/${post.slug}`,
+  });
+  return null;
+}
 
 export function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -11,36 +22,13 @@ export function BlogPost() {
     window.scrollTo(0, 0);
   }, [slug]);
 
-  useEffect(() => {
-    if (!post) return;
-    const pageTitle = `${post.title} | CL-Solutions`;
-    document.title = pageTitle;
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute('content', post.excerpt);
-    const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute('href', `https://cl-solutions.pro/blog/${post.slug}`);
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute('content', pageTitle);
-    const ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute('content', post.excerpt);
-    const ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl) ogUrl.setAttribute('content', `https://cl-solutions.pro/blog/${post.slug}`);
-    return () => {
-      document.title = 'KI-Automatisierung für deutsche Unternehmen | CL-Solutions';
-      if (desc) desc.setAttribute('content', 'Wir automatisieren Prozesse, verbinden Systeme und bauen KI-Agenten für KMU in Deutschland. DSGVO-konform. Angebot in 48h.');
-      if (canonical) canonical.setAttribute('href', 'https://cl-solutions.pro/');
-      if (ogTitle) ogTitle.setAttribute('content', 'KI-Automatisierung für deutsche Unternehmen | CL-Solutions');
-      if (ogDesc) ogDesc.setAttribute('content', 'Wir automatisieren Prozesse, verbinden Systeme und bauen KI-Agenten für KMU in Deutschland. DSGVO-konform. Angebot in 48h.');
-      if (ogUrl) ogUrl.setAttribute('content', 'https://cl-solutions.pro/');
-    };
-  }, [post]);
-
   if (!post) {
     return <Navigate to="/blog" replace />;
   }
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
+      <BlogPostMeta post={post} />
       <CustomCursor />
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[rgba(10,10,10,0.7)] backdrop-blur-[16px] border-b border-[rgba(0,229,255,0.08)]">
@@ -72,9 +60,10 @@ export function BlogPost() {
       <div className="md:hidden fixed top-20 left-0 right-0 z-40 px-4 py-2 bg-[rgba(10,10,10,0.85)] backdrop-blur-sm">
         <Link
           to="/blog"
+          aria-label="Zurück zum Blog"
           className="inline-flex items-center gap-1.5 font-inter text-sm text-[#00E5FF]"
         >
-          <span>←</span>
+          <span aria-hidden="true">←</span>
           <span>Zurück</span>
         </Link>
       </div>
@@ -116,7 +105,7 @@ export function BlogPost() {
           {/* Content */}
           <div
             className="prose-blog font-inter"
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}
           />
 
         </div>
