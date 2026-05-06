@@ -210,34 +210,43 @@ function Flow3() {
   );
 }
 
-// ─── Flow 4 — Lead-Qualifizierung ─────────────────────────────────────────────
+// ─── Flow 4 — Lead Scraping & Scoring (CL LeadGen) ───────────────────────────
 function Flow4() {
-  const leads = [
-    { y: CY - 9, color: 'rgba(255,255,255,0.22)', delay: 0,    pass: false },
-    { y: CY,     color: C,                         delay: 0.28, pass: true  },
-    { y: CY + 9, color: 'rgba(255,255,255,0.22)', delay: 0.56, pass: false },
-    { y: CY - 4, color: C,                         delay: 0.84, pass: true  },
-    { y: CY + 4, color: 'rgba(255,255,255,0.18)', delay: 1.12, pass: false },
+  // Incoming data streams from web sources — varying brightness = varying score
+  const streams = [
+    { y: CY - 9, color: 'rgba(255,255,255,0.28)', delay: 0,    r: 3   },
+    { y: CY,     color: C,                         delay: 0.30, r: 4.5 },
+    { y: CY + 9, color: 'rgba(255,255,255,0.28)', delay: 0.60, r: 3   },
+    { y: CY - 4, color: C,                         delay: 0.90, r: 4.5 },
+    { y: CY + 4, color: 'rgba(0,229,255,0.50)',    delay: 1.20, r: 3.5 },
+  ];
+  // Only high-score leads (bright ones) exit to output
+  const scored = [
+    { delay: 0.30 },
+    { delay: 0.90 },
   ];
   return (
     <svg viewBox={`0 0 ${VW} ${VH}`} className="w-full">
       <Arrow {...A1} /><Arrow {...A2} />
-      <Node {...N1} label="Leads" sub="eingehend" />
-      <Node {...N2} label="KI-Filter" glow />
-      <Node {...N3} label="Sales" sub="qualifiziert" />
-      {leads.map((l, i) => (
-        <motion.circle key={`in-${i}`} r={3} cy={l.y} fill={l.color}
+      <Node {...N1} label="Quellen" sub="Web & APIs" />
+      <Node {...N2} label="LeadGen" glow />
+      <Node {...N3} label="Kontakte" sub="bewertet" />
+      {/* Incoming streams */}
+      {streams.map((s, i) => (
+        <motion.circle key={`in-${i}`} r={s.r} cy={s.y} fill={s.color}
           initial={{ cx: A1.x1 }} animate={{ cx: [A1.x1, A1.x2] }}
-          transition={{ duration: 1.1, delay: l.delay, repeat: Infinity, repeatDelay: 1.2, ease: 'linear' }}
+          transition={{ duration: 1.1, delay: s.delay, repeat: Infinity, repeatDelay: 1.3, ease: 'linear' }}
         />
       ))}
-      {leads.filter(l => l.pass).map((l, i) => (
+      {/* High-score leads exit with full glow */}
+      {scored.map((s, i) => (
         <motion.circle key={`out-${i}`} r={4.5} cy={CY} fill={C}
-          style={{ filter: `drop-shadow(0 0 5px ${C})` }}
+          style={{ filter: `drop-shadow(0 0 6px ${C}) drop-shadow(0 0 12px ${C})` }}
           initial={{ cx: A2.x1 }} animate={{ cx: [A2.x1, A2.x2] }}
-          transition={{ duration: 1.0, delay: l.delay + 1.2, repeat: Infinity, repeatDelay: 2.1, ease: 'linear' }}
+          transition={{ duration: 1.0, delay: s.delay + 1.2, repeat: Infinity, repeatDelay: 2.3, ease: 'linear' }}
         />
       ))}
+      <Check x={N3.x + N3.w / 2} y={N3.y - 5} delay={1.5} />
     </svg>
   );
 }
