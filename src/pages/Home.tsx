@@ -198,7 +198,7 @@ const showcaseCards = [
     category: 'CL LeadGen',
     branche: 'B2B-Vertrieb',
     title: 'Lead Scraping & Scoring',
-    desc: 'Ein B2B-Unternehmen verbrachte Stunden mit manueller Recherche nach potenziellen Kunden. LeadGen findet automatisch passende Leads inklusive aller relevanten Kontaktdaten — E-Mail, Telefon, Firmenprofil — und bewertet sie direkt nach Abschlusswahrscheinlichkeit.',
+    desc: 'Stundenlange manuelle Recherche nach potenziellen Kunden war gestern. Unsere App LeadGen scrapt automatisch passende Leads inklusive aller relevanten Kontaktdaten — E-Mail, Telefon, Firmenprofil — und bewertet sie direkt nach Abschlusswahrscheinlichkeit.',
     badge: 'Qualifizierte Leads auf Knopfdruck',
   },
   {
