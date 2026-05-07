@@ -127,11 +127,12 @@ function scrollToId(id: string) {
 
 const NAV_ITEMS: { label: string; id?: string; href?: string }[] = [
   { label: 'Leistungen',  id: 'leistungen' },
-  { label: 'Prozess',     id: 'prozess' },
-  { label: 'Über uns',    id: 'ueber-uns' },
-  { label: 'FAQ',         id: 'faq' },
-  { label: 'Blog',        href: '/blog' },
-  { label: 'Kontakt',     id: 'kontakt' },
+  { label: 'Referenzen',  id: 'showcase'   },
+  { label: 'Prozess',     id: 'prozess'    },
+  { label: 'Über uns',    id: 'ueber-uns'  },
+  { label: 'FAQ',         id: 'faq'        },
+  { label: 'Blog',        href: '/blog'    },
+  { label: 'Kontakt',     id: 'kontakt'    },
 ];
 
 const problems = [
@@ -593,7 +594,7 @@ function HeroQuoteStrip() {
 
   return (
     <div
-      className="flex items-center gap-3 px-4 py-3 rounded-2xl border border-white/[0.07] bg-white/[0.03] backdrop-blur-sm max-w-md mx-auto"
+      className="flex items-center gap-3 px-5 py-3.5 rounded-2xl border border-white/[0.12] bg-white/[0.07] backdrop-blur-sm max-w-lg mx-auto"
       style={{ transition: 'opacity 0.35s ease', opacity: visible ? 1 : 0 }}
     >
       {/* Avatar */}
@@ -602,15 +603,15 @@ function HeroQuoteStrip() {
       </div>
       {/* Quote + name */}
       <div className="min-w-0 flex-1 text-left">
-        <p className="font-inter text-gray-300 text-xs leading-snug line-clamp-2 italic">
+        <p className="font-inter text-white/90 text-sm leading-snug line-clamp-2 italic">
           „{q.quote}"
         </p>
-        <p className="font-inter text-gray-500 text-[10px] mt-0.5">
-          — {q.name} · <span className="text-gray-600">{q.role}</span>
+        <p className="font-inter text-gray-400 text-xs mt-1 font-medium">
+          {q.name} · <span className="text-gray-500 font-normal">{q.role}</span>
         </p>
       </div>
       {/* Five stars */}
-      <div className="flex-shrink-0 text-amber-400 text-[10px] tracking-tight leading-none">★★★★★</div>
+      <div className="flex-shrink-0 text-amber-400 text-sm tracking-tight leading-none">★★★★★</div>
     </div>
   );
 }
@@ -1044,7 +1045,7 @@ function ShowcaseSection() {
                 <h3 className="font-syne font-bold text-xl sm:text-2xl text-white leading-snug flex-1">{card.title}</h3>
                 <div className="flex-shrink-0 text-right">
                   <div className="font-syne font-bold text-3xl sm:text-4xl leading-none" style={{ color: '#00E5FF' }}>{card.metric}</div>
-                  <div className="font-inter text-gray-500 text-xs mt-0.5 whitespace-nowrap">{card.metricLabel}</div>
+                  <div className="font-inter text-gray-300 text-xs mt-0.5 whitespace-nowrap font-medium">{card.metricLabel}</div>
                 </div>
               </div>
               <p className="font-inter text-gray-400 text-base sm:text-lg leading-relaxed mb-5">{card.desc}</p>
