@@ -36,6 +36,22 @@ import { AnimatedDemo } from '../components/ui/AnimatedDemo';
 
 const TW_WORDS = ['Zeitverlust.', 'verpassten Anfragen.', 'manueller Arbeit.', 'langsamen Prozessen.', 'ungenutztem Potenzial.'];
 
+// ─── Hero social proof quotes ─────────────────────────────────────────────────
+const HERO_QUOTES = [
+  {
+    quote: 'In zwei Wochen lief unser gesamter Auftragsprozess automatisch. 12 Stunden Zeitersparnis — jede Woche.',
+    initials: 'TM',
+    name: 'Thomas M.',
+    role: 'Geschäftsführer · Haustechnik GmbH',
+  },
+  {
+    quote: 'Unser KI-Chatbot qualifiziert mehr Leads als unser Sales-Team — und das rund um die Uhr.',
+    initials: 'SB',
+    name: 'Sandra B.',
+    role: 'Marketing-Leiterin · B2B-Immobilien',
+  },
+];
+
 /**
  * GSAP-powered vertical word carousel.
  * No React state → zero re-renders per tick.
@@ -168,6 +184,8 @@ const showcaseCards = [
     title: 'Arbeitszeiterfassung & Rechnungsstellung automatisiert',
     desc: 'Ein Handwerksbetrieb erfasste Arbeitszeiten manuell in Excel und stellte Rechnungen per Hand aus. Heute läuft beides vollautomatisch — Zeiten werden erfasst, Rechnungen generiert und direkt versendet.',
     badge: '8h/Woche eingespart',
+    metric: '−70%',
+    metricLabel: 'manueller Aufwand',
   },
   {
     emoji: '💬',
@@ -176,6 +194,8 @@ const showcaseCards = [
     title: '24/7 KI-Telefonassistent',
     desc: 'Eine Arztpraxis war außerhalb der Sprechzeiten nicht erreichbar — Patienten sprachen auf Anrufbeantworter. Der Voice Agent übernimmt jetzt eingehende Anrufe, qualifiziert das Anliegen und bucht Termine direkt ins System.',
     badge: '24/7 Erreichbarkeit',
+    metric: '+3×',
+    metricLabel: 'mehr Termine',
   },
   {
     emoji: '🔗',
@@ -184,6 +204,8 @@ const showcaseCards = [
     title: 'Vollautomatische Bestellabwicklung',
     desc: 'Ein Online-Händler pflegte Bestellungen manuell zwischen Shop, Lager und Versanddienstleister. Die API-Integration verbindet alle drei Systeme — jede Bestellung läuft seitdem ohne einen einzigen manuellen Schritt durch.',
     badge: '0 manuelle Schritte',
+    metric: '100%',
+    metricLabel: 'automatisiert',
   },
   {
     emoji: '⚡',
@@ -192,6 +214,8 @@ const showcaseCards = [
     title: 'Intelligente Dokumentenverarbeitung',
     desc: 'Ein Immobilienbüro erhielt täglich Dutzende PDFs mit Exposés, Verträgen und Anfragen. Die Dokumenten-KI extrahiert relevante Daten automatisch und überträgt sie strukturiert ins CRM — ohne manuelle Eingabe.',
     badge: '90% schneller',
+    metric: '−90%',
+    metricLabel: 'Bearbeitungszeit',
   },
   {
     emoji: '🎯',
@@ -200,6 +224,8 @@ const showcaseCards = [
     title: 'Lead Scraping & Scoring',
     desc: 'Stundenlange manuelle Recherche nach potenziellen Kunden war gestern. Unsere App LeadGen scrapt automatisch passende Leads inklusive aller relevanten Kontaktdaten — E-Mail, Telefon, Firmenprofil — und bewertet sie direkt nach Abschlusswahrscheinlichkeit.',
     badge: 'Qualifizierte Leads auf Knopfdruck',
+    metric: '5×',
+    metricLabel: 'mehr qualif. Leads',
   },
   {
     emoji: '🌐',
@@ -208,6 +234,8 @@ const showcaseCards = [
     title: 'KI-Website mit eingebautem Vertrieb',
     desc: 'Für einen lokalen Dienstleister wurde die Website von Anfang an mit integriertem KI-Chatbot konzipiert — beantwortet Besucherfragen, qualifiziert Interessenten und leitet Terminbuchungen ein, rund um die Uhr.',
     badge: 'Leads automatisch qualifiziert',
+    metric: '+40%',
+    metricLabel: 'Lead-Conversion',
   },
 ];
 
@@ -545,6 +573,48 @@ function Nav() {
   );
 }
 
+// ─── Hero rotating quote strip ────────────────────────────────────────────────
+function HeroQuoteStrip() {
+  const [idx, setIdx] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIdx((i) => (i + 1) % HERO_QUOTES.length);
+        setVisible(true);
+      }, 350);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, []);
+
+  const q = HERO_QUOTES[idx];
+
+  return (
+    <div
+      className="flex items-center gap-3 px-4 py-3 rounded-2xl border border-white/[0.07] bg-white/[0.03] backdrop-blur-sm max-w-md mx-auto"
+      style={{ transition: 'opacity 0.35s ease', opacity: visible ? 1 : 0 }}
+    >
+      {/* Avatar */}
+      <div className="w-9 h-9 rounded-full bg-accent/20 border border-accent/30 flex items-center justify-center flex-shrink-0">
+        <span className="font-syne font-bold text-xs text-accent">{q.initials}</span>
+      </div>
+      {/* Quote + name */}
+      <div className="min-w-0 flex-1 text-left">
+        <p className="font-inter text-gray-300 text-xs leading-snug line-clamp-2 italic">
+          „{q.quote}"
+        </p>
+        <p className="font-inter text-gray-500 text-[10px] mt-0.5">
+          — {q.name} · <span className="text-gray-600">{q.role}</span>
+        </p>
+      </div>
+      {/* Five stars */}
+      <div className="flex-shrink-0 text-amber-400 text-[10px] tracking-tight leading-none">★★★★★</div>
+    </div>
+  );
+}
+
 // ─── SECTION 1 — Hero ────────────────────────────────────────────────────────
 function HeroSection() {
   const staticRef      = useRef<HTMLSpanElement>(null);
@@ -609,6 +679,15 @@ function HeroSection() {
             className="inline-flex items-center gap-2 px-7 py-4 font-inter font-medium text-base text-white border border-white/10 rounded-xl hover:border-accent/40 hover:text-accent hover:bg-accent/5 transition-all duration-200">
             Wie das funktioniert →
           </button>
+        </motion.div>
+
+        {/* Social proof quote strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.5 }}
+          className="mt-10">
+          <HeroQuoteStrip />
         </motion.div>
       </div>
 
@@ -960,7 +1039,14 @@ function ShowcaseSection() {
                 <ShowcaseFlow index={current} />
               </div>
 
-              <h3 className="font-syne font-bold text-xl sm:text-2xl text-white mb-2">{card.title}</h3>
+              {/* Metric + title row */}
+              <div className="flex items-start justify-between gap-4 mb-2 flex-wrap">
+                <h3 className="font-syne font-bold text-xl sm:text-2xl text-white leading-snug flex-1">{card.title}</h3>
+                <div className="flex-shrink-0 text-right">
+                  <div className="font-syne font-bold text-3xl sm:text-4xl leading-none" style={{ color: '#00E5FF' }}>{card.metric}</div>
+                  <div className="font-inter text-gray-500 text-xs mt-0.5 whitespace-nowrap">{card.metricLabel}</div>
+                </div>
+              </div>
               <p className="font-inter text-gray-400 text-base sm:text-lg leading-relaxed mb-5">{card.desc}</p>
 
               {/* Result badge + counter */}
@@ -1133,54 +1219,70 @@ function FAQSection() {
   return (
     <section id="faq" style={{ scrollMarginTop: 80 }}
       className="py-24 sm:py-32 px-6 bg-[rgba(0,229,255,0.015)]">
-      <div ref={ref} className="max-w-3xl mx-auto">
-        <div className="text-center mb-12">
-          <span ref={subRef as React.RefObject<HTMLSpanElement>}>
-            <Label>FAQ</Label>
-          </span>
-          <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
-            className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white">
-            Häufige Fragen
-          </h2>
+      <div ref={ref} className="max-w-6xl mx-auto">
+
+        {/* Two-column layout: sticky left title · right accordion */}
+        <div className="grid lg:grid-cols-[1fr_1.7fr] gap-10 lg:gap-20 items-start">
+
+          {/* ── Left: label + heading (sticky on desktop) ── */}
+          <div className="lg:sticky lg:top-28">
+            <span ref={subRef as React.RefObject<HTMLSpanElement>}>
+              <Label>FAQ</Label>
+            </span>
+            <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
+              className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white mb-5 leading-tight">
+              Häufige Fragen
+            </h2>
+            <p className="font-inter text-gray-500 text-sm sm:text-base leading-relaxed mb-6">
+              Noch etwas unklar? Schreib uns einfach — wir antworten innerhalb von 24h.
+            </p>
+            <button
+              onClick={() => scrollToId('kontakt')}
+              className="inline-flex items-center gap-2 font-inter text-sm text-accent hover:text-accent/80 transition-colors font-medium">
+              Frage stellen →
+            </button>
+          </div>
+
+          {/* ── Right: accordion ── */}
+          <div className="space-y-2">
+            {faqs.map((faq, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.1 + i * 0.07 }}
+                className="glass-card rounded-xl px-5 hover:border-accent/25 hover:shadow-[0_0_20px_rgba(0,212,255,0.06)] transition-all duration-300">
+                <button
+                  onClick={() => setOpen(open === i ? null : i)}
+                  aria-expanded={open === i}
+                  className="w-full py-5 flex items-center justify-between text-left group">
+                  <span className="font-syne font-semibold text-sm sm:text-base text-white group-hover:text-accent transition-colors pr-6">
+                    {faq.q}
+                  </span>
+                  <div className="w-11 h-11 bg-white/[0.05] rounded-lg flex items-center justify-center flex-shrink-0">
+                    {open === i
+                      ? <Minus className="w-4 h-4 text-accent" />
+                      : <Plus  className="w-4 h-4 text-gray-400 group-hover:text-accent transition-colors" />
+                    }
+                  </div>
+                </button>
+                <AnimatePresence>
+                  {open === i && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="overflow-hidden">
+                      <p className="font-inter text-gray-400 leading-relaxed pb-5 text-sm sm:text-base">{faq.a}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        <div className="space-y-2">
-          {faqs.map((faq, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 12 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.1 + i * 0.07 }}
-              className="glass-card rounded-xl px-5 hover:border-accent/25 hover:shadow-[0_0_20px_rgba(0,212,255,0.06)] transition-all duration-300">
-              <button
-                onClick={() => setOpen(open === i ? null : i)}
-                aria-expanded={open === i}
-                className="w-full py-5 flex items-center justify-between text-left group">
-                <span className="font-syne font-semibold text-sm sm:text-base text-white group-hover:text-accent transition-colors pr-6">
-                  {faq.q}
-                </span>
-                <div className="w-11 h-11 bg-white/[0.05] rounded-lg flex items-center justify-center flex-shrink-0">
-                  {open === i
-                    ? <Minus className="w-4 h-4 text-accent" />
-                    : <Plus  className="w-4 h-4 text-gray-400 group-hover:text-accent transition-colors" />
-                  }
-                </div>
-              </button>
-              <AnimatePresence>
-                {open === i && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.25 }}
-                    className="overflow-hidden">
-                    <p className="font-inter text-gray-400 leading-relaxed pb-5 text-sm sm:text-base">{faq.a}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );
