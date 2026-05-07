@@ -39,7 +39,7 @@ const TW_WORDS = ['Zeitverlust.', 'verpassten Anfragen.', 'manueller Arbeit.', '
 // ─── Hero social proof quotes ─────────────────────────────────────────────────
 const HERO_QUOTES = [
   {
-    quote: 'LeadGen hat unsere Vertriebsrecherche komplett ersetzt. 5× mehr qualifizierte Kontakte — vollautomatisch bewertet.',
+    quote: 'LeadGen hat unsere Vertriebsrecherche komplett ersetzt. 5× mehr qualifizierte Kontakte, vollautomatisch bewertet.',
     initials: 'JK',
     name: 'Jonas K.',
     role: 'Vertriebsleiter',
