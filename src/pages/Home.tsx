@@ -1421,12 +1421,27 @@ function CTASection() {
 
             {/* ── Right column — softer entry point ── */}
             <div className="p-7 sm:p-10 flex flex-col">
-              <h3 className="font-syne font-bold text-xl sm:text-2xl text-white mb-3">
+              <Label>Direkt schreiben</Label>
+              <h3 className="font-syne font-bold text-xl sm:text-2xl text-white mb-4 leading-tight">
                 Noch nicht sicher?
               </h3>
-              <p className="font-inter text-gray-400 text-sm sm:text-base leading-relaxed mb-8">
-                Schreib uns kurz, was euch beschäftigt — wir antworten innerhalb von 24h und schauen gemeinsam, ob und wie wir helfen können. Kein Pitch, keine Verpflichtung.
+              <p className="font-inter text-gray-400 text-sm sm:text-base leading-relaxed mb-6">
+                Schreib uns kurz, was euch beschäftigt — wir schauen gemeinsam, ob und wie wir helfen können.
               </p>
+
+              {/* Trust bullets — fills visual space, mirrors calendar card weight on left */}
+              <ul className="space-y-3 mb-6">
+                {[
+                  'Antwort innerhalb von 24h',
+                  'Kein Formular, kein Verkaufsgespräch',
+                  'Ihr müsst nichts vorbereiten',
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3 px-4 py-2.5 bg-white/[0.03] rounded-xl border border-white/[0.06]">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    <span className="font-inter text-sm text-gray-300">{item}</span>
+                  </li>
+                ))}
+              </ul>
 
               <div className="mt-auto space-y-3">
                 <button
