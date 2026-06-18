@@ -64,7 +64,7 @@ export function Impressum() {
                 Kontakt
               </h2>
               <p>
-                E-Mail: info@clavion.pro<br />
+                E-Mail: info@cl-solutions.pro<br />
                 WhatsApp: <a href="https://wa.me/491743067948" className="text-accent hover:text-accent/80 transition-colors">+49 174 3067948</a>
               </p>
             </section>
