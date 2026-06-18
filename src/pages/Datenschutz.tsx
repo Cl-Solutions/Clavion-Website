@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import { CustomCursor } from '../components/CustomCursor';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 export function Datenschutz() {
@@ -11,6 +12,7 @@ export function Datenschutz() {
 
   return (
     <div className="min-h-screen bg-dark">
+      <CustomCursor />
       <nav className="fixed top-0 left-0 right-0 z-40 bg-dark/90 backdrop-blur-md border-b border-dark-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
