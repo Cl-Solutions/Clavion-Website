@@ -25,4 +25,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://cl-solutions.pro/sitemap.xml
+Sitemap: https://clavion.pro/sitemap.xml

@@ -59,7 +59,7 @@ export function Contact() {
                 30 Minuten, kostenlos und unverbindlich. Wir analysieren Ihre Situation und zeigen Ihnen konkrete Möglichkeiten wie z.B. die Anruf-KI.
               </p>
               <a
-                href="https://cal.eu/cl-solutions/30min"
+                href="https://cal.eu/clavion/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-3 bg-accent text-dark font-inter font-medium rounded-lg flex items-center justify-center gap-2 hover:bg-accent/90 transition-colors group animate-pulse-glow"

@@ -7,11 +7,11 @@ export function Logo({ className = '' }: LogoProps) {
     <div className={`flex items-center gap-3 ${className}`}>
       <img
         src="/logo.png"
-        alt="CL-Solutions Logo"
+        alt="Clavion Logo"
         className="h-20 w-auto flex-shrink-0"
       />
       <span className="font-syne font-bold text-xl text-white tracking-tight">
-        CL-Solutions
+        Clavion
       </span>
     </div>
   );

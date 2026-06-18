@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
-import { LogoMark } from '../components/Logo';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 export function Datenschutz() {
   usePageMeta({
-    title: 'Datenschutzerklärung | CL-Solutions',
-    description: 'Datenschutzerklärung der CL-Solutions GbR gemäß DSGVO.',
-    canonical: 'https://cl-solutions.pro/datenschutz',
+    title: 'Datenschutzerklärung | Clavion',
+    description: 'Datenschutzerklärung der Clavion GbR gemäß DSGVO.',
+    canonical: 'https://clavion.pro/datenschutz',
   });
 
   return (
@@ -16,8 +15,8 @@ export function Datenschutz() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Link to="/" className="flex items-center gap-3">
-              <LogoMark size={32} />
-              <span className="font-syne font-bold text-lg text-white">CL-Solutions</span>
+              <img src="/logo.png" alt="Clavion" className="h-16 w-auto" height={64} />
+              <span className="font-syne font-bold text-lg text-white">Clavion</span>
             </Link>
           </div>
         </div>
@@ -39,7 +38,7 @@ export function Datenschutz() {
 
           <div className="space-y-8 font-inter text-gray-400 leading-relaxed">
             <p>
-              CL-Solutions nimmt den Schutz Ihrer persönlichen Daten ernst und hält sich
+              Clavion nimmt den Schutz Ihrer persönlichen Daten ernst und hält sich
               an die gesetzlichen Regeln des Datenschutzes. Personenbezogene Daten werden
               auf dieser Website nur im technisch notwendigen Umfang erhoben.
               In keinem Fall werden die erhobenen Daten verkauft oder an Dritte weitergegeben.
@@ -51,10 +50,10 @@ export function Datenschutz() {
               </h2>
               <p>
                 Verantwortlicher gem. Art. 4 Abs. 7 EU-DSGVO ist:<br />
-                CL-Solutions GbR<br />
+                Clavion GbR<br />
                 [Adresse folgt]<br />
                 Vertreten durch: Berkay Aksoy & Marios Lysitsas<br />
-                E-Mail: webmaster@cl-solutions.pro
+                E-Mail: webmaster@clavion.pro
               </p>
             </section>
 
@@ -99,7 +98,7 @@ export function Datenschutz() {
                 Diese Anbieter wurden sorgfältig ausgewählt.
               </p>
               <p className="mt-4">
-                CL-Solutions haftet nicht für Fehler, Ausfälle oder Datenverluste,
+                Clavion haftet nicht für Fehler, Ausfälle oder Datenverluste,
                 die durch den Einsatz dieser Drittanbieter entstehen.
               </p>
               <p className="mt-4">
@@ -145,7 +144,7 @@ export function Datenschutz() {
                 gemäß Art. 15–18 DSGVO.
               </p>
               <p className="mt-4">
-                Zur Ausübung Ihrer Rechte wenden Sie sich an: kontakt@cl-solutions.pro
+                Zur Ausübung Ihrer Rechte wenden Sie sich an: kontakt@clavion.pro
               </p>
             </section>
 
@@ -154,7 +153,7 @@ export function Datenschutz() {
                 § 8 Keine Rechts- oder Steuerberatung
               </h2>
               <p>
-                CL-Solutions ist eine Digitalagentur und erbringt ausschließlich
+                Clavion ist eine Digitalagentur und erbringt ausschließlich
                 technische Dienstleistungen.
                 Wir bieten keine rechtliche oder steuerliche Beratung an.
               </p>

@@ -210,7 +210,7 @@ function Flow3() {
   );
 }
 
-// ─── Flow 4 — Lead Scraping & Scoring (CL LeadGen) ───────────────────────────
+// ─── Flow 4 — Lead Scraping & Scoring (Clavion LeadGen) ───────────────────────────
 function Flow4() {
   // Incoming data streams from web sources — varying brightness = varying score
   const streams = [

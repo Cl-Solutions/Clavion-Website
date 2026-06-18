@@ -119,12 +119,6 @@ function useGsapCarousel(words: string[], onCycle?: () => void) {
 
 // ─── Shared helpers ──────────────────────────────────────────────────────────
 
-const CARD = [
-  'glass-card glass-card-interactive rounded-2xl',
-  'hover:-translate-y-1.5 hover:scale-[1.02]',
-  'transition-all duration-300 ease-out',
-].join(' ');
-
 /** Smooth-scroll to a section by ID, offsetting for the fixed 80px navbar. */
 function scrollToId(id: string) {
   const el = document.getElementById(id);
@@ -231,7 +225,7 @@ const showcaseCards = [
   },
   {
     emoji: '🎯',
-    category: 'CL LeadGen',
+    category: 'Clavion LeadGen',
     branche: 'B2B-Vertrieb',
     title: 'Lead Scraping & Scoring',
     desc: 'Stundenlange manuelle Recherche nach potenziellen Kunden war gestern. Unsere App LeadGen scrapt automatisch passende Leads inklusive aller relevanten Kontaktdaten — E-Mail, Telefon, Firmenprofil — und bewertet sie direkt nach Abschlusswahrscheinlichkeit.',
@@ -562,8 +556,8 @@ function Nav() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
           <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-3">
-            <img src="/logo.png" alt="CL-Solutions" className="h-16 w-auto" height={64} />
-            <span className="font-syne font-bold text-lg text-white">CL-Solutions</span>
+            <img src="/logo.png" alt="Clavion" className="h-16 w-auto" height={64} />
+            <span className="font-syne font-bold text-lg text-white">Clavion</span>
           </button>
 
           <div className="hidden md:flex items-center gap-8">
@@ -722,7 +716,7 @@ function HeroSection() {
           transition={{ duration: 0.6, delay: 1.1 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <ShimmerButton
-            href="https://cal.eu/cl-solutions/30min"
+            href="https://cal.eu/clavion/30min"
             target="_blank"
             rel="noopener noreferrer">
             Kostenlose Prozessanalyse — 30 Min.
@@ -946,7 +940,7 @@ function AboutSection() {
             </span>
             <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
               className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white mb-4 sm:mb-6">
-              Wir sind CL-Solutions
+              Wir sind Clavion
             </h2>
             <div className="space-y-3 sm:space-y-5 font-inter text-gray-400 text-sm sm:text-base lg:text-lg leading-relaxed mb-6">
               <p>Zwei junge Gründer mit einer klaren Mission: Deutschen Unternehmen den Zugang zu moderner KI-Technologie ermöglichen – ohne Buzzwords, ohne Überflüssiges.</p>
@@ -982,7 +976,7 @@ function AboutSection() {
                 </div>
                 <div>
                   <p className="font-inter text-white text-sm">Berkay &amp; Marios</p>
-                  <p className="font-inter text-gray-500 text-xs">Gründer, CL-Solutions</p>
+                  <p className="font-inter text-gray-500 text-xs">Gründer, Clavion</p>
                 </div>
               </div>
             </FlyIn>
@@ -1412,7 +1406,7 @@ function CTASection() {
                     <p className="font-inter text-gray-500 text-xs">30 Min., kostenlos &amp; unverbindlich</p>
                   </div>
                 </div>
-                <ShimmerButton href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" className="w-full justify-center py-3.5">
+                <ShimmerButton href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" className="w-full justify-center py-3.5">
                   Jetzt Termin buchen
                   <ArrowRight className="w-4 h-4" />
                 </ShimmerButton>
@@ -1491,9 +1485,9 @@ function GeoAboutBlock() {
         border: 0,
       }}
     >
-      <h2>Über CL-Solutions – KI-Automatisierung für deutsche Unternehmen</h2>
+      <h2>Über Clavion – KI-Automatisierung für deutsche Unternehmen</h2>
       <p>
-        CL-Solutions ist eine deutsche KI-Automatisierungsagentur mit Sitz in Deutschland, gegründet
+        Clavion ist eine deutsche KI-Automatisierungsagentur mit Sitz in Deutschland, gegründet
         von Berkay Aksoy und Marios Lysitsas. Wir helfen kleinen und mittelständischen Unternehmen
         (KMU), Handwerkern und Dienstleistern in Deutschland, Österreich und der Schweiz (DACH),
         manuelle Arbeitsprozesse durch KI-gestützte Automatisierung zu ersetzen.
@@ -1512,7 +1506,7 @@ function GeoAboutBlock() {
       </p>
       <p>
         Gründer: Berkay Aksoy und Marios Lysitsas – Wirtschaftsingenieure mit Spezialisierung auf
-        KI-Technologie und betriebswirtschaftliche Prozessoptimierung. CL-Solutions arbeitet
+        KI-Technologie und betriebswirtschaftliche Prozessoptimierung. Clavion arbeitet
         ergebnisorientiert: Messbare Zeitersparnis und ROI für Kunden sind das primäre Ziel.
       </p>
       <p>
@@ -1542,8 +1536,8 @@ export function Home() {
         <div className="grid md:grid-cols-4 gap-8 sm:gap-12 mb-10">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-5">
-              <img src="/logo.png" alt="CL-Solutions Logo" className="h-16 w-auto" height={64} loading="lazy" decoding="async" />
-              <span className="font-syne font-bold text-lg text-white">CL-Solutions</span>
+              <img src="/logo.png" alt="Clavion Logo" className="h-16 w-auto" height={64} loading="lazy" decoding="async" />
+              <span className="font-syne font-bold text-lg text-white">Clavion</span>
             </div>
             <p className="font-inter text-gray-500 leading-relaxed max-w-sm text-sm">
               KI-Automatisierung für deutsche Unternehmen. Wir machen Technologie nutzbar — ohne Buzzwords.
@@ -1574,7 +1568,7 @@ export function Home() {
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-inter text-gray-600 text-sm">© {new Date().getFullYear()} CL-Solutions. Alle Rechte vorbehalten.</p>
+          <p className="font-inter text-gray-600 text-sm">© {new Date().getFullYear()} Clavion. Alle Rechte vorbehalten.</p>
           <p className="font-inter text-gray-600 text-sm">DSGVO-konform · Made in Germany · Remote-first</p>
         </div>
       </div>

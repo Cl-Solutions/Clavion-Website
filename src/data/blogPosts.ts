@@ -126,6 +126,190 @@ export const blogPosts: BlogPost[] = [
   },
   // ─── PUBLISHED ──────────────────────────────────────────────────────────────
   {
+    slug: 'dsgvo-konforme-ki-unternehmen',
+    title: 'DSGVO-konforme KI im Unternehmen: Der Praxis-Leitfaden für KMU',
+    excerpt:
+      'KI einsetzen, ohne gegen die DSGVO zu verstoßen – das ist für deutsche KMU keine Kür, sondern Pflicht. Dieser Leitfaden zeigt konkret, worauf Sie bei Chatbots, Automatisierungen und KI-Tools achten müssen.',
+    date: '2026-06-18',
+    category: 'Datenschutz',
+    readingTime: '7 min',
+    content: `
+<p>Kaum ein Thema verunsichert Geschäftsinhaber beim Einsatz von KI so sehr wie der Datenschutz. „Darf ich überhaupt einen KI-Chatbot einsetzen?", „Was passiert mit den Kundendaten?", „Lande ich vor Gericht, wenn ich das falsch mache?" – diese Fragen hören wir in fast jedem Erstgespräch. Die gute Nachricht: DSGVO-konforme KI ist machbar. Man muss nur wissen, worauf es ankommt.</p>
+
+<h2>Warum DSGVO-Konformität bei KI besonders heikel ist</h2>
+<p>KI-Systeme verarbeiten Daten – oft personenbezogene Daten. Ein Chatbot speichert Gesprächsverläufe, eine Automatisierung leitet Kundeninformationen zwischen Systemen weiter, ein Voice-Agent zeichnet Telefonate auf. Sobald personenbezogene Daten ins Spiel kommen, greift die Datenschutz-Grundverordnung.</p>
+<p>Der zusätzliche Stolperstein bei KI: Viele leistungsstarke Modelle laufen auf Servern außerhalb der EU – häufig in den USA. Eine Datenübermittlung dorthin ist nur unter bestimmten Voraussetzungen zulässig. Wer einfach das erstbeste US-Tool anbindet und Kundendaten hineinkippt, handelt im Zweifel rechtswidrig.</p>
+
+<h2>Die fünf Grundregeln für DSGVO-konforme KI</h2>
+
+<h3>1. Datenminimierung – nur erheben, was nötig ist</h3>
+<p>Ein KI-System braucht nicht jeden verfügbaren Datensatz. Erfassen Sie nur die Informationen, die für den konkreten Zweck erforderlich sind. Ein Terminbuchungs-Chatbot braucht Name und Kontaktdaten – nicht die komplette Kaufhistorie der letzten fünf Jahre.</p>
+
+<h3>2. Rechtsgrundlage klären</h3>
+<p>Jede Verarbeitung personenbezogener Daten braucht eine Rechtsgrundlage nach Art. 6 DSGVO. In der Praxis ist das meist die Einwilligung (z. B. beim Chatbot) oder die Vertragserfüllung (z. B. bei der Auftragsabwicklung). Diese Grundlage muss vor der Verarbeitung feststehen – nicht erst, wenn die Aufsichtsbehörde nachfragt.</p>
+
+<h3>3. Auftragsverarbeitungsverträge (AVV) abschließen</h3>
+<p>Sobald Sie einen externen Dienstleister einsetzen, der in Ihrem Auftrag Daten verarbeitet, brauchen Sie einen AVV nach Art. 28 DSGVO. Das gilt für Chatbot-Anbieter, Automatisierungsplattformen und KI-Dienste gleichermaßen. Seriöse Anbieter stellen einen solchen Vertrag standardmäßig bereit.</p>
+
+<h3>4. EU-Datenspeicherung bevorzugen</h3>
+<p>Wo immer möglich, sollten Daten auf Servern innerhalb der EU verarbeitet und gespeichert werden. Viele Tools bieten inzwischen EU-Hosting an. Open-Source-Lösungen wie n8n lassen sich sogar vollständig selbst hosten – maximale Datensouveränität, keine Abhängigkeit von externen SaaS-Anbietern.</p>
+
+<h3>5. Transparenz schaffen</h3>
+<p>Ihre Nutzer haben ein Recht zu erfahren, dass und wie KI eingesetzt wird. Ein Hinweis im Chatbot („Sie sprechen mit einem KI-Assistenten"), eine aktuelle Datenschutzerklärung und klare Informationen über die Datenverarbeitung sind Pflicht – und schaffen nebenbei Vertrauen.</p>
+
+<div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
+<p style="margin:0 0 12px;font-weight:600;color:#fff;">KI rechtssicher einführen</p>
+<p style="margin:0 0 16px;color:#9ca3af;">Wir entwickeln alle Lösungen von Anfang an DSGVO-konform – EU-Server, AVV, dokumentierte Prozesse. In 30 Minuten klären wir, was für Ihren Betrieb gilt.</p>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+</div>
+
+<h2>Die häufigsten DSGVO-Fehler beim KI-Einsatz</h2>
+<p>Aus der Praxis sehen wir immer wieder dieselben Fehler: Kundendaten werden ungefiltert an ein US-KI-Modell geschickt, ohne dass eine Rechtsgrundlage oder ein AVV vorliegt. Chatbot-Verläufe werden unbegrenzt gespeichert, obwohl sie nach Abschluss der Anfrage gelöscht werden müssten. Mitarbeiter kopieren sensible Dokumente in öffentliche KI-Tools, um sich Arbeit zu sparen – ein klassisches Datenleck.</p>
+<p>Solche Fehler entstehen selten aus böser Absicht, sondern aus Unwissenheit. Genau deshalb lohnt sich eine saubere Konzeption von Anfang an: Sie ist günstiger als jedes Bußgeld.</p>
+
+<h2>Wie Clavion DSGVO-konforme KI umsetzt</h2>
+<p>Als deutsches Unternehmen ist DSGVO-Konformität für uns kein nachträglicher Haken auf einer Checkliste, sondern Teil des Designs. Wir wählen Tools mit EU-Hosting, schließen die notwendigen Verträge ab, konfigurieren minimale Datenhaltung und dokumentieren jeden Verarbeitungsschritt nachvollziehbar.</p>
+<p>Wo der Datenschutz es erfordert, setzen wir auf selbst gehostete Lösungen, bei denen Ihre Daten Ihren Server nie verlassen. So bekommen Sie die Vorteile moderner KI – ohne rechtliches Risiko.</p>
+
+<h2>Häufige Fragen zu DSGVO und KI</h2>
+
+<h3>Darf ich ChatGPT im Unternehmen nutzen?</h3>
+<p>Für allgemeine Aufgaben ohne personenbezogene Daten – ja. Sobald Sie aber Kundendaten, Mitarbeiterdaten oder vertrauliche Geschäftsinformationen eingeben, brauchen Sie eine geeignete Rechtsgrundlage, einen AVV und idealerweise eine Enterprise-Variante mit entsprechenden Garantien. Für sensible Prozesse sind dedizierte, kontrollierte Lösungen die sicherere Wahl.</p>
+
+<h3>Muss ich meine Datenschutzerklärung anpassen, wenn ich einen Chatbot einsetze?</h3>
+<p>Ja. Jede neue Datenverarbeitung muss in der Datenschutzerklärung abgebildet werden – inklusive eingesetzter Dienstleister, Zweck der Verarbeitung und Speicherdauer. Das ist schnell erledigt, wird aber oft vergessen.</p>
+
+<h3>Was droht bei Verstößen?</h3>
+<p>Die DSGVO sieht Bußgelder von bis zu 20 Millionen Euro oder 4 % des weltweiten Jahresumsatzes vor. Für KMU sind realistische Bußgelder zwar niedriger, können aber existenzbedrohend sein – ganz abgesehen vom Reputationsschaden. Vorsorge ist deutlich günstiger.</p>
+
+<div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
+<p style="margin:0 0 12px;font-weight:600;color:#fff;">Datenschutz und KI auf den Punkt klären</p>
+<p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir prüfen, wie Sie KI in Ihrem Betrieb rechtssicher einsetzen.</p>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+</div>
+    `.trim(),
+  },
+  {
+    slug: 'n8n-make-zapier-vergleich',
+    title: 'n8n vs. Make vs. Zapier: Welches Automatisierungstool passt zu Ihrem KMU?',
+    excerpt:
+      'n8n, Make und Zapier sind die drei meistgenutzten Automatisierungstools – mit sehr unterschiedlichen Stärken. Dieser Vergleich zeigt, welches Tool zu welchem Unternehmen passt und worauf es bei der Wahl ankommt.',
+    date: '2026-06-18',
+    category: 'Tools & Vergleich',
+    readingTime: '8 min',
+    content: `
+<p>Wer Geschäftsprozesse automatisieren will, stößt schnell auf drei Namen: Zapier, Make und n8n. Alle drei verbinden Apps miteinander und automatisieren Abläufe – aber sie unterscheiden sich erheblich in Preis, Flexibilität und Datenschutz. Welches Tool das richtige ist, hängt von Ihrem Anwendungsfall ab. Dieser Vergleich hilft bei der Entscheidung.</p>
+
+<h2>Die drei Tools im Überblick</h2>
+<p>Bevor wir ins Detail gehen, eine kurze Einordnung: Alle drei Tools folgen demselben Grundprinzip. Ein Auslöser (Trigger) startet einen Ablauf, danach laufen eine oder mehrere Aktionen ab. „Wenn eine neue E-Mail eingeht, dann trage den Absender ins CRM ein und sende eine Bestätigung." Der Unterschied liegt im Detail – und im Preis.</p>
+
+<h3>Zapier – der Einsteiger-Klassiker</h3>
+<p>Zapier ist das bekannteste Automatisierungstool weltweit und unterstützt über 6.000 Apps. Die Bedienung ist denkbar einfach: Sie wählen Trigger und Aktion aus Dropdown-Menüs, fertig. Für einfache Verkettungen („Zaps") ist es ideal.</p>
+<p><strong>Stärken:</strong> Sehr intuitiv, riesige App-Auswahl, schnelle erste Erfolge. <strong>Schwächen:</strong> Wird bei vielen Aufgaben schnell teuer, da nach ausgeführten Aktionen abgerechnet wird. Komplexe Logik (Verzweigungen, Schleifen) ist umständlich.</p>
+
+<h3>Make (ehemals Integromat) – der visuelle Allrounder</h3>
+<p>Make arbeitet mit einem visuellen Editor, in dem Sie Workflows als Diagramm zusammenbauen. Das macht auch komplexere Abläufe mit Verzweigungen, Filtern und Schleifen übersichtlich. Im Verhältnis zu Zapier ist Make bei höherem Volumen deutlich günstiger.</p>
+<p><strong>Stärken:</strong> Sehr flexibel, gutes Preis-Leistungs-Verhältnis, starke Datenverarbeitung. <strong>Schwächen:</strong> Etwas steilere Lernkurve, einige Datenoperationen erfordern Einarbeitung.</p>
+
+<h3>n8n – die selbst gehostete Profilösung</h3>
+<p>n8n ist Open Source und kann selbst gehostet werden – auf Ihrem eigenen Server oder in der EU-Cloud. Das macht es zur ersten Wahl für Unternehmen, die Wert auf Datensouveränität legen. Es ist extrem flexibel, erlaubt eigenen Code und ist bei hohem Volumen unschlagbar günstig.</p>
+<p><strong>Stärken:</strong> Selbst hostbar (DSGVO-Vorteil), keine Limits durch Aktionspreise, maximale Flexibilität, ideal für KI-Workflows. <strong>Schwächen:</strong> Erfordert technisches Setup, lohnt sich vor allem ab mittlerem Automatisierungsgrad.</p>
+
+<div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
+<p style="margin:0 0 12px;font-weight:600;color:#fff;">Welches Tool passt zu Ihnen?</p>
+<p style="margin:0 0 16px;color:#9ca3af;">Wir analysieren Ihre Prozesse und empfehlen das Tool, das zu Ihrem Volumen, Budget und Datenschutzbedarf passt – herstellerunabhängig.</p>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+</div>
+
+<h2>Der direkte Vergleich</h2>
+<p><strong>Beim Datenschutz</strong> gewinnt n8n klar: Als selbst gehostete Lösung verlassen Ihre Daten Ihren Server nicht. Make bietet EU-Server an, Zapier verarbeitet vieles in den USA.</p>
+<p><strong>Bei den Kosten</strong> hängt es vom Volumen ab. Für wenige Automatisierungen pro Monat ist Zapier okay. Bei vielen Ausführungen wird es teuer – hier liegen Make und besonders selbst gehostetes n8n vorne.</p>
+<p><strong>Bei der Einfachheit</strong> führt Zapier, gefolgt von Make. n8n braucht mehr technisches Verständnis.</p>
+<p><strong>Bei KI-Workflows</strong> spielt n8n seine Stärke aus: Eigene Code-Knoten, flexible API-Anbindung und keine Aktionslimits machen es zur idealen Basis für KI-Agenten und komplexe Verarbeitungsketten.</p>
+
+<h2>Welches Tool für welches Unternehmen?</h2>
+<p>Eine grobe Faustregel: Wer schnell und einfach zwei, drei Standard-Apps verbinden will, startet mit Zapier. Wer komplexere Abläufe braucht und auf das Budget achtet, ist mit Make gut bedient. Wer Datensouveränität, hohes Volumen oder KI-gestützte Prozesse braucht, fährt mit n8n am besten.</p>
+<p>In der Praxis kombinieren wir die Tools oft: Make für das schnelle Zusammenstecken von Standarddiensten, n8n für die datenkritischen und KI-lastigen Teile.</p>
+
+<h2>Wie Clavion das passende Tool auswählt</h2>
+<p>Statt dogmatisch auf ein Tool zu setzen, schauen wir auf Ihren konkreten Bedarf: Wie viele Automatisierungen laufen pro Monat? Wie sensibel sind die Daten? Wie komplex ist die Logik? Soll KI eingebunden werden? Auf Basis dieser Antworten empfehlen wir die wirtschaftlichste und sicherste Lösung – und richten sie vollständig für Sie ein, getestet und DSGVO-konform.</p>
+
+<h2>Häufige Fragen zu Automatisierungstools</h2>
+
+<h3>Kann ich später das Tool wechseln?</h3>
+<p>Grundsätzlich ja, aber ein Wechsel bedeutet Aufwand, weil Workflows neu aufgebaut werden müssen. Deshalb lohnt es sich, von Anfang an das passende Tool zu wählen. Wir denken bei der Konzeption die Skalierung gleich mit.</p>
+
+<h3>Brauche ich für n8n einen eigenen Server?</h3>
+<p>Nicht zwingend – n8n bietet auch eine gehostete Cloud-Variante. Für maximale Datensouveränität empfiehlt sich das Self-Hosting, das wir bei Bedarf für Sie einrichten und betreiben.</p>
+
+<h3>Was kostet die Automatisierung insgesamt?</h3>
+<p>Die Tool-Kosten sind meist der kleinere Posten – entscheidend ist die einmalige Einrichtung. Ein gut gebauter Workflow rechnet sich in der Regel innerhalb weniger Wochen durch die eingesparte Arbeitszeit.</p>
+
+<div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
+<p style="margin:0 0 12px;font-weight:600;color:#fff;">Automatisierung ohne Tool-Lock-in</p>
+<p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden, Umsetzung in 1–2 Wochen. Wir wählen das Tool, das zu Ihnen passt – nicht zu unserem Vertriebsplan.</p>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+</div>
+    `.trim(),
+  },
+  {
+    slug: 'ki-telefonassistent-arztpraxis',
+    title: 'KI-Telefonassistent für Arztpraxen: Erreichbarkeit ohne Mehrarbeit',
+    excerpt:
+      'Dauerbesetzte Leitungen, genervte Patienten, überlastete Mitarbeiter am Empfang – das Telefon ist der größte Stressfaktor in vielen Praxen. Ein KI-Telefonassistent nimmt Anrufe entgegen, bucht Termine und entlastet das Team spürbar.',
+    date: '2026-06-18',
+    category: 'Gesundheitswesen',
+    readingTime: '6 min',
+    content: `
+<p>In vielen Arztpraxen ist das Telefon das Nadelöhr. Morgens zwischen 8 und 10 Uhr klingelt es ununterbrochen, während gleichzeitig Patienten am Empfang warten. Die Folge: besetzte Leitungen, frustrierte Anrufer, gestresste Mitarbeiter – und Termine, die nie zustande kommen, weil niemand abnehmen konnte.</p>
+
+<h2>Das Telefonproblem in Zahlen</h2>
+<p>Studien zur Erreichbarkeit von Arztpraxen zeichnen ein klares Bild: Ein erheblicher Teil der Anrufe geht in Spitzenzeiten verloren. Jeder verlorene Anruf bedeutet einen Patienten, der entweder später erneut anruft (und die Leitung weiter blockiert) oder zur Konkurrenzpraxis wechselt. Für die Mitarbeiter am Empfang bedeutet die Doppelbelastung – Telefon und Patienten gleichzeitig – dauerhaften Stress.</p>
+
+<h2>Was ein KI-Telefonassistent in der Praxis leistet</h2>
+<p>Ein KI-Telefonassistent ist eine Stimme am Telefon, die natürliche Gespräche führt. Er nimmt jeden Anruf sofort an – auch wenn zehn Patienten gleichzeitig anrufen. Er versteht das Anliegen, beantwortet Standardfragen und übernimmt konkrete Aufgaben:</p>
+<ul>
+  <li><strong>Terminvergabe und -verschiebung</strong>: direkt im Praxiskalender, rund um die Uhr.</li>
+  <li><strong>Standardauskünfte</strong>: Öffnungszeiten, Anfahrt, benötigte Unterlagen, Sprechzeiten.</li>
+  <li><strong>Rezept- und Überweisungswünsche</strong>: strukturierte Erfassung und Weiterleitung ans Team.</li>
+  <li><strong>Triage nach Dringlichkeit</strong>: echte Notfälle werden sofort an einen Menschen weitergeleitet.</li>
+</ul>
+<p>Das Ergebnis: Das Telefon ist nie mehr besetzt, und das Praxisteam kann sich auf die Patienten vor Ort konzentrieren.</p>
+
+<h2>Erreichbarkeit auch außerhalb der Sprechzeiten</h2>
+<p>Patienten rufen nicht nur während der Öffnungszeiten an. Abends, am Wochenende, in der Mittagspause – wer dann anruft, landet üblicherweise auf dem Anrufbeantworter oder im Leeren. Ein KI-Telefonassistent nimmt auch diese Anrufe entgegen, bucht Termine und erfasst Anliegen, sodass das Team am nächsten Morgen nicht vor einem Berg unbearbeiteter Rückrufe steht.</p>
+
+<div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
+<p style="margin:0 0 12px;font-weight:600;color:#fff;">Ihre Praxis dauerhaft erreichbar machen</p>
+<p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, wie ein KI-Telefonassistent Ihr Team entlastet – DSGVO-konform und auf Ihre Praxis abgestimmt.</p>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+</div>
+
+<h2>Datenschutz im Gesundheitswesen</h2>
+<p>Gerade in Arztpraxen sind die Daten besonders sensibel – es geht um Gesundheitsdaten nach Art. 9 DSGVO. Ein KI-Telefonassistent für Praxen muss deshalb von Grund auf datenschutzkonform aufgesetzt sein: Verarbeitung auf EU-Servern, klare Einwilligungsprozesse, minimale Datenhaltung und ein Auftragsverarbeitungsvertrag. Diese Anforderungen sind erfüllbar – sie müssen nur konsequent umgesetzt werden.</p>
+
+<h2>Wie Clavion den KI-Telefonassistenten für Praxen einrichtet</h2>
+<p>Wir analysieren zunächst, welche Anrufe Ihre Praxis erreichen und welche davon automatisiert werden können. Anschließend richten wir den Assistenten ein, verbinden ihn mit Ihrem Terminsystem und trainieren ihn auf die typischen Anliegen Ihrer Patienten. Vor dem Go-live wird ausgiebig getestet; danach begleiten wir die erste Phase aktiv und optimieren den Gesprächsfluss auf Basis echter Anrufe.</p>
+
+<h2>Häufige Fragen zum KI-Telefonassistenten für Arztpraxen</h2>
+
+<h3>Merken Patienten, dass sie mit einer KI sprechen?</h3>
+<p>Die Stimme klingt natürlich, und Patienten werden transparent darüber informiert, dass sie mit einem Assistenten sprechen. Wichtig ist nicht die Illusion eines Menschen, sondern dass das Anliegen schnell und korrekt bearbeitet wird – und genau das leistet das System.</p>
+
+<h3>Was passiert im medizinischen Notfall?</h3>
+<p>Der Assistent erkennt Dringlichkeit und leitet Notfälle sofort an einen Menschen weiter oder verweist auf den Rettungsdienst. Die Triage-Regeln legen wir gemeinsam mit Ihnen fest.</p>
+
+<h3>Lässt sich der Assistent mit unserer Praxissoftware verbinden?</h3>
+<p>In vielen Fällen ja – über die Schnittstellen des Terminsystems. Welche Integration möglich ist, klären wir vorab im Erstgespräch.</p>
+
+<div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
+<p style="margin:0 0 12px;font-weight:600;color:#fff;">Schluss mit dem Telefonstress</p>
+<p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen, was für Ihre Praxis möglich ist.</p>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+</div>
+    `.trim(),
+  },
+  {
     slug: 'ki-fuer-handwerksbetriebe',
     title: 'Warum Handwerksbetriebe täglich Aufträge verlieren – und wie KI das stoppt',
     excerpt:
@@ -167,10 +351,10 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Kostenlose Prozessanalyse für Ihren Betrieb</p>
 <p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, welche Abläufe in Ihrem Handwerksbetrieb sich sofort automatisieren lassen – und was das konkret einspart.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
 
-<h2>Wie CL-Solutions Handwerksbetriebe konkret unterstützt</h2>
+<h2>Wie Clavion Handwerksbetriebe konkret unterstützt</h2>
 
 <p>Wir analysieren zunächst, wo in Ihrem Betrieb die größten Zeitfresser und Auftragsverluste stecken. Auf Basis dieser Analyse richten wir die passende Lösung ein – vollständig, getestet, DSGVO-konform.</p>
 
@@ -183,7 +367,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Lassen Sie uns Ihren Betrieb analysieren</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Kein Risiko, keine Verpflichtung. Sie schildern uns Ihren Alltag, wir zeigen Ihnen, was möglich ist – und was es kostet. Angebot innerhalb von 48 Stunden.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
 </div>
 
 <h2>Häufige Fragen von Handwerksbetrieben</h2>
@@ -208,7 +392,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen genau, was für Ihren Betrieb möglich ist – und was es konkret kosten würde.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
     `.trim(),
   },
@@ -251,10 +435,10 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Nie wieder verpasste Anrufe – kostenlose Erstberatung</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Wir zeigen Ihnen in 30 Minuten, wie ein Anrufbot für Ihren Betrieb aussehen würde – und was er konkret einspart.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
 
-<h2>So setzt CL-Solutions den Anrufbot für Handwerksbetriebe um</h2>
+<h2>So setzt Clavion den Anrufbot für Handwerksbetriebe um</h2>
 
 <p>Wir starten mit einer Analyse Ihrer häufigsten Anfragen: Welche Anliegen kommen täglich rein? Notfälle, Terminwünsche, Preisanfragen, Reklamationen? Auf dieser Basis bauen wir den Gesprächsfluss des Anrufbots – präzise, in Ihrer Sprache, auf Ihre Branche zugeschnitten.</p>
 
@@ -265,7 +449,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Lassen Sie uns Ihren Betrieb analysieren</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Kein Risiko, keine Verpflichtung. Angebot innerhalb von 48 Stunden.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
 </div>
 
 <h2>Häufige Fragen zum Anrufbot im Handwerk</h2>
@@ -286,7 +470,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir richten Ihren Anrufbot ein – Sie stehen weiter auf der Baustelle.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
     `.trim(),
   },
@@ -329,10 +513,10 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">5 Stunden pro Woche zurückgewinnen – kostenlose Analyse</p>
 <p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, wie Automatisierung in Ihrem Betrieb konkret aussehen würde.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
 
-<h2>Wie CL-Solutions die Angebotserstellung automatisiert</h2>
+<h2>Wie Clavion die Angebotserstellung automatisiert</h2>
 
 <p>Wir analysieren zunächst Ihren aktuellen Angebotsprozess: Welche Positionen kommen immer wieder vor? Wie ist Ihre Preisstruktur aufgebaut? Welche Informationen brauchen Sie vom Kunden, bevor Sie ein Angebot erstellen können?</p>
 
@@ -343,7 +527,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Lassen Sie uns Ihren Angebotsprozess analysieren</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot innerhalb von 48 Stunden. Umsetzung in 1–2 Wochen.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
 </div>
 
 <h2>Häufige Fragen zur Automatisierung im Handwerksbetrieb</h2>
@@ -366,7 +550,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten Analyse. Konkretes Angebot in 48 Stunden. Erste Ergebnisse in zwei Wochen.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
     `.trim(),
   },
@@ -409,10 +593,10 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Nie wieder eine verpasste Reservierungsanfrage</p>
 <p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, wie ein KI-Chatbot für Ihr Restaurant konkret aussehen würde.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
 
-<h2>Wie CL-Solutions den KI-Chatbot für Ihr Restaurant einrichtet</h2>
+<h2>Wie Clavion den KI-Chatbot für Ihr Restaurant einrichtet</h2>
 
 <p>Wir analysieren zunächst, welche Anfragen bei Ihnen täglich eingehen: Reservierungen, Speisekartenfragen, Veranstaltungsanfragen, Beschwerden? Auf dieser Basis trainieren wir den Chatbot auf Ihre konkreten Inhalte – in Ihrer Sprache, mit Ihren Öffnungszeiten, auf Ihre Speisekarte abgestimmt.</p>
 
@@ -421,7 +605,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Kostenlose Analyse für Ihr Restaurant</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot innerhalb von 48 Stunden. Umsetzung in wenigen Tagen.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
 </div>
 
 <h2>Häufige Fragen zum KI-Chatbot für Restaurants</h2>
@@ -442,7 +626,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen, was für Ihr Restaurant möglich ist.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
     `.trim(),
   },
@@ -485,10 +669,10 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Zwei Stunden täglich zurückgewinnen – kostenlose Erstberatung</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Wir analysieren Ihren Betrieb und zeigen, wo Automatisierung sofort greift.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
 
-<h2>Wie CL-Solutions Gastronomiebetriebe automatisiert</h2>
+<h2>Wie Clavion Gastronomiebetriebe automatisiert</h2>
 
 <p>Wir starten mit einer strukturierten Analyse: Wo geht täglich die meiste Zeit verloren? Welche Anfragen kommen immer wieder? Welche Systeme sind bereits im Einsatz und wie lassen sie sich verbinden?</p>
 
@@ -499,7 +683,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Ihren Betrieb analysieren lassen</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden. Umsetzung in 1–2 Wochen.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
 </div>
 
 <h2>Häufige Fragen zur Automatisierung in der Gastronomie</h2>
@@ -520,7 +704,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen, was in Ihrem Betrieb möglich ist.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
     `.trim(),
   },
@@ -561,10 +745,10 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Ihre Website soll 24/7 für Sie arbeiten</p>
 <p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, wie ein KI-Chatbot auf Ihrer Website konkret aussehen würde.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
 
-<h2>Wie CL-Solutions Ihren Website-Chatbot einrichtet</h2>
+<h2>Wie Clavion Ihren Website-Chatbot einrichtet</h2>
 
 <p>Wir analysieren zunächst, welche Fragen Ihre Websitebesucher am häufigsten haben und welche Informationen ein guter Lead enthalten sollte. Auf dieser Basis trainieren wir den Chatbot auf Ihre Leistungen, Ihre Sprache und Ihre Qualifizierungskriterien.</p>
 
@@ -573,7 +757,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Mehr aus Ihrem bestehenden Traffic herausholen</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden. Keine langen Projekte.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
 </div>
 
 <h2>Häufige Fragen zum KI-Chatbot für Website-Leads</h2>
@@ -594,7 +778,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen genau, was auf Ihrer Website möglich ist.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
     `.trim(),
   },
@@ -635,10 +819,10 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Nie wieder Terminkoordination per E-Mail</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30-minütige Analyse, kostenlos. Wir zeigen Ihnen, wie automatisierte Terminbuchung für Sie aussieht.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
 
-<h2>Wie CL-Solutions die Terminbuchung automatisiert</h2>
+<h2>Wie Clavion die Terminbuchung automatisiert</h2>
 
 <p>Wir analysieren zunächst, welche Termintypen Sie anbieten und welche Informationen Sie vor einem Gespräch vom Interessenten brauchen. Auf dieser Basis richten wir ein vollständiges System ein: Buchungsseite, Bestätigungsmail, Erinnerungen, Übergabe an Ihr CRM und bei Bedarf eine KI-Qualifizierung vor der Buchung.</p>
 
@@ -647,7 +831,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Ihr Kalender läuft sich selbst – kostenlose Analyse</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden. Umsetzung in wenigen Tagen.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
 </div>
 
 <h2>Häufige Fragen zur automatisierten Terminbuchung</h2>
@@ -668,7 +852,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir richten Ihr System ein – Sie konzentrieren sich auf Ihre Kunden.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
     `.trim(),
   },
@@ -709,10 +893,10 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Mehr Besichtigungen, weniger verpasste Leads</p>
 <p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, wie KI Ihren Erstkontaktprozess automatisiert.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
 
-<h2>Wie CL-Solutions Immobilienmakler konkret unterstützt</h2>
+<h2>Wie Clavion Immobilienmakler konkret unterstützt</h2>
 
 <p>Wir richten einen KI-gestützten Erstkontakt-Workflow ein, der auf Ihre Objekte, Ihre Zielgruppe und Ihre Qualifizierungskriterien abgestimmt ist. Das System antwortet auf Anfragen sofort, führt qualifizierende Gespräche und bucht Besichtigungstermine direkt in Ihren Kalender.</p>
 
@@ -723,7 +907,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Kostenlose Analyse Ihres Erstkontaktprozesses</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden. Erste Ergebnisse in einer Woche.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
 </div>
 
 <h2>Häufige Fragen für Immobilienmakler</h2>
@@ -744,7 +928,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen, was für Ihr Maklerbüro möglich ist.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
     `.trim(),
   },
@@ -795,10 +979,10 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Lassen Sie uns Ihren ROI ausrechnen</p>
 <p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, ob und wie schnell sich ein KI-Chatbot für Ihr Unternehmen rechnet.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
 
-<h2>Wie CL-Solutions die KI-Chatbot-Kosten transparent hält</h2>
+<h2>Wie Clavion die KI-Chatbot-Kosten transparent hält</h2>
 
 <p>Wir nennen Ihnen im Erstgespräch eine konkrete Zahl – einmalige Einrichtung und monatliche Betriebskosten. Keine versteckten Posten, keine Überraschungen nach drei Monaten. Und wir rechnen gemeinsam aus, ab wann sich die Investition amortisiert.</p>
 
@@ -807,7 +991,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Transparente Kosten, messbares Ergebnis</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden. Einrichtung in 1–2 Wochen.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
 </div>
 
 <h2>Häufige Fragen zu KI-Chatbot Kosten</h2>
@@ -828,7 +1012,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten Analyse. Konkretes Angebot. Keine Verpflichtung.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
     `.trim(),
   },
@@ -871,10 +1055,10 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Mehr Anfragen aus Ihrer bestehenden Website</p>
 <p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, wie ein Chatbot Ihre Conversion-Rate konkret verbessert.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
 
-<h2>Wie CL-Solutions den Umstieg umsetzt</h2>
+<h2>Wie Clavion den Umstieg umsetzt</h2>
 
 <p>Wir analysieren Ihre aktuelle Website, Ihre häufigsten Besucheranfragen und Ihre Conversion-Ziele. Dann konfigurieren wir einen KI-Chatbot, der diese Ziele systematisch verfolgt – mit einem Gesprächsfluss, der auf Ihren Betrieb und Ihre Zielgruppe abgestimmt ist.</p>
 
@@ -883,7 +1067,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Mehr aus Ihrer Website herausholen – kostenlose Analyse</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden. Keine langen Projekte.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
 </div>
 
 <h2>Häufige Fragen zum Chatbot vs. Kontaktformular Vergleich</h2>
@@ -904,7 +1088,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen, was für Ihre Website möglich ist.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
     `.trim(),
   },
@@ -947,10 +1131,10 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Kostenlose Prozessanalyse für Ihr Unternehmen</p>
 <p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, wo in Ihrem Betrieb die größten Zeitfresser stecken.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
 
-<h2>Wie CL-Solutions Prozesse in KMU automatisiert</h2>
+<h2>Wie Clavion Prozesse in KMU automatisiert</h2>
 
 <p>Wir starten mit einer strukturierten Analyse: Welche Aufgaben wiederholen sich täglich oder wöchentlich? Welche davon folgen klaren Regeln – also immer denselben Schritten? Welche Tools sind bereits im Einsatz, und wie lassen sie sich verbinden?</p>
 
@@ -961,7 +1145,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Lassen Sie Ihren Betrieb analysieren</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden. Erste Ergebnisse in einer bis zwei Wochen.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
 </div>
 
 <h2>Häufige Fragen zur Prozessautomatisierung in KMU</h2>
@@ -982,7 +1166,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen konkret, was in Ihrem Betrieb möglich ist.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
     `.trim(),
   },
@@ -1031,10 +1215,10 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Nie wieder verpasste Anrufe – kostenlose Erstberatung</p>
 <p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, wie ein KI-Telefonagent für Ihren Betrieb aussehen würde.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
 
-<h2>Wie CL-Solutions den KI-Telefonagenten einrichtet</h2>
+<h2>Wie Clavion den KI-Telefonagenten einrichtet</h2>
 
 <p>Wir starten mit einer Analyse Ihrer häufigsten eingehenden Anruftypen: Was wollen die meisten Anrufer? Termine, Preise, Verfügbarkeiten, Notfälle? Auf Basis dieser Analyse trainieren wir den Agenten auf Ihre Anliegen, Ihre Sprache und Ihre Übergaberegeln.</p>
 
@@ -1043,7 +1227,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Ihren Betrieb analysieren lassen</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden. Umsetzung in 1–2 Wochen.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
 </div>
 
 <h2>Häufige Fragen zum KI-Telefonagenten für KMU</h2>
@@ -1064,7 +1248,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen, was für Ihren Betrieb möglich ist.</p>
-<a href="https://cal.eu/cl-solutions/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
 </div>
     `.trim(),
   },

@@ -1,16 +1,16 @@
-# CL-Solutions
+# Clavion
 > KI-Automatisierungsagentur für kleine und mittelständische Unternehmen (KMU) in Deutschland und der DACH-Region. Gegründet von Berkay Aksoy und Marios Lysitsas. Wir entwickeln KI-Chatbots, Voice Agents, Prozessautomatisierungen und individuelle KI-Lösungen. Projekte ab 2.000 EUR, Angebot innerhalb von 48 Stunden, Umsetzung typischerweise in 1–4 Wochen. DSGVO-konform. Zielgruppe: Handwerker, Dienstleister, B2B-Unternehmen und KMU im deutschsprachigen Raum.
 
-## Über CL-Solutions
+## Über Clavion
 
-CL-Solutions ist eine deutsche KI-Automatisierungsagentur, gegründet von den Wirtschaftsingenieuren Berkay Aksoy und Marios Lysitsas. Das Unternehmen hilft kleinen und mittelständischen Betrieben in Deutschland, Österreich und der Schweiz (DACH), manuelle und repetitive Arbeitsprozesse durch KI-gestützte Automatisierung zu ersetzen. CL-Solutions arbeitet remote-first, ist DSGVO-konform und bietet transparente Festpreise ohne versteckte Kosten.
+Clavion ist eine deutsche KI-Automatisierungsagentur, gegründet von den Wirtschaftsingenieuren Berkay Aksoy und Marios Lysitsas. Das Unternehmen hilft kleinen und mittelständischen Betrieben in Deutschland, Österreich und der Schweiz (DACH), manuelle und repetitive Arbeitsprozesse durch KI-gestützte Automatisierung zu ersetzen. Clavion arbeitet remote-first, ist DSGVO-konform und bietet transparente Festpreise ohne versteckte Kosten.
 
 ## Leistungen
 
-- [Prozessautomatisierung](https://cl-solutions.pro/#leistungen): Automatisierung wiederkehrender Abläufe mit n8n, Make, Zapier und Python. Verbindung bestehender Tools ohne manuelle Datenpflege. Zeitersparnis von durchschnittlich 5–15 Stunden pro Woche.
-- [System-Integration](https://cl-solutions.pro/#leistungen): API-Integration von CRM, ERP, E-Mail, Kalender und Buchhaltungssoftware. Automatischer, fehlerfreier Datenfluss zwischen allen Systemen.
-- [KI-Chatbot & Voice Agent](https://cl-solutions.pro/#leistungen): 24/7 KI-Chatbot und automatisierter Telefonassistent (Voice Agent) für Kundenservice, Lead-Qualifizierung und Terminvereinbarung auf Deutsch.
-- [Custom KI-Lösung](https://cl-solutions.pro/#leistungen): Individuelle KI-Systeme mit Custom LLM, RAG (Retrieval-Augmented Generation), KI-Agenten und Dokumenten-KI für spezifische Unternehmensprozesse.
+- [Prozessautomatisierung](https://clavion.pro/#leistungen): Automatisierung wiederkehrender Abläufe mit n8n, Make, Zapier und Python. Verbindung bestehender Tools ohne manuelle Datenpflege. Zeitersparnis von durchschnittlich 5–15 Stunden pro Woche.
+- [System-Integration](https://clavion.pro/#leistungen): API-Integration von CRM, ERP, E-Mail, Kalender und Buchhaltungssoftware. Automatischer, fehlerfreier Datenfluss zwischen allen Systemen.
+- [KI-Chatbot & Voice Agent](https://clavion.pro/#leistungen): 24/7 KI-Chatbot und automatisierter Telefonassistent (Voice Agent) für Kundenservice, Lead-Qualifizierung und Terminvereinbarung auf Deutsch.
+- [Custom KI-Lösung](https://clavion.pro/#leistungen): Individuelle KI-Systeme mit Custom LLM, RAG (Retrieval-Augmented Generation), KI-Agenten und Dokumenten-KI für spezifische Unternehmensprozesse.
 
 ## Wichtige Fakten
 
@@ -32,11 +32,11 @@ CL-Solutions ist eine deutsche KI-Automatisierungsagentur, gegründet von den Wi
 
 ## Kontakt & Buchung
 
-- Kostenlose Prozessanalyse (30 Min.): https://cal.eu/cl-solutions/30min
-- Website: https://cl-solutions.pro
+- Kostenlose Prozessanalyse (30 Min.): https://cal.eu/clavion/30min
+- Website: https://clavion.pro
 - Einsatzgebiet: Deutschland, Österreich, Schweiz (DACH)
 
 ## Rechtliches
 
-- Impressum: https://cl-solutions.pro/impressum
-- Datenschutz: https://cl-solutions.pro/datenschutz
+- Impressum: https://clavion.pro/impressum
+- Datenschutz: https://clavion.pro/datenschutz

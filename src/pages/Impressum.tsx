@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
-import { LogoMark } from '../components/Logo';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 export function Impressum() {
   usePageMeta({
-    title: 'Impressum | CL-Solutions',
-    description: 'Impressum der CL-Solutions GbR, Mühlacker – Angaben gemäß § 5 TMG.',
-    canonical: 'https://cl-solutions.pro/impressum',
+    title: 'Impressum | Clavion',
+    description: 'Impressum der Clavion GbR, Mühlacker – Angaben gemäß § 5 TMG.',
+    canonical: 'https://clavion.pro/impressum',
   });
 
   return (
@@ -16,8 +15,8 @@ export function Impressum() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Link to="/" className="flex items-center gap-3">
-              <LogoMark size={32} />
-              <span className="font-syne font-bold text-lg text-white">CL-Solutions</span>
+              <img src="/logo.png" alt="Clavion" className="h-16 w-auto" height={64} />
+              <span className="font-syne font-bold text-lg text-white">Clavion</span>
             </Link>
           </div>
         </div>
@@ -43,7 +42,7 @@ export function Impressum() {
                 Angaben gemäß § 5 TMG
               </h2>
               <p>
-                CL-Solutions GbR<br />
+                Clavion GbR<br />
                 75417 Mühlacker<br />
                 Baden-Württemberg, Deutschland
               </p>
@@ -63,7 +62,7 @@ export function Impressum() {
                 Kontakt
               </h2>
               <p>
-                E-Mail: info@cl-solutions.pro<br />
+                E-Mail: info@clavion.pro<br />
                 WhatsApp: <a href="https://wa.me/491743067948" className="text-accent hover:text-accent/80 transition-colors">+49 174 3067948</a>
               </p>
             </section>

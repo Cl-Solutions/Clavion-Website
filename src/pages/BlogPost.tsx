@@ -7,10 +7,43 @@ import { usePageMeta } from '../hooks/usePageMeta';
 
 function BlogPostMeta({ post }: { post: NonNullable<ReturnType<typeof getPostBySlug>> }) {
   usePageMeta({
-    title: `${post.title} | CL-Solutions`,
+    title: `${post.title} | Clavion`,
     description: post.excerpt,
-    canonical: `https://cl-solutions.pro/blog/${post.slug}`,
+    canonical: `https://clavion.pro/blog/${post.slug}`,
   });
+
+  // Inject BlogPosting JSON-LD structured data (rich results + AI citation)
+  useEffect(() => {
+    const url = `https://clavion.pro/blog/${post.slug}`;
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: post.title,
+      description: post.excerpt,
+      datePublished: post.date,
+      dateModified: post.date,
+      inLanguage: 'de-DE',
+      url,
+      mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+      articleSection: post.category,
+      image: 'https://clavion.pro/og-image.png',
+      author: { '@type': 'Organization', name: 'Clavion', url: 'https://clavion.pro' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Clavion',
+        logo: { '@type': 'ImageObject', url: 'https://clavion.pro/logo.png' },
+      },
+    };
+    const el = document.createElement('script');
+    el.type = 'application/ld+json';
+    el.id = 'blogposting-jsonld';
+    el.textContent = JSON.stringify(schema);
+    document.head.appendChild(el);
+    return () => {
+      document.getElementById('blogposting-jsonld')?.remove();
+    };
+  }, [post.slug, post.title, post.excerpt, post.date, post.category]);
+
   return null;
 }
 
@@ -34,8 +67,8 @@ export function BlogPost() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[rgba(10,10,10,0.7)] backdrop-blur-[16px] border-b border-[rgba(0,229,255,0.08)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="CL-Solutions" className="h-16 w-auto" height={64} />
-            <span className="font-syne font-bold text-lg text-white">CL-Solutions</span>
+            <img src="/logo.png" alt="Clavion" className="h-16 w-auto" height={64} />
+            <span className="font-syne font-bold text-lg text-white">Clavion</span>
           </Link>
           <div className="hidden md:flex items-center gap-8">
             <Link to="/" className="nav-item font-inter text-sm text-gray-400 hover:text-white transition-colors duration-150">
@@ -45,7 +78,7 @@ export function BlogPost() {
               Blog
             </Link>
             <a
-              href="https://cal.eu/cl-solutions/30min"
+              href="https://cal.eu/clavion/30min"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 bg-[#00E5FF] text-[#0a0a0a] font-inter font-medium text-sm rounded-lg hover:bg-[#00E5FF]/90 transition-colors"
@@ -115,7 +148,7 @@ export function BlogPost() {
       <footer className="border-t border-white/10 py-10 px-6">
         <div className="max-w-[720px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-inter text-gray-600 text-sm">
-            © {new Date().getFullYear()} CL-Solutions. Alle Rechte vorbehalten.
+            © {new Date().getFullYear()} Clavion. Alle Rechte vorbehalten.
           </p>
           <div className="flex items-center gap-6">
             <Link to="/impressum" className="font-inter text-gray-600 hover:text-gray-400 text-sm transition-colors">

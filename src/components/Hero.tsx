@@ -146,7 +146,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 1.5 }}
         >
           <a
-            href="https://cal.eu/cl-solutions/30min"
+            href="https://cal.eu/clavion/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block group relative px-8 py-4 bg-accent text-dark font-inter font-semibold text-lg rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 animate-pulse-glow"

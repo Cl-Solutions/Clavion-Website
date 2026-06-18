@@ -37,7 +37,7 @@ export function About() {
               Über uns
             </span>
             <h2 id="about-heading" className="font-syne font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-6">
-              Wir sind CL-Solutions
+              Wir sind Clavion
             </h2>
 
             <div className="space-y-6 font-inter text-gray-400 text-lg leading-relaxed">
@@ -106,7 +106,7 @@ export function About() {
                   <div>
                     <p className="font-inter text-white text-sm">Berkay & Marios</p>
                     <p className="font-inter text-gray-500 text-xs">
-                      Gründer, CL-Solutions
+                      Gründer, Clavion
                     </p>
                   </div>
                 </div>

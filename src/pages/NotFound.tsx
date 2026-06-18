@@ -3,9 +3,9 @@ import { usePageMeta } from '../hooks/usePageMeta';
 
 export function NotFound() {
   usePageMeta({
-    title: '404 – Seite nicht gefunden | CL-Solutions',
+    title: '404 – Seite nicht gefunden | Clavion',
     description: 'Die gesuchte Seite existiert nicht.',
-    canonical: 'https://cl-solutions.pro/',
+    canonical: 'https://clavion.pro/',
   });
 
   return (

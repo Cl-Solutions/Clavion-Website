@@ -10,9 +10,9 @@ interface PageMetaConfig {
 }
 
 const DEFAULT_META = {
-  title: 'KI-Automatisierung für deutsche Unternehmen | CL-Solutions',
+  title: 'KI-Automatisierung für deutsche Unternehmen | Clavion',
   description: 'Wir automatisieren Prozesse, verbinden Systeme und bauen KI-Agenten für KMU in Deutschland. DSGVO-konform. Angebot in 48h.',
-  canonical: 'https://cl-solutions.pro/',
+  canonical: 'https://clavion.pro/',
 };
 
 function getOrCreateMeta(selector: string, attr: string, value: string): void {

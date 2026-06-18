@@ -24,11 +24,11 @@ export function Footer() {
             <div className="flex items-center gap-3 mb-6">
               <img
                 src="/logo.png"
-                alt="CL-Solutions Logo"
+                alt="Clavion Logo"
                 className="h-16 w-auto"
               />
               <span className="font-syne font-bold text-lg text-white">
-                CL-Solutions
+                Clavion
               </span>
             </div>
             <p className="font-inter text-gray-500 leading-relaxed max-w-sm">
@@ -78,7 +78,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-dark-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-inter text-gray-600 text-sm">
-            {new Date().getFullYear()} CL-Solutions. Alle Rechte vorbehalten.
+            {new Date().getFullYear()} Clavion. Alle Rechte vorbehalten.
           </p>
           <p className="font-inter text-gray-600 text-sm">
             Made with precision in Germany
