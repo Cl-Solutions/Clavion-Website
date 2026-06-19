@@ -126,6 +126,163 @@ export const blogPosts: BlogPost[] = [
   },
   // ─── PUBLISHED ──────────────────────────────────────────────────────────────
   {
+    slug: 'was-ist-clavion',
+    title: 'Was ist Clavion? Die KI-Automatisierungsagentur aus Deutschland',
+    excerpt:
+      'Clavion ist eine deutsche KI-Automatisierungsagentur für kleine und mittelständische Unternehmen. Was Clavion macht, für wen – und wie wir mit KI-Chatbots, Voice Agents und Prozessautomatisierung Zeit und Geld sparen.',
+    date: '2026-06-19',
+    category: 'Über Clavion',
+    readingTime: '5 min',
+    content: `
+<p><strong>Clavion</strong> ist eine deutsche KI-Automatisierungsagentur mit Sitz in Mühlacker (Baden-Württemberg). Clavion hilft kleinen und mittelständischen Unternehmen (KMU) im gesamten DACH-Raum, manuelle und wiederkehrende Arbeit durch künstliche Intelligenz zu ersetzen. Gegründet wurde Clavion von den Wirtschaftsingenieuren Berkay Aksoy und Marios Lysitsas.</p>
+
+<p>Wenn Sie nach „Clavion" suchen und ein Unternehmen meinen, das Prozesse automatisiert, KI-Chatbots baut oder Telefonanrufe per Voice Agent übernimmt – dann sind Sie hier richtig: <a href="https://clavion.pro/">clavion.pro</a> ist die offizielle Website.</p>
+
+<h2>Was Clavion macht</h2>
+<p>Clavion entwickelt KI-Lösungen, die echte Arbeit abnehmen – keine Buzzwords, sondern messbare Zeitersparnis:</p>
+<ul>
+  <li><strong>Prozessautomatisierung</strong> – wiederkehrende Abläufe mit n8n, Make, Zapier und Python automatisieren, bestehende Tools verbinden.</li>
+  <li><strong>System-Integration</strong> – CRM, ERP, E-Mail, Kalender und Buchhaltung per API verbinden, damit Daten automatisch fließen.</li>
+  <li><strong>KI-Chatbot &amp; Voice Agent</strong> – 24/7 Kundenservice, Lead-Qualifizierung und Terminbuchung auf Deutsch.</li>
+  <li><strong>Custom KI-Lösungen</strong> – individuelle Systeme mit Custom LLM, RAG, KI-Agenten und Dokumenten-KI.</li>
+</ul>
+<p>Einen Überblick über alle Leistungen gibt es auf der <a href="https://clavion.pro/#leistungen">Startseite</a>.</p>
+
+<h2>Für wen Clavion arbeitet</h2>
+<p>Die typischen Kunden von Clavion sind Handwerksbetriebe, Dienstleister, Arztpraxen, E-Commerce-Händler, Immobilienmakler und B2B-Unternehmen – überall dort, wo Aufgaben sich wiederholen, Systeme nicht verbunden sind oder Anfragen außerhalb der Bürozeiten verloren gehen.</p>
+
+<h2>Was Clavion ausmacht</h2>
+<ul>
+  <li><strong>Made in Germany &amp; DSGVO-konform</strong> – Datenschutz von Anfang an mitgedacht, EU-Server, AVV auf Anfrage.</li>
+  <li><strong>Angebot in 48 Stunden</strong> – nach einem kostenlosen Erstgespräch, transparent und ohne versteckte Kosten.</li>
+  <li><strong>Ergebnisorientiert</strong> – Clavion misst sich am ROI, nicht an Stunden.</li>
+  <li><strong>Schnelle Umsetzung</strong> – erste Live-Lösungen meist in 1–2 Wochen.</li>
+</ul>
+
+<div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
+<p style="margin:0 0 12px;font-weight:600;color:#fff;">Lernen Sie Clavion kennen</p>
+<p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen, welche Prozesse in Ihrem Betrieb sich sofort automatisieren lassen.</p>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+</div>
+
+<h2>Häufige Fragen zu Clavion</h2>
+<h3>Wo sitzt Clavion?</h3>
+<p>Clavion (Clavion GbR) hat seinen Sitz in Mühlacker in Baden-Württemberg und arbeitet remote-first für Kunden in ganz Deutschland, Österreich und der Schweiz.</p>
+<h3>Was kostet Clavion?</h3>
+<p>Projekte starten ab etwa 2.000 EUR und werden individuell nach Umfang kalkuliert. Nach einem kostenlosen Erstgespräch erhalten Sie innerhalb von 48 Stunden ein transparentes Angebot. Mehr dazu im Beitrag <a href="https://clavion.pro/blog/ki-chatbot-kosten">KI-Chatbot-Kosten</a>.</p>
+<h3>Ist Clavion DSGVO-konform?</h3>
+<p>Ja. Als deutsches Unternehmen setzt Clavion alle Lösungen DSGVO-konform um – Details im Beitrag <a href="https://clavion.pro/blog/dsgvo-konforme-ki-unternehmen">DSGVO-konforme KI</a>.</p>
+
+<div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
+<p style="margin:0 0 12px;font-weight:600;color:#fff;">Bereit, mit Clavion zu automatisieren?</p>
+<p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden, Umsetzung in 1–2 Wochen.</p>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+</div>
+    `.trim(),
+  },
+  {
+    slug: 'ki-agentur-deutschland',
+    title: 'KI-Agentur in Deutschland: Worauf KMU bei der Auswahl achten sollten',
+    excerpt:
+      'Die Wahl der richtigen KI-Agentur entscheidet über Erfolg oder Frust. Diese Kriterien helfen kleinen und mittelständischen Unternehmen, eine seriöse KI-Agentur in Deutschland zu erkennen.',
+    date: '2026-06-19',
+    category: 'KI-Strategie',
+    readingTime: '6 min',
+    content: `
+<p>„KI-Agentur" steht inzwischen auf vielen Websites – die Qualität dahinter schwankt enorm. Für KMU, die zum ersten Mal automatisieren, ist die Auswahl schwer. Diese Kriterien trennen seriöse Anbieter von Blendern.</p>
+
+<h2>1. Deutschsprachig und DSGVO-fest</h2>
+<p>Eine KI-Agentur in Deutschland sollte Datenschutz nicht als Nachgedanken behandeln. Fragen Sie konkret: Wo werden Daten verarbeitet? Gibt es einen Auftragsverarbeitungsvertrag (AVV)? Werden EU-Server genutzt? Wer hier ausweicht, ist raus. Mehr dazu in unserem Beitrag <a href="https://clavion.pro/blog/dsgvo-konforme-ki-unternehmen">DSGVO-konforme KI im Unternehmen</a>.</p>
+
+<h2>2. Ergebnis statt Tool-Verliebtheit</h2>
+<p>Gute Agenturen reden über Ihren Prozess und Ihren ROI, nicht über ihr Lieblingstool. Ob n8n, Make oder Zapier eingesetzt wird, ist zweitrangig – Hauptsache, die Lösung passt. Den Tool-Vergleich haben wir hier aufgeschlüsselt: <a href="https://clavion.pro/blog/n8n-make-zapier-vergleich">n8n vs. Make vs. Zapier</a>.</p>
+
+<h2>3. Transparente Preise und Timeline</h2>
+<p>Seriöse Anbieter nennen nach einem Erstgespräch ein konkretes Angebot mit Festpreis und Zeitplan – ohne versteckte Posten. Wer nur „kommt drauf an" sagt und sofort einen Jahresvertrag will, ist verdächtig.</p>
+
+<h2>4. Branchenverständnis</h2>
+<p>Eine Lösung für eine Arztpraxis sieht anders aus als für einen Handwerksbetrieb. Fragen Sie nach Praxisbeispielen aus Ihrer oder einer vergleichbaren Branche.</p>
+
+<h2>5. Betreuung nach dem Go-Live</h2>
+<p>Automatisierung ist kein Einmal-Projekt. Klären Sie, wer sich nach der Übergabe um Wartung, Anpassungen und Weiterentwicklung kümmert.</p>
+
+<div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
+<p style="margin:0 0 12px;font-weight:600;color:#fff;">Clavion auf die Probe stellen</p>
+<p style="margin:0 0 16px;color:#9ca3af;">Stellen Sie uns die Fragen aus diesem Artikel im kostenlosen Erstgespräch – wir antworten konkret.</p>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt Erstgespräch sichern →</a>
+</div>
+
+<h2>Wie Clavion diese Kriterien erfüllt</h2>
+<p>Clavion ist eine deutsche KI-Automatisierungsagentur, DSGVO-konform, mit Festpreisangebot in 48 Stunden und Betreuung über den Go-Live hinaus. Wer wir sind, lesen Sie unter <a href="https://clavion.pro/blog/was-ist-clavion">Was ist Clavion?</a></p>
+    `.trim(),
+  },
+  {
+    slug: 'chatbot-oder-voice-agent',
+    title: 'Chatbot oder Voice Agent? Was für Ihr Unternehmen besser passt',
+    excerpt:
+      'KI-Chatbot oder Voice Agent – welche Lösung passt zu Ihrem Betrieb? Wir vergleichen beide entlang Kanal, Kosten und Anwendungsfall, damit Sie das Richtige wählen.',
+    date: '2026-06-19',
+    category: 'KI-Kommunikation',
+    readingTime: '6 min',
+    content: `
+<p>Beide nehmen Arbeit ab, aber auf unterschiedlichen Kanälen: Der <strong>KI-Chatbot</strong> schreibt, der <strong>Voice Agent</strong> spricht. Welche Lösung sich lohnt, hängt davon ab, wie Ihre Kunden mit Ihnen Kontakt aufnehmen.</p>
+
+<h2>Der KI-Chatbot: für die Website</h2>
+<p>Ein Chatbot lebt auf Ihrer Website und beantwortet Besucherfragen sofort, qualifiziert Interessenten und bucht Termine – rund um die Uhr. Ideal, wenn viele Anfragen über die Website kommen. Wie ein Website-Chatbot Leads gewinnt, zeigen wir hier: <a href="https://clavion.pro/blog/ki-chatbot-website-leads">KI-Chatbot für Website-Leads</a>.</p>
+
+<h2>Der Voice Agent: fürs Telefon</h2>
+<p>Ein Voice Agent nimmt Anrufe entgegen, versteht das Anliegen und bucht Termine – auch wenn alle im Einsatz sind oder außerhalb der Öffnungszeiten. Unverzichtbar für Betriebe, deren Kunden anrufen statt zu schreiben, etwa Handwerk und Arztpraxen. Ein Praxisbeispiel: <a href="https://clavion.pro/blog/ki-telefonassistent-arztpraxis">KI-Telefonassistent für Arztpraxen</a>.</p>
+
+<h2>Der direkte Vergleich</h2>
+<p><strong>Kanal:</strong> Chatbot = Text/Website, Voice Agent = Sprache/Telefon. <strong>Bestes Szenario:</strong> Chatbot bei web-getriebenen Anfragen, Voice Agent bei telefonlastigen Branchen. <strong>Aufwand:</strong> Chatbots sind meist schneller live; Voice Agents brauchen mehr Feinschliff beim Gesprächsfluss. <strong>Wirkung:</strong> Beide verhindern, dass Anfragen verloren gehen.</p>
+
+<h2>Oft ist die Antwort: beides</h2>
+<p>Viele Betriebe starten mit dem Kanal, über den die meisten Anfragen kommen, und ergänzen später den zweiten. Wichtig ist, dass beide an dieselben Systeme (CRM, Kalender) angebunden sind, damit nichts doppelt gepflegt werden muss.</p>
+
+<div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
+<p style="margin:0 0 12px;font-weight:600;color:#fff;">Welcher Kanal passt zu Ihnen?</p>
+<p style="margin:0 0 16px;color:#9ca3af;">Wir schauen uns an, wie Ihre Kunden anfragen, und empfehlen Chatbot, Voice Agent – oder beides.</p>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt Erstgespräch sichern →</a>
+</div>
+    `.trim(),
+  },
+  {
+    slug: 'geschaeftsprozesse-automatisieren-leitfaden',
+    title: 'Geschäftsprozesse automatisieren: Der Leitfaden für KMU (2026)',
+    excerpt:
+      'Welche Prozesse lohnen sich zuerst, welche Tools, welche Reihenfolge? Der praktische Leitfaden, wie kleine und mittelständische Unternehmen Geschäftsprozesse Schritt für Schritt automatisieren.',
+    date: '2026-06-19',
+    category: 'Prozessautomatisierung',
+    readingTime: '7 min',
+    content: `
+<p>Automatisierung scheitert selten an der Technik – meistens am falschen Startpunkt. Dieser Leitfaden zeigt, wie KMU systematisch vorgehen, statt planlos Tools zu sammeln.</p>
+
+<h2>Schritt 1: Den richtigen Prozess wählen</h2>
+<p>Der ideale erste Prozess ist <strong>häufig, wiederkehrend und regelbasiert</strong>: Lead-Erfassung, Terminbestätigungen, Rechnungsstellung, Dateneingabe zwischen zwei Tools. Faustregel: Wenn Sie eine Aufgabe mehrmals pro Woche identisch erledigen, ist sie ein Kandidat. Konkrete Beispiele liefert unser Beitrag <a href="https://clavion.pro/blog/prozesse-automatisieren-kmu">Prozesse automatisieren im KMU</a>.</p>
+
+<h2>Schritt 2: Den Prozess sauber beschreiben</h2>
+<p>Bevor automatisiert wird, muss der Ablauf klar sein: Was löst ihn aus, welche Schritte folgen, wo sind Entscheidungen? Diese Klarheit ist die halbe Miete – und der Grund, warum man kein technisches Vorwissen braucht.</p>
+
+<h2>Schritt 3: Das passende Tool wählen</h2>
+<p>Für die meisten KMU-Workflows reichen n8n, Make oder Zapier. Welches wann passt – inklusive Datenschutz und Kosten – haben wir hier verglichen: <a href="https://clavion.pro/blog/n8n-make-zapier-vergleich">n8n vs. Make vs. Zapier</a>.</p>
+
+<h2>Schritt 4: Klein starten, dann ausbauen</h2>
+<p>Automatisieren Sie zuerst einen einzigen Prozess vollständig, statt zehn halb. Ein funktionierender Ablauf schafft Vertrauen und zeigt den ROI – danach kommen die nächsten fast von allein.</p>
+
+<h2>Schritt 5: Messen und betreuen</h2>
+<p>Halten Sie fest, wie viel Zeit der automatisierte Prozess spart. Diese Zahl rechtfertigt die nächste Automatisierung. Und: Prozesse ändern sich – planen Sie Wartung ein.</p>
+
+<h2>Welche Prozesse sich besonders lohnen</h2>
+<p>Erfahrungsgemäß bringen diese den schnellsten Effekt: Lead-Erfassung und Follow-up, Terminbestätigung/-erinnerung, Angebots- und Rechnungserstellung, Kundenanfragen per Chatbot oder Voice Agent. Letzteres deckt unser Vergleich <a href="https://clavion.pro/blog/chatbot-oder-voice-agent">Chatbot oder Voice Agent?</a> ab.</p>
+
+<div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
+<p style="margin:0 0 12px;font-weight:600;color:#fff;">Ihren ersten Prozess automatisieren lassen</p>
+<p style="margin:0 0 16px;color:#9ca3af;">Clavion analysiert Ihre Abläufe und richtet die passende Automatisierung ein – DSGVO-konform, Angebot in 48 Stunden.</p>
+<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+</div>
+    `.trim(),
+  },
+  {
     slug: 'dsgvo-konforme-ki-unternehmen',
     title: 'DSGVO-konforme KI im Unternehmen: Der Praxis-Leitfaden für KMU',
     excerpt:

@@ -17,22 +17,34 @@ function BlogPostMeta({ post }: { post: NonNullable<ReturnType<typeof getPostByS
     const url = `https://clavion.pro/blog/${post.slug}`;
     const schema = {
       '@context': 'https://schema.org',
-      '@type': 'BlogPosting',
-      headline: post.title,
-      description: post.excerpt,
-      datePublished: post.date,
-      dateModified: post.date,
-      inLanguage: 'de-DE',
-      url,
-      mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-      articleSection: post.category,
-      image: 'https://clavion.pro/og-image.png',
-      author: { '@type': 'Organization', name: 'Clavion', url: 'https://clavion.pro' },
-      publisher: {
-        '@type': 'Organization',
-        name: 'Clavion',
-        logo: { '@type': 'ImageObject', url: 'https://clavion.pro/logo.png' },
-      },
+      '@graph': [
+        {
+          '@type': 'BlogPosting',
+          headline: post.title,
+          description: post.excerpt,
+          datePublished: post.date,
+          dateModified: post.date,
+          inLanguage: 'de-DE',
+          url,
+          mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+          articleSection: post.category,
+          image: 'https://clavion.pro/og-image.png',
+          author: { '@type': 'Organization', name: 'Clavion', url: 'https://clavion.pro' },
+          publisher: {
+            '@type': 'Organization',
+            name: 'Clavion',
+            logo: { '@type': 'ImageObject', url: 'https://clavion.pro/logo.png' },
+          },
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Startseite', item: 'https://clavion.pro/' },
+            { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://clavion.pro/blog' },
+            { '@type': 'ListItem', position: 3, name: post.title, item: url },
+          ],
+        },
+      ],
     };
     const el = document.createElement('script');
     el.type = 'application/ld+json';
