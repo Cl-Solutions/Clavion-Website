@@ -11,7 +11,7 @@ interface PageMetaConfig {
 
 const DEFAULT_META = {
   title: 'Clavion | KI-Automatisierung für deutsche Unternehmen',
-  description: 'Wir automatisieren Prozesse, verbinden Systeme und bauen KI-Agenten für KMU in Deutschland. DSGVO-konform. Angebot in 48h.',
+  description: 'Clavion automatisiert Prozesse, verbindet Systeme und baut KI-Agenten für KMU in Deutschland. DSGVO-konform. Angebot in 48h.',
   canonical: 'https://clavion.pro/',
 };
 
