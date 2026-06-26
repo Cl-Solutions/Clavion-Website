@@ -1090,7 +1090,7 @@ function ShowcaseSection() {
               {/* Top row: emoji → category badge → branche tag */}
               <div className="flex items-center gap-2 mb-4 flex-wrap">
                 <span className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                  <card.icon className="w-5 h-5 text-accent" />
+                  <card.icon className="w-5 h-5 text-white" />
                 </span>
                 <span className="font-inter text-xs font-semibold text-accent bg-accent/10 border border-accent/20 px-3 py-1 rounded-full whitespace-nowrap">
                   {card.category}
