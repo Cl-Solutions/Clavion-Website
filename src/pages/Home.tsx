@@ -326,26 +326,22 @@ function MouseGlow() {
 
 /**
  * GSAP SplitText reveal for headings, triggered on first inView.
- * headRef → words drop from above; subRef → slides in from left.
+ * headRef → words drop from above.
  */
 function useSplitHeadline(inView: boolean) {
   const headRef = useRef<HTMLElement>(null);
-  const subRef  = useRef<HTMLElement>(null);
   const done    = useRef(false);
 
   useLayoutEffect(() => {
     if (headRef.current) headRef.current.style.opacity = '0';
-    if (subRef.current)  subRef.current.style.opacity  = '0';
   }, []);
 
   useEffect(() => {
     if (!inView || done.current) return;
     done.current = true;
     const head = headRef.current;
-    const sub  = subRef.current;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       if (head) gsap.set(head, { opacity: 1 });
-      if (sub)  gsap.set(sub,  { opacity: 1 });
       return;
     }
     if (head) {
@@ -362,13 +358,9 @@ function useSplitHeadline(inView: boolean) {
         transformPerspective: 600,
       });
     }
-    if (sub) {
-      gsap.set(sub, { opacity: 1 });
-      gsap.from(sub, { x: -20, opacity: 0, duration: 0.5, delay: 0.1, ease: 'power3.out' });
-    }
   }, [inView]);
 
-  return { headRef, subRef };
+  return { headRef };
 }
 
 /** Animated count-up — GSAP proxy, no React state ticking, scale punch on complete. */
@@ -788,16 +780,13 @@ function TrustBar() {
 function ProblemSection() {
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-8% 0px' });
-  const { headRef, subRef } = useSplitHeadline(inView);
+  const { headRef } = useSplitHeadline(inView);
 
   return (
     <section id="problem" style={{ scrollMarginTop: 80 }}
       className="py-24 sm:py-32 px-6">
       <div ref={ref} className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <span ref={subRef as React.RefObject<HTMLSpanElement>}>
-            <Label>Für wen das passt</Label>
-          </span>
           <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
             className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white leading-tight">
             Kommt euch das bekannt vor?
@@ -827,7 +816,7 @@ function ServicesSection() {
   const [activeIdx, setActiveIdx] = useState(0);
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-8% 0px' });
-  const { headRef, subRef } = useSplitHeadline(inView);
+  const { headRef } = useSplitHeadline(inView);
 
   const active = services[activeIdx];
 
@@ -836,9 +825,6 @@ function ServicesSection() {
       className="py-24 sm:py-32 px-6 bg-[rgba(0,229,255,0.015)]">
       <div ref={ref} className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <span ref={subRef as React.RefObject<HTMLSpanElement>}>
-            <Label>Was wir lösen</Label>
-          </span>
           <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
             className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white">
             Wo liegt euer größter Hebel?
@@ -921,7 +907,7 @@ const aboutHighlights = [
 function AboutSection() {
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-8% 0px' });
-  const { headRef, subRef } = useSplitHeadline(inView);
+  const { headRef } = useSplitHeadline(inView);
 
   return (
     <section id="ueber-uns" style={{ scrollMarginTop: 80 }}
@@ -931,10 +917,6 @@ function AboutSection() {
 
           {/* Left — label + headline + text (matches main layout exactly) */}
           <div>
-            <span ref={subRef as React.RefObject<HTMLSpanElement>}
-              className="font-inter text-accent text-sm font-medium tracking-wider uppercase block mb-3 sm:mb-4">
-              Wer wir sind
-            </span>
             <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
               className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white mb-4 sm:mb-6">
               Wir sind Clavion
@@ -943,7 +925,7 @@ function AboutSection() {
               <p>Zwei junge Gründer mit einer klaren Mission: Deutschen Unternehmen den Zugang zu moderner KI-Technologie ermöglichen – ohne Buzzwords, ohne Überflüssiges.</p>
               <p>Als studierte Wirtschaftsingenieure und Controller verbinden wir fundiertes technisches Know-how mit tiefem Verständnis für betriebswirtschaftliche Zusammenhänge.</p>
             </div>
-            <p className="font-inter text-gray-600 text-sm">Made in Germany · DSGVO-konform · Ergebnisorientiert</p>
+            <p className="font-inter text-gray-400 text-sm">Made in Germany · DSGVO-konform · Ergebnisorientiert</p>
           </div>
 
           {/* Right — 3 highlight cards + B/M avatar row (matches main layout exactly) */}
@@ -989,16 +971,13 @@ function AboutSection() {
 function DemoSection() {
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-8% 0px' });
-  const { headRef, subRef } = useSplitHeadline(inView);
+  const { headRef } = useSplitHeadline(inView);
 
   return (
     <section id="demo" style={{ scrollMarginTop: 80 }}
       className="py-24 sm:py-32 px-6 bg-[rgba(0,229,255,0.015)]">
       <div ref={ref} className="max-w-7xl mx-auto">
         <div className="text-center mb-10">
-          <span ref={subRef as React.RefObject<HTMLSpanElement>}>
-            <Label>In Aktion</Label>
-          </span>
           <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
             className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white text-center">
             Nicht erklären. Zeigen.
@@ -1043,7 +1022,7 @@ function ShowcaseSection() {
   const touchStartX  = useRef(0);
   const ref          = useRef<HTMLDivElement>(null);
   const inView       = useInView(ref, { once: true, margin: '-8% 0px' });
-  const { headRef, subRef } = useSplitHeadline(inView);
+  const { headRef } = useSplitHeadline(inView);
 
   const prev = useCallback(() => { setDir(-1); setCurrent((c) => (c - 1 + total) % total); }, [total]);
   const next = useCallback(() => { setDir(1);  setCurrent((c) => (c + 1) % total); }, [total]);
@@ -1056,9 +1035,6 @@ function ShowcaseSection() {
       className="py-24 sm:py-32 px-6">
       <div ref={ref} className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <span ref={subRef as React.RefObject<HTMLSpanElement>}>
-            <Label>Echte Projekte · Echte Ergebnisse</Label>
-          </span>
           <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
             className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white text-center">
             Aus der Praxis
@@ -1120,7 +1096,7 @@ function ShowcaseSection() {
                 <span className="font-inter text-xs font-semibold text-emerald-400 bg-emerald-400/10 border border-emerald-400/25 px-3 py-1.5 rounded-full">
                   ✓ {card.badge}
                 </span>
-                <p className="font-inter text-gray-600 text-xs">{current + 1} / {total}</p>
+                <p className="font-inter text-gray-500 text-xs">{current + 1} / {total}</p>
               </div>
             </GlowCard>
             </motion.div>
@@ -1158,7 +1134,7 @@ function ShowcaseSection() {
 function ProcessSection() {
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '0px' });
-  const { headRef, subRef } = useSplitHeadline(inView);
+  const { headRef } = useSplitHeadline(inView);
 
   return (
     <section id="prozess" style={{ scrollMarginTop: 80 }}
@@ -1166,9 +1142,6 @@ function ProcessSection() {
       <GridBeam />
       <div ref={ref} className="relative z-10 max-w-2xl mx-auto">
         <div className="text-center mb-14">
-          <span ref={subRef as React.RefObject<HTMLSpanElement>}>
-            <Label>Drei Schritte bis zu eurer Lösung</Label>
-          </span>
           <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
             className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white">
             So starten wir zusammen
@@ -1214,7 +1187,7 @@ function ProcessSection() {
 function StatsSection() {
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-8% 0px' });
-  const { headRef, subRef } = useSplitHeadline(inView);
+  const { headRef } = useSplitHeadline(inView);
 
   return (
     <section id="zahlen" style={{ scrollMarginTop: 80 }}
@@ -1222,9 +1195,6 @@ function StatsSection() {
       <GridBeam />
       <div ref={ref} className="relative z-10 max-w-5xl mx-auto">
         <div className="text-center mb-14">
-          <span ref={subRef as React.RefObject<HTMLSpanElement>}>
-            <Label>In Zahlen</Label>
-          </span>
           <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
             className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white">
             Ergebnisse, die zählen
@@ -1280,7 +1250,7 @@ function FAQSection() {
   const [open, setOpen] = useState<number | null>(0);
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-8% 0px' });
-  const { headRef, subRef } = useSplitHeadline(inView);
+  const { headRef } = useSplitHeadline(inView);
 
   return (
     <section id="faq" style={{ scrollMarginTop: 80 }}
@@ -1292,14 +1262,11 @@ function FAQSection() {
 
           {/* ── Left: label + heading (sticky on desktop) ── */}
           <div className="lg:sticky lg:top-28">
-            <span ref={subRef as React.RefObject<HTMLSpanElement>}>
-              <Label>FAQ</Label>
-            </span>
             <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
               className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white mb-5 leading-tight">
               Häufige Fragen
             </h2>
-            <p className="font-inter text-gray-500 text-sm sm:text-base leading-relaxed mb-6">
+            <p className="font-inter text-gray-400 text-sm sm:text-base leading-relaxed mb-6">
               Noch etwas unklar? Schreib uns einfach — wir antworten innerhalb von 24h.
             </p>
             <button
@@ -1383,14 +1350,13 @@ function CTASection() {
 
             {/* ── Left column ── */}
             <div className="p-7 sm:p-10 flex flex-col">
-              <Label>Jetzt starten</Label>
               <h2 className="font-syne font-bold text-2xl sm:text-3xl text-white mb-4 leading-tight">
                 Zeigt uns einen Prozess, der euch täglich Zeit kostet.
               </h2>
               <p className="font-inter text-gray-400 text-sm sm:text-base leading-relaxed mb-1">
                 In 30 Minuten analysieren wir gemeinsam, was sich automatisieren lässt — konkret, kostenlos, ohne Verkaufsgespräch.
               </p>
-              <p className="font-inter text-gray-600 text-xs sm:text-sm mb-8">
+              <p className="font-inter text-gray-400 text-xs sm:text-sm mb-8">
                 Kein Risiko — das Erstgespräch ist kostenlos &amp; vollständig unverbindlich.
               </p>
 
@@ -1414,7 +1380,6 @@ function CTASection() {
 
             {/* ── Right column — softer entry point ── */}
             <div className="p-7 sm:p-10 flex flex-col">
-              <Label>Direkt schreiben</Label>
               <h3 className="font-syne font-bold text-xl sm:text-2xl text-white mb-4 leading-tight">
                 Noch nicht sicher?
               </h3>
