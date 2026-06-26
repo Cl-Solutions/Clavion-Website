@@ -22,6 +22,7 @@ import {
   ArrowRight, ChevronLeft, ChevronRight, ChevronDown,
   Plus, Minus, Menu, X, Calendar,
   Users, MapPin, Target, CheckCircle,
+  Globe, ShieldCheck, Rocket,
 } from 'lucide-react';
 import { StarField } from '../components/StarField';
 import { CustomCursor } from '../components/CustomCursor';
@@ -151,7 +152,6 @@ const services = [
   {
     id: 'automation',
     icon: RefreshCw,
-    emoji: '🔄',
     title: 'Prozesse automatisieren',
     text: 'Wir verbinden eure bestehenden Tools und automatisieren Abläufe, die heute manuell laufen. Keine Datenpflege mehr. Keine verpassten Schritte. Alles läuft durch — auch wenn niemand hinschaut.',
     tags: ['n8n', 'Make', 'Zapier', 'Python', 'REST APIs'],
@@ -159,7 +159,6 @@ const services = [
   {
     id: 'integration',
     icon: Link2,
-    emoji: '🔗',
     title: 'Systeme verbinden',
     text: 'CRM, ERP, E-Mail, Kalender, Buchhaltung — wir bringen zusammen, was nicht zusammenarbeitet. Daten fließen automatisch, Fehler durch manuelle Übertragung verschwinden.',
     tags: ['API-Integration', 'Webhooks', 'Datenpipelines', 'Custom Middleware'],
@@ -167,7 +166,6 @@ const services = [
   {
     id: 'communication',
     icon: MessageSquare,
-    emoji: '💬',
     title: 'Kommunikation automatisieren',
     text: 'Chatbot und Voice Agent, der Anfragen entgegennimmt, qualifiziert und weiterleitet — in eurer Sprache, in eurer Markenstimme, rund um die Uhr.',
     tags: ['Voice Agent', 'Chatbot', 'OpenAI', 'WhatsApp', 'Telefonie-Integration'],
@@ -175,7 +173,6 @@ const services = [
   {
     id: 'custom-ki',
     icon: Zap,
-    emoji: '⚡',
     title: 'Custom KI-Lösung',
     text: 'Kein Standardtool passt? Wir entwickeln KI-Systeme, die genau auf euren Prozess zugeschnitten sind — von der Logik bis zur Integration in eure bestehende Infrastruktur.',
     tags: ['Custom LLM', 'Fine-Tuning', 'KI-Agenten', 'RAG', 'Dokumenten-KI'],
@@ -184,7 +181,7 @@ const services = [
 
 const showcaseCards = [
   {
-    emoji: '🔄',
+    icon: RefreshCw,
     category: 'Prozessautomatisierung',
     branche: 'Handwerksbetrieb',
     title: 'Arbeitszeiterfassung & Rechnungsstellung automatisiert',
@@ -194,7 +191,7 @@ const showcaseCards = [
     metricLabel: 'manueller Aufwand',
   },
   {
-    emoji: '💬',
+    icon: MessageSquare,
     category: 'KI-Kommunikation',
     branche: 'Arztpraxis',
     title: '24/7 KI-Telefonassistent',
@@ -204,7 +201,7 @@ const showcaseCards = [
     metricLabel: 'mehr Termine',
   },
   {
-    emoji: '🔗',
+    icon: Link2,
     category: 'System-Integration',
     branche: 'E-Commerce',
     title: 'Vollautomatische Bestellabwicklung',
@@ -214,7 +211,7 @@ const showcaseCards = [
     metricLabel: 'automatisiert',
   },
   {
-    emoji: '⚡',
+    icon: Zap,
     category: 'Custom KI-Lösung',
     branche: 'Immobilienmakler',
     title: 'Intelligente Dokumentenverarbeitung',
@@ -224,7 +221,7 @@ const showcaseCards = [
     metricLabel: 'Bearbeitungszeit',
   },
   {
-    emoji: '🎯',
+    icon: Target,
     category: 'Clavion LeadGen',
     branche: 'B2B-Vertrieb',
     title: 'Lead Scraping & Scoring',
@@ -234,7 +231,7 @@ const showcaseCards = [
     metricLabel: 'mehr qualif. Leads',
   },
   {
-    emoji: '🌐',
+    icon: Globe,
     category: 'KI-Website',
     branche: 'Dienstleister',
     title: 'KI-Website mit eingebautem Vertrieb',
@@ -760,10 +757,10 @@ function TrustBar() {
   const inView = useInView(ref, { once: true, margin: '-5% 0px' });
 
   const items = [
-    { flag: '🇩🇪', text: 'Made in Germany' },
-    { flag: '✓',   text: 'DSGVO-konform' },
-    { flag: '⚡',   text: 'Angebot in 48h' },
-    { flag: '🚀',  text: 'Erste Ergebnisse in 1–2 Wochen' },
+    { icon: MapPin,      text: 'Made in Germany' },
+    { icon: ShieldCheck, text: 'DSGVO-konform' },
+    { icon: Zap,         text: 'Angebot in 48h' },
+    { icon: Rocket,      text: 'Erste Ergebnisse in 1–2 Wochen' },
   ];
 
   return (
@@ -777,7 +774,7 @@ function TrustBar() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: i * 0.08 }}
               className="flex items-center justify-center gap-2 text-center">
-              <span className="text-lg leading-none">{item.flag}</span>
+              <item.icon className="w-4 h-4 text-accent flex-shrink-0" />
               <span className="font-inter text-sm text-gray-300 font-medium">{item.text}</span>
             </motion.div>
           ))}
@@ -862,7 +859,7 @@ function ServicesSection() {
                     ? 'bg-accent/10 border-accent/50 shadow-[0_0_24px_rgba(0,212,255,0.15),0_0_0_1px_rgba(0,212,255,0.3)]'
                     : 'glass-card glass-card-interactive'
                 }`}>
-                <span className="text-xl mb-2 block">{s.emoji}</span>
+                <s.icon className="w-6 h-6 text-accent mb-2" />
                 <span className="font-syne font-semibold text-white text-sm sm:text-base leading-tight block">{s.title}</span>
               </motion.button>
             </FlyIn>
@@ -1092,7 +1089,9 @@ function ShowcaseSection() {
 
               {/* Top row: emoji → category badge → branche tag */}
               <div className="flex items-center gap-2 mb-4 flex-wrap">
-                <span className="text-3xl flex-shrink-0">{card.emoji}</span>
+                <span className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                  <card.icon className="w-5 h-5 text-accent" />
+                </span>
                 <span className="font-inter text-xs font-semibold text-accent bg-accent/10 border border-accent/20 px-3 py-1 rounded-full whitespace-nowrap">
                   {card.category}
                 </span>
