@@ -549,7 +549,7 @@ function Nav() {
             <span className="font-syne font-bold text-lg text-white">Clavion</span>
           </button>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden xl:flex items-center gap-8">
             {NAV_ITEMS.map((item) => (
               item.href
                 ? <Link key={item.href} to={item.href}
@@ -568,7 +568,7 @@ function Nav() {
           </div>
 
           <button
-            className="md:hidden text-white p-3 -mr-1 rounded-lg hover:bg-white/5 transition-colors"
+            className="xl:hidden text-white p-3 -mr-1 rounded-lg hover:bg-white/5 transition-colors"
             onClick={() => setOpen(!open)}
             aria-label={open ? 'Menü schließen' : 'Menü öffnen'}
             aria-expanded={open}>
@@ -582,7 +582,7 @@ function Nav() {
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
-            className="fixed inset-0 z-40 bg-[#0a0a0a] pt-24 flex flex-col items-center gap-6 p-8 md:hidden">
+            className="fixed inset-0 z-40 bg-[#0a0a0a] pt-24 flex flex-col items-center gap-6 p-8 xl:hidden">
             {NAV_ITEMS.map((item, i) => (
               item.href
                 ? <motion.div key={item.href} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
