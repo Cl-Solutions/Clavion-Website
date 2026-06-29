@@ -215,6 +215,16 @@
   border-radius: 12px;
 }
 
+/* ── Chatbase: hide the proactive greeting bubble on mobile ──────────────────
+   The "Hallo! Wie kann ich Ihnen helfen?" popup (#chatbase-message-bubbles)
+   overlaps page content on small screens. Hide it on mobile; the launcher
+   button (#chatbase-bubble-button) stays so users can still open the chat. */
+@media (max-width: 767px) {
+  #chatbase-message-bubbles {
+    display: none !important;
+  }
+}
+
 /* ── Reduced motion: disable non-essential animations ───────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .logo-track,

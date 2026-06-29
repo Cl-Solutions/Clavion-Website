@@ -1081,10 +1081,10 @@ function ShowcaseSection() {
                 <ShowcaseFlow index={current} />
               </div>
 
-              {/* Metric + title row — no wrap so metric is always right */}
-              <div className="flex items-start justify-between gap-3 mb-2">
-                <h3 className="font-syne font-bold text-lg sm:text-2xl text-white leading-snug flex-1 min-w-0 pr-1">{card.title}</h3>
-                <div className="flex-shrink-0 text-right">
+              {/* Metric + title — stacked on mobile (avoids title/metric collision), side-by-side from sm */}
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1.5 sm:gap-3 mb-3">
+                <h3 className="font-syne font-bold text-lg sm:text-2xl text-white leading-snug flex-1 min-w-0 sm:pr-1">{card.title}</h3>
+                <div className="flex-shrink-0 text-left sm:text-right">
                   <div className="font-syne font-bold text-2xl sm:text-4xl leading-none" style={{ color: '#00E5FF' }}>{card.metric}</div>
                   <div className="font-inter text-gray-300 text-[10px] sm:text-xs mt-0.5 whitespace-nowrap font-medium">{card.metricLabel}</div>
                 </div>
