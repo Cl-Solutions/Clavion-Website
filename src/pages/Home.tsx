@@ -19,10 +19,10 @@ import {
   Clock, TrendingUp, Zap, MessageSquare,
   RefreshCw, Link2,
   Search, Cog,
-  ArrowRight, ChevronLeft, ChevronRight, ChevronDown,
+  ArrowRight, ChevronDown,
   Plus, Minus, Menu, X, Calendar,
   Users, MapPin, Target, CheckCircle,
-  Globe, ShieldCheck, Rocket,
+  Globe, ShieldCheck, Rocket, Check, ShoppingBag, ExternalLink,
 } from 'lucide-react';
 import { StarField } from '../components/StarField';
 import { CustomCursor } from '../components/CustomCursor';
@@ -30,7 +30,6 @@ import { Spotlight } from '../components/ui/Spotlight';
 import { GlowCard } from '../components/ui/GlowCard';
 import { ShimmerButton } from '../components/ui/ShimmerButton';
 import { GridBeam } from '../components/ui/GridBeam';
-import { ShowcaseFlow } from '../components/ui/ShowcaseFlow';
 import { AnimatedDemo } from '../components/ui/AnimatedDemo';
 
 // ─── GSAP word carousel ───────────────────────────────────────────────────────
@@ -176,69 +175,6 @@ const services = [
     title: 'Custom KI-Lösung',
     text: 'Kein Standardtool passt? Wir entwickeln KI-Systeme, die genau auf euren Prozess zugeschnitten sind — von der Logik bis zur Integration in eure bestehende Infrastruktur.',
     tags: ['Custom LLM', 'Fine-Tuning', 'KI-Agenten', 'RAG', 'Dokumenten-KI'],
-  },
-];
-
-const showcaseCards = [
-  {
-    icon: RefreshCw,
-    category: 'Prozessautomatisierung',
-    branche: 'Handwerksbetrieb',
-    title: 'Arbeitszeiterfassung & Rechnungsstellung automatisiert',
-    desc: 'Ein Handwerksbetrieb erfasste Arbeitszeiten manuell in Excel und stellte Rechnungen per Hand aus. Heute läuft beides vollautomatisch — Zeiten werden erfasst, Rechnungen generiert und direkt versendet.',
-    badge: '8h/Woche eingespart',
-    metric: '−70%',
-    metricLabel: 'manueller Aufwand',
-  },
-  {
-    icon: MessageSquare,
-    category: 'KI-Kommunikation',
-    branche: 'Arztpraxis',
-    title: '24/7 KI-Telefonassistent',
-    desc: 'Eine Arztpraxis war außerhalb der Sprechzeiten nicht erreichbar — Patienten sprachen auf Anrufbeantworter. Der Voice Agent übernimmt jetzt eingehende Anrufe, qualifiziert das Anliegen und bucht Termine direkt ins System.',
-    badge: '24/7 Erreichbarkeit',
-    metric: '+3×',
-    metricLabel: 'mehr Termine',
-  },
-  {
-    icon: Link2,
-    category: 'System-Integration',
-    branche: 'E-Commerce',
-    title: 'Vollautomatische Bestellabwicklung',
-    desc: 'Ein Online-Händler pflegte Bestellungen manuell zwischen Shop, Lager und Versanddienstleister. Die API-Integration verbindet alle drei Systeme — jede Bestellung läuft seitdem ohne einen einzigen manuellen Schritt durch.',
-    badge: '0 manuelle Schritte',
-    metric: '100%',
-    metricLabel: 'automatisiert',
-  },
-  {
-    icon: Zap,
-    category: 'Custom KI-Lösung',
-    branche: 'Immobilienmakler',
-    title: 'Intelligente Dokumentenverarbeitung',
-    desc: 'Ein Immobilienbüro erhielt täglich Dutzende PDFs mit Exposés, Verträgen und Anfragen. Die Dokumenten-KI extrahiert relevante Daten automatisch und überträgt sie strukturiert ins CRM — ohne manuelle Eingabe.',
-    badge: '90% schneller',
-    metric: '−90%',
-    metricLabel: 'Bearbeitungszeit',
-  },
-  {
-    icon: Target,
-    category: 'Clavion LeadGen',
-    branche: 'B2B-Vertrieb',
-    title: 'Lead Scraping & Scoring',
-    desc: 'Stundenlange manuelle Recherche nach potenziellen Kunden war gestern. Unsere App LeadGen scrapt automatisch passende Leads inklusive aller relevanten Kontaktdaten — E-Mail, Telefon, Firmenprofil — und bewertet sie direkt nach Abschlusswahrscheinlichkeit.',
-    badge: 'Qualifizierte Leads auf Knopfdruck',
-    metric: '5×',
-    metricLabel: 'mehr qualif. Leads',
-  },
-  {
-    icon: Globe,
-    category: 'KI-Website',
-    branche: 'Dienstleister',
-    title: 'KI-Website mit eingebautem Vertrieb',
-    desc: 'Für einen lokalen Dienstleister wurde die Website von Anfang an mit integriertem KI-Chatbot konzipiert — beantwortet Besucherfragen, qualifiziert Interessenten und leitet Terminbuchungen ein, rund um die Uhr.',
-    badge: 'Leads automatisch qualifiziert',
-    metric: '+40%',
-    metricLabel: 'Lead-Conversion',
   },
 ];
 
@@ -1016,19 +952,16 @@ function DemoSection() {
 
 // ─── SECTION 7 — Showcase Slideshow ──────────────────────────────────────────
 function ShowcaseSection() {
-  const [current, setCurrent] = useState(0);
-  const [dir,     setDir]     = useState(1);
-  const total        = showcaseCards.length;
-  const touchStartX  = useRef(0);
-  const ref          = useRef<HTMLDivElement>(null);
-  const inView       = useInView(ref, { once: true, margin: '-8% 0px' });
+  const ref    = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: '-8% 0px' });
   const { headRef } = useSplitHeadline(inView);
 
-  const prev = useCallback(() => { setDir(-1); setCurrent((c) => (c - 1 + total) % total); }, [total]);
-  const next = useCallback(() => { setDir(1);  setCurrent((c) => (c + 1) % total); }, [total]);
-  const goTo = useCallback((i: number) => { setDir(i > current ? 1 : -1); setCurrent(i); }, [current]);
-
-  const card = showcaseCards[current];
+  const deliverables = [
+    { icon: Globe,       label: 'KI-Website',    sub: 'c4f.bio' },
+    { icon: ShoppingBag, label: 'Shopify-Store', sub: 'Onlineshop' },
+    { icon: Search,      label: 'LeadGen',       sub: 'Lead-Recherche' },
+    { icon: Users,       label: 'LeadTracker',   sub: 'CRM & Outreach' },
+  ];
 
   return (
     <section id="showcase" style={{ scrollMarginTop: 80 }}
@@ -1041,89 +974,65 @@ function ShowcaseSection() {
           </h2>
         </div>
 
-        {/* Slideshow */}
-        <div
-          role="region"
-          aria-label="Projektgalerie"
-          tabIndex={0}
-          className="outline-none focus-visible:ring-2 focus-visible:ring-accent/40 rounded-2xl"
-          onKeyDown={(e) => { if (e.key === 'ArrowLeft') prev(); if (e.key === 'ArrowRight') next(); }}
-          onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
-          onTouchEnd={(e) => {
-            const dx = e.changedTouches[0].clientX - touchStartX.current;
-            if (dx > 50) prev();
-            if (dx < -50) next();
-          }}>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={current}
-              initial={{ opacity: 0, x: dir * 80, scale: 0.96, filter: 'blur(6px)' }}
-              animate={{ opacity: 1, x: 0, scale: 1, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, x: dir * -80, scale: 0.96, filter: 'blur(6px)' }}
-              transition={{ duration: 0.38, ease: [0.25, 0.46, 0.45, 0.94] }}>
-            <GlowCard className="p-7 sm:p-10" intensity="medium">
+        {/* Real case study — Carbon4Future */}
+        <FlyIn>
+          <GlowCard className="p-7 sm:p-10" intensity="medium">
 
-              {/* Top row: emoji → category badge → branche tag */}
-              <div className="flex items-center gap-2 mb-4 flex-wrap">
-                <span className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                  <card.icon className="w-5 h-5 text-white" />
-                </span>
-                <span className="font-inter text-xs font-semibold text-accent bg-accent/10 border border-accent/20 px-3 py-1 rounded-full whitespace-nowrap">
-                  {card.category}
-                </span>
-                <span className="font-inter text-xs font-medium text-gray-400 bg-white/5 border border-white/10 px-3 py-1 rounded-full whitespace-nowrap">
-                  {card.branche}
-                </span>
+            {/* Client header */}
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white flex items-center justify-center flex-shrink-0 p-2">
+                <img src="/clients/c4f-logo.png" alt="Carbon4Future Logo"
+                  className="w-full h-full object-contain" width={64} height={64} loading="lazy" />
               </div>
-
-              {/* Flow animation — full width */}
-              <div className="mb-5">
-                <ShowcaseFlow index={current} />
+              <div className="min-w-0">
+                <h3 className="font-syne font-bold text-xl sm:text-2xl text-white leading-tight">Carbon4Future</h3>
+                <p className="font-inter text-sm text-gray-400">Nachhaltige Bodenprodukte · Pflanzenkohle</p>
               </div>
+              <a href="https://www.c4f.bio" target="_blank" rel="noopener noreferrer"
+                className="ml-auto hidden sm:inline-flex items-center gap-1.5 font-inter text-sm text-accent hover:text-accent/70 transition-colors flex-shrink-0">
+                c4f.bio <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
 
-              {/* Metric + title — stacked on mobile (avoids title/metric collision), side-by-side from sm */}
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1.5 sm:gap-3 mb-3">
-                <h3 className="font-syne font-bold text-lg sm:text-2xl text-white leading-snug flex-1 min-w-0 sm:pr-1">{card.title}</h3>
-                <div className="flex-shrink-0 text-left sm:text-right">
-                  <div className="font-syne font-bold text-2xl sm:text-4xl leading-none" style={{ color: '#00E5FF' }}>{card.metric}</div>
-                  <div className="font-inter text-gray-300 text-[10px] sm:text-xs mt-0.5 whitespace-nowrap font-medium">{card.metricLabel}</div>
+            {/* What we built */}
+            <p className="font-inter text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
+              Für Carbon4Future haben wir die komplette digitale Präsenz aufgebaut: Website und
+              Shopify-Onlineshop für ihre CO₂-bindenden Pflanzenkohle-Produkte, dazu ein Vertriebssystem
+              aus LeadGen und LeadTracker. Damit haben wir geholfen, als Teil einer 40.000-Leads-Kampagne
+              potenzielle Kunden zu recherchieren, anzureichern und anzuschreiben.
+            </p>
+
+            {/* Deliverables */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+              {deliverables.map((d) => (
+                <div key={d.label} className="glass-card rounded-xl p-4 flex flex-col gap-2.5">
+                  <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center">
+                    <d.icon className="w-4 h-4 text-accent" />
+                  </div>
+                  <div>
+                    <div className="font-syne font-semibold text-white text-sm leading-tight">{d.label}</div>
+                    <div className="font-inter text-gray-400 text-xs mt-0.5">{d.sub}</div>
+                  </div>
                 </div>
+              ))}
+            </div>
+
+            {/* Result strip */}
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-3 pt-5 border-t border-white/[0.06]">
+              <div>
+                <div className="font-syne font-bold text-2xl sm:text-3xl leading-none" style={{ color: '#00E5FF' }}>40.000</div>
+                <div className="font-inter text-gray-300 text-xs mt-1 font-medium">Leads · Recherche &amp; Outreach</div>
               </div>
-              <p className="font-inter text-gray-400 text-base sm:text-lg leading-relaxed mb-5">{card.desc}</p>
-
-              {/* Result badge + counter */}
-              <div className="flex items-center justify-between gap-3 flex-wrap">
-                <span className="font-inter text-xs font-semibold text-emerald-400 bg-emerald-400/10 border border-emerald-400/25 px-3 py-1.5 rounded-full">
-                  ✓ {card.badge}
-                </span>
-                <p className="font-inter text-gray-500 text-xs">{current + 1} / {total}</p>
+              <div>
+                <div className="font-syne font-bold text-2xl sm:text-3xl leading-none" style={{ color: '#00E5FF' }}>4</div>
+                <div className="font-inter text-gray-300 text-xs mt-1 font-medium">Leistungen aus einer Hand</div>
               </div>
-            </GlowCard>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Controls */}
-        <div className="flex items-center justify-center gap-4 mt-6">
-          <button onClick={prev} aria-label="Vorheriges Projekt"
-            className="w-11 h-11 rounded-full glass-card glass-card-interactive flex items-center justify-center text-gray-400 hover:text-accent transition-colors">
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-
-          {showcaseCards.map((_, i) => (
-            <button key={i} onClick={() => goTo(i)} aria-label={`Projekt ${i + 1}`}
-              className="flex items-center justify-center w-6 h-11 -mx-1">
-              <span className={`rounded-full transition-all duration-300 block ${
-                i === current ? 'w-6 h-2 bg-accent' : 'w-2 h-2 bg-white/20 hover:bg-white/40'
-              }`} />
-            </button>
-          ))}
-
-          <button onClick={next} aria-label="Nächstes Projekt"
-            className="w-11 h-11 rounded-full glass-card glass-card-interactive flex items-center justify-center text-gray-400 hover:text-accent transition-colors">
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
+              <span className="sm:ml-auto font-inter text-xs font-semibold text-emerald-400 bg-emerald-400/10 border border-emerald-400/25 px-3 py-1.5 rounded-full inline-flex items-center gap-1.5">
+                <Check className="w-3.5 h-3.5 flex-shrink-0" /> Shop live auf c4f.bio
+              </span>
+            </div>
+          </GlowCard>
+        </FlyIn>
 
       </div>
     </section>
