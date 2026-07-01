@@ -20,8 +20,9 @@ const O  = '#E8700A';  // ZeitWerk brand accent (warm orange)
 const F  = 'Inter, sans-serif';
 const FS = 'Syne, sans-serif';
 
-const SCENE_MS     = 9000;
 const TOTAL_SCENES = 4;
+// Per-scene duration (ms), same order as SCENE_LABELS / scenes: Lead-Pipeline, KI-Website, Zeiterfassung, Automatisierung
+const SCENE_DURATIONS = [7500, 7800, 11500, 7500];
 
 // ─── Mobile detection ─────────────────────────────────────────────────────────
 function useIsMobile() {
@@ -351,7 +352,7 @@ function Scene3({ active, isMobile }: { active: boolean; isMobile: boolean }) {
   useEffect(() => {
     if (step < 1) { setFound(0); return; }
     let v = 0;
-    const iv = setInterval(() => { v += 41; if (v >= 1240) { v = 1240; clearInterval(iv); } setFound(v); }, 26);
+    const iv = setInterval(() => { v += 140; if (v >= 16240) { v = 16240; clearInterval(iv); } setFound(v); }, 26);
     return () => clearInterval(iv);
   }, [step]);
 
@@ -360,11 +361,11 @@ function Scene3({ active, isMobile }: { active: boolean; isMobile: boolean }) {
     if (step < 3) { setOpen(0); setReply(0); return; }
     let o = 0, r = 0;
     const iv = setInterval(() => {
-      if (o < 41) o += 2;
-      if (r < 6)  r += 1;
-      setOpen(Math.min(o, 41));
-      setReply(Math.min(r, 6));
-      if (o >= 41 && r >= 6) clearInterval(iv);
+      if (o < 87) o += 3;
+      if (r < 19) r += 1;
+      setOpen(Math.min(o, 87));
+      setReply(Math.min(r, 19));
+      if (o >= 87 && r >= 19) clearInterval(iv);
     }, 45);
     return () => clearInterval(iv);
   }, [step]);
@@ -451,6 +452,15 @@ function ClockGlyph({ size, color }: { size: number; color: string }) {
   );
 }
 
+function FileGlyph({ size, color }: { size: number; color: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}>
+      <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z" stroke={color} strokeWidth="2" strokeLinejoin="round" />
+      <path d="M14 3v5h5M8.5 13h7M8.5 16.5h5" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
   const [secs,  setSecs]  = useState(7531);  // running timer base ≈ 2:05:31
   const [step,  setStep]  = useState(0);
@@ -461,8 +471,9 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
     const ts = [
       setTimeout(() => setStep(1), 400),
       setTimeout(() => setStep(2), 1700),
-      setTimeout(() => setStep(3), 4500),
-      setTimeout(() => setStep(4), 6500),
+      setTimeout(() => setStep(3), 4800),
+      setTimeout(() => setStep(4), 6600),
+      setTimeout(() => setStep(5), 8200),
     ];
     return () => ts.forEach(clearTimeout);
   }, [active]);
@@ -507,7 +518,7 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
       )}
 
       {/* Logged entries */}
-      {step >= 2 && (
+      {step >= 2 && step < 5 && (
         <div style={{ width: '100%', maxWidth: MW, display: 'flex', flexDirection: 'column', gap: 6 }}>
           {TIME_ENTRIES.map((e, i) => (
             <motion.div key={i} initial={{ opacity: 0, x: -14 }} animate={{ opacity: 1, x: 0 }}
@@ -522,8 +533,8 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
         </div>
       )}
 
-      {/* Weekly total + auto invoice */}
-      {step >= 3 && (
+      {/* Weekly total */}
+      {step >= 3 && step < 5 && (
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
           style={{ width: '100%', maxWidth: MW, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap', paddingTop: isMobile ? 6 : 9, borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <div>
@@ -532,11 +543,38 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
           </div>
           {step >= 4 && (
             <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: 'spring', stiffness: 260 }}
-              style={{ display: 'flex', alignItems: 'center', gap: 7, background: 'rgba(52,211,153,0.1)', border: '1px solid rgba(52,211,153,0.28)', borderRadius: 10, padding: isMobile ? '7px 11px' : '9px 14px' }}>
-              <span style={{ color: '#34d399', fontSize: isMobile ? 13 : 15 }}>✓</span>
-              <span style={{ fontFamily: F, fontSize: isMobile ? 10 : 12, color: '#34d399', fontWeight: 600, lineHeight: 1.3 }}>Woche exportiert · CSV</span>
+              style={{ display: 'flex', alignItems: 'center', gap: 7, background: 'rgba(232,112,10,0.1)', border: `1px solid ${O}45`, borderRadius: 10, padding: isMobile ? '7px 11px' : '9px 14px' }}>
+              <motion.div animate={{ rotate: 360 }} transition={{ duration: 0.9, repeat: Infinity, ease: 'linear' }}
+                style={{ width: isMobile ? 11 : 13, height: isMobile ? 11 : 13, borderRadius: '50%', border: `2px solid ${O}`, borderTopColor: 'transparent', flexShrink: 0 }} />
+              <span style={{ fontFamily: F, fontSize: isMobile ? 10 : 12, color: O, fontWeight: 600, lineHeight: 1.3 }}>Stundenzettel wird erstellt…</span>
             </motion.div>
           )}
+        </motion.div>
+      )}
+
+      {/* PDF Stundenzettel — the entries become a document */}
+      {step >= 5 && (
+        <motion.div initial={{ opacity: 0, y: 16, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ type: 'spring', stiffness: 190, damping: 20 }}
+          style={{ width: '100%', maxWidth: MW, background: '#f4f1ea', borderRadius: 8, padding: isMobile ? '11px 13px' : '14px 18px', boxShadow: '0 16px 40px rgba(0,0,0,0.55)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, paddingBottom: isMobile ? 7 : 9, borderBottom: '1px solid rgba(0,0,0,0.1)', marginBottom: isMobile ? 7 : 9 }}>
+            <FileGlyph size={isMobile ? 15 : 18} color={O} />
+            <span style={{ fontFamily: FS, fontSize: isMobile ? 12 : 14, color: '#1a1a1a', fontWeight: 700 }}>Stundenzettel · KW 27</span>
+            <span style={{ marginLeft: 'auto', fontFamily: F, fontSize: isMobile ? 8 : 9, color: '#fff', fontWeight: 700, background: '#d64545', borderRadius: 3, padding: '2px 6px', letterSpacing: '0.04em' }}>PDF</span>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: isMobile ? 3 : 4 }}>
+            {TIME_ENTRIES.map((e, i) => (
+              <motion.div key={i} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + i * 0.1 }}
+                style={{ display: 'flex', alignItems: 'center', fontSize: isMobile ? 9.5 : 11 }}>
+                <span style={{ flex: 1, fontFamily: F, color: '#333', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{e.label}</span>
+                <span style={{ fontFamily: F, color: '#999', marginRight: isMobile ? 8 : 14 }}>{e.project}</span>
+                <span style={{ fontFamily: FS, color: '#1a1a1a', fontWeight: 700, fontVariantNumeric: 'tabular-nums' }}>{e.dur}</span>
+              </motion.div>
+            ))}
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: isMobile ? 7 : 9, paddingTop: isMobile ? 6 : 8, borderTop: '1px solid rgba(0,0,0,0.12)' }}>
+            <span style={{ fontFamily: F, fontSize: isMobile ? 9 : 11, color: '#555', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Gesamt · Diese Woche</span>
+            <span style={{ fontFamily: FS, fontSize: isMobile ? 15 : 19, color: O, fontWeight: 700, fontVariantNumeric: 'tabular-nums' }}>38,5 h</span>
+          </div>
         </motion.div>
       )}
     </div>
@@ -544,7 +582,7 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
 }
 
 // ─── Scene registry ────────────────────────────────────────────────────────────
-const SCENE_LABELS = ['KI-Website', 'Automatisierung', 'Lead-Pipeline', 'Zeiterfassung'];
+const SCENE_LABELS = ['Lead-Pipeline', 'KI-Website', 'Zeiterfassung', 'Automatisierung'];
 
 // ─── AnimatedDemo (main export) ───────────────────────────────────────────────
 export function AnimatedDemo() {
@@ -561,9 +599,9 @@ export function AnimatedDemo() {
 
   useEffect(() => {
     if (!running) return;
-    const iv = setInterval(() => setScene(s => (s + 1) % TOTAL_SCENES), SCENE_MS);
-    return () => clearInterval(iv);
-  }, [running, timerKey]);
+    const t = setTimeout(() => setScene(s => (s + 1) % TOTAL_SCENES), SCENE_DURATIONS[scene] ?? 8000);
+    return () => clearTimeout(t);
+  }, [running, scene, timerKey]);
 
   const goToScene = (i: number) => {
     setScene(i);
@@ -571,10 +609,10 @@ export function AnimatedDemo() {
   };
 
   const scenes = [
-    <Scene1 key="s1" active={running} isMobile={isMobile} />,
-    <Scene2 key="s2" active={running} isMobile={isMobile} />,
     <Scene3 key="s3" active={running} isMobile={isMobile} />,
+    <Scene1 key="s1" active={running} isMobile={isMobile} />,
     <Scene4 key="s4" active={running} isMobile={isMobile} />,
+    <Scene2 key="s2" active={running} isMobile={isMobile} />,
   ];
 
   return (
@@ -644,7 +682,7 @@ export function AnimatedDemo() {
       {running && (
         <motion.div key={`progress-${scene}`}
           initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
-          transition={{ duration: SCENE_MS / 1000, ease: 'linear' }}
+          transition={{ duration: (SCENE_DURATIONS[scene] ?? 8000) / 1000, ease: 'linear' }}
           style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 2, background: C, transformOrigin: 'left', opacity: 0.4, zIndex: 3 }}
         />
       )}
