@@ -21,8 +21,8 @@ const F  = 'Inter, sans-serif';
 const FS = 'Syne, sans-serif';
 
 const TOTAL_SCENES = 4;
-// Per-scene duration (ms), same order as SCENE_LABELS / scenes: Lead-Pipeline, KI-Website, Zeiterfassung, Automatisierung
-const SCENE_DURATIONS = [7500, 7800, 11500, 7500];
+// Per-scene duration (ms), same order as SCENE_LABELS / scenes: Lead-Pipeline, Zeiterfassung, KI-Website, Automatisierung
+const SCENE_DURATIONS = [10500, 11500, 9500, 8000];
 
 // ─── Mobile detection ─────────────────────────────────────────────────────────
 function useIsMobile() {
@@ -62,11 +62,11 @@ function Scene1({ active, isMobile }: { active: boolean; isMobile: boolean }) {
   useEffect(() => {
     if (!active) { setStep(0); return; }
     const ts = [
-      setTimeout(() => setStep(1), 450),   // browser window
-      setTimeout(() => setStep(2), 1500),  // chat opens + visitor question
-      setTimeout(() => setStep(3), 2700),  // bot typing
-      setTimeout(() => setStep(4), 3800),  // bot answer with slot
-      setTimeout(() => setStep(5), 5300),  // booked toast
+      setTimeout(() => setStep(1), 450),   // website builds (nav, hero, cards)
+      setTimeout(() => setStep(2), 3300),  // chat opens — website had solo time first
+      setTimeout(() => setStep(3), 4500),  // bot typing
+      setTimeout(() => setStep(4), 5700),  // bot answer with slot
+      setTimeout(() => setStep(5), 7100),  // booked toast
     ];
     return () => ts.forEach(clearTimeout);
   }, [active]);
@@ -103,15 +103,24 @@ function Scene1({ active, isMobile }: { active: boolean; isMobile: boolean }) {
             </div>
           </motion.div>
 
-          {/* Hero */}
-          <motion.div initial={{ opacity: 0, y: 8 }} animate={step >= 1 ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.45 }} style={{ marginBottom: isMobile ? 12 : 18 }}>
-            <div style={{ width: '28%', height: isMobile ? 6 : 8, background: `${C}55`, borderRadius: 4, marginBottom: isMobile ? 8 : 12 }} />
-            <div style={{ width: '82%', height: isMobile ? 12 : 18, background: 'rgba(255,255,255,0.2)', borderRadius: 5, marginBottom: 7 }} />
-            <div style={{ width: '56%', height: isMobile ? 12 : 18, background: 'rgba(255,255,255,0.12)', borderRadius: 5, marginBottom: isMobile ? 10 : 14 }} />
-            <div style={{ display: 'flex', gap: 8 }}>
-              <div style={{ width: isMobile ? 74 : 104, height: isMobile ? 20 : 26, background: C, opacity: 0.9, borderRadius: 6 }} />
-              <div style={{ width: isMobile ? 54 : 76, height: isMobile ? 20 : 26, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 6 }} />
+          {/* Hero — text + visual, like a real landing page */}
+          <motion.div initial={{ opacity: 0, y: 8 }} animate={step >= 1 ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.45 }}
+            style={{ display: 'flex', gap: isMobile ? 12 : 20, alignItems: 'center', marginBottom: isMobile ? 12 : 16 }}>
+            <div style={{ flex: 1.25, minWidth: 0 }}>
+              <div style={{ width: '36%', height: isMobile ? 6 : 8, background: `${C}55`, borderRadius: 4, marginBottom: isMobile ? 8 : 12 }} />
+              <div style={{ width: '92%', height: isMobile ? 12 : 18, background: 'rgba(255,255,255,0.22)', borderRadius: 5, marginBottom: 7 }} />
+              <div style={{ width: '64%', height: isMobile ? 12 : 18, background: 'rgba(255,255,255,0.12)', borderRadius: 5, marginBottom: isMobile ? 10 : 14 }} />
+              <div style={{ display: 'flex', gap: 8 }}>
+                <div style={{ width: isMobile ? 70 : 100, height: isMobile ? 20 : 26, background: C, opacity: 0.9, borderRadius: 6 }} />
+                <div style={{ width: isMobile ? 48 : 70, height: isMobile ? 20 : 26, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 6 }} />
+              </div>
             </div>
+            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={step >= 1 ? { opacity: 1, scale: 1 } : {}} transition={{ delay: 0.65 }}
+              style={{ flex: 1, height: isMobile ? 68 : 96, borderRadius: 10, background: `linear-gradient(135deg, ${C}33, rgba(0,229,255,0.05) 55%, rgba(255,255,255,0.03))`, border: `1px solid ${C}22`, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+              <div style={{ position: 'absolute', right: -12, bottom: -12, width: isMobile ? 42 : 58, height: isMobile ? 42 : 58, borderRadius: '50%', background: `${C}22` }} />
+              <div style={{ position: 'absolute', left: 10, top: 10, width: isMobile ? 26 : 38, height: isMobile ? 5 : 7, background: 'rgba(255,255,255,0.28)', borderRadius: 3 }} />
+              <div style={{ position: 'absolute', left: 10, top: isMobile ? 20 : 24, width: isMobile ? 18 : 26, height: isMobile ? 5 : 7, background: 'rgba(255,255,255,0.14)', borderRadius: 3 }} />
+            </motion.div>
           </motion.div>
 
           {/* Feature cards */}
@@ -341,34 +350,39 @@ function Scene3({ active, isMobile }: { active: boolean; isMobile: boolean }) {
   useEffect(() => {
     if (!active) { setStep(0); return; }
     const ts = [
-      setTimeout(() => setStep(1), 400),
-      setTimeout(() => setStep(2), 3000),
-      setTimeout(() => setStep(3), 4300),
+      setTimeout(() => setStep(1), 500),   // LeadGen panel
+      setTimeout(() => setStep(2), 4000),  // → LeadTracker panel
     ];
     return () => ts.forEach(clearTimeout);
   }, [active]);
 
-  // LeadGen counter
+  // LeadGen counter — runs once on activation so it never resets when the tracker appears
   useEffect(() => {
-    if (step < 1) { setFound(0); return; }
+    if (!active) { setFound(0); return; }
     let v = 0;
-    const iv = setInterval(() => { v += 140; if (v >= 16240) { v = 16240; clearInterval(iv); } setFound(v); }, 26);
-    return () => clearInterval(iv);
-  }, [step]);
+    let iv: ReturnType<typeof setInterval>;
+    const start = setTimeout(() => {
+      iv = setInterval(() => { v += 150; if (v >= 16240) { v = 16240; clearInterval(iv); } setFound(v); }, 26);
+    }, 700);
+    return () => { clearTimeout(start); if (iv) clearInterval(iv); };
+  }, [active]);
 
   // LeadTracker analytics count-up
   useEffect(() => {
-    if (step < 3) { setOpen(0); setReply(0); return; }
+    if (!active) { setOpen(0); setReply(0); return; }
     let o = 0, r = 0;
-    const iv = setInterval(() => {
-      if (o < 87) o += 3;
-      if (r < 19) r += 1;
-      setOpen(Math.min(o, 87));
-      setReply(Math.min(r, 19));
-      if (o >= 87 && r >= 19) clearInterval(iv);
-    }, 45);
-    return () => clearInterval(iv);
-  }, [step]);
+    let iv: ReturnType<typeof setInterval>;
+    const start = setTimeout(() => {
+      iv = setInterval(() => {
+        if (o < 87) o += 2;
+        if (r < 19) r += 1;
+        setOpen(Math.min(o, 87));
+        setReply(Math.min(r, 19));
+        if (o >= 87 && r >= 19) clearInterval(iv);
+      }, 55);
+    }, 4700);
+    return () => { clearTimeout(start); if (iv) clearInterval(iv); };
+  }, [active]);
 
   const fs = (m: number, d: number) => (isMobile ? m : d);
   const MW = isMobile ? undefined : 460;
@@ -414,8 +428,12 @@ function Scene3({ active, isMobile }: { active: boolean; isMobile: boolean }) {
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
             <Send size={fs(13, 15)} color={C} strokeWidth={2.2} style={{ flexShrink: 0 }} />
             <span style={{ fontFamily: FS, fontSize: fs(11, 13), color: '#fff', fontWeight: 700 }}>LeadTracker</span>
-            <motion.span animate={{ opacity: [1, 0.4, 1] }} transition={{ duration: 1.4, repeat: Infinity }}
-              style={{ marginLeft: 'auto', fontFamily: F, fontSize: fs(8, 10), color: '#34d399', fontWeight: 600 }}>● Kampagne läuft</motion.span>
+            {open >= 87 ? (
+              <span style={{ marginLeft: 'auto', fontFamily: F, fontSize: fs(8, 10), color: '#34d399', fontWeight: 700 }}>✓ Kampagne abgeschlossen</span>
+            ) : (
+              <motion.span animate={{ opacity: [1, 0.4, 1] }} transition={{ duration: 1.4, repeat: Infinity }}
+                style={{ marginLeft: 'auto', fontFamily: F, fontSize: fs(8, 10), color: '#34d399', fontWeight: 600 }}>● Kampagne läuft</motion.span>
+            )}
           </div>
           <div style={{ display: 'flex', gap: isMobile ? 8 : 16 }}>
             {[
@@ -481,7 +499,7 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
   // Live timer — fast-forwards so tracked time visibly adds up
   useEffect(() => {
     if (!active) return;
-    const iv = setInterval(() => setSecs(s => s + 23), 70);
+    const iv = setInterval(() => setSecs(s => s + 3), 95);
     return () => clearInterval(iv);
   }, [active]);
 
@@ -582,7 +600,7 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
 }
 
 // ─── Scene registry ────────────────────────────────────────────────────────────
-const SCENE_LABELS = ['Lead-Pipeline', 'KI-Website', 'Zeiterfassung', 'Automatisierung'];
+const SCENE_LABELS = ['Lead-Pipeline', 'Zeiterfassung', 'KI-Website', 'Automatisierung'];
 
 // ─── AnimatedDemo (main export) ───────────────────────────────────────────────
 export function AnimatedDemo() {
@@ -610,8 +628,8 @@ export function AnimatedDemo() {
 
   const scenes = [
     <Scene3 key="s3" active={running} isMobile={isMobile} />,
-    <Scene1 key="s1" active={running} isMobile={isMobile} />,
     <Scene4 key="s4" active={running} isMobile={isMobile} />,
+    <Scene1 key="s1" active={running} isMobile={isMobile} />,
     <Scene2 key="s2" active={running} isMobile={isMobile} />,
   ];
 
