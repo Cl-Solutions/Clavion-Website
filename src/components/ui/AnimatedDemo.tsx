@@ -1,11 +1,9 @@
 /**
  * AnimatedDemo — Apple Keynote style motion graphics
- * 4 auto-playing scenes, fully responsive (mobile-first per scene).
+ * 4 auto-playing scenes with per-scene durations, fully responsive.
  *
- * Scene 1 — KI-Chatbot
- * Scene 2 — Prozessautomatisierung
- * Scene 3 — Lead-Pipeline
- * Scene 4 — Systeme verbinden
+ * Play order: Lead-Pipeline (Scene3) → Zeiterfassung (Scene4) →
+ *             KI-Website (Scene1) → Automatisierung (Scene2)
  */
 
 import { useEffect, useRef, useState } from 'react';
@@ -22,7 +20,7 @@ const FS = 'Syne, sans-serif';
 
 const TOTAL_SCENES = 4;
 // Per-scene duration (ms), same order as SCENE_LABELS / scenes: Lead-Pipeline, Zeiterfassung, KI-Website, Automatisierung
-const SCENE_DURATIONS = [10500, 11500, 9500, 8000];
+const SCENE_DURATIONS = [10500, 11500, 11000, 8000];
 
 // ─── Mobile detection ─────────────────────────────────────────────────────────
 function useIsMobile() {
@@ -63,16 +61,17 @@ function Scene1({ active, isMobile }: { active: boolean; isMobile: boolean }) {
     if (!active) { setStep(0); return; }
     const ts = [
       setTimeout(() => setStep(1), 450),   // website builds (nav, hero, cards)
-      setTimeout(() => setStep(2), 3300),  // chat opens — website had solo time first
-      setTimeout(() => setStep(3), 4500),  // bot typing
-      setTimeout(() => setStep(4), 5700),  // bot answer with slot
-      setTimeout(() => setStep(5), 7100),  // booked toast
+      setTimeout(() => setStep(2), 3100),  // page scrolls — shop section reveals
+      setTimeout(() => setStep(3), 4700),  // chat opens + visitor question
+      setTimeout(() => setStep(4), 5900),  // bot typing
+      setTimeout(() => setStep(5), 7100),  // bot answer with slot
+      setTimeout(() => setStep(6), 8700),  // booked toast
     ];
     return () => ts.forEach(clearTimeout);
   }, [active]);
 
   const barH = isMobile ? 28 : 32;
-  const chatVisible = step >= 2 && (!isMobile || step < 5);
+  const chatVisible = step >= 3 && (!isMobile || step < 6);
 
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: isMobile ? '34px 14px 50px' : '44px 32px 56px' }}>
@@ -91,8 +90,10 @@ function Scene1({ active, isMobile }: { active: boolean; isMobile: boolean }) {
           </div>
         </div>
 
-        {/* Website content (placeholder hero) */}
-        <div style={{ padding: isMobile ? '16px 16px' : '26px 30px', position: 'relative', height: `calc(100% - ${barH}px)` }}>
+        {/* Website content */}
+        <div style={{ padding: isMobile ? '16px 16px' : '26px 30px', position: 'relative', height: `calc(100% - ${barH}px)`, overflow: 'hidden' }}>
+          {/* Page body — scrolls up at step 2 to reveal the shop section */}
+          <motion.div animate={{ y: step >= 2 ? (isMobile ? -26 : -86) : 0 }} transition={{ type: 'spring', stiffness: 55, damping: 18 }}>
           {/* Nav */}
           <motion.div initial={{ opacity: 0, y: -6 }} animate={step >= 1 ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.2 }}
             style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: isMobile ? 12 : 18 }}>
@@ -135,6 +136,28 @@ function Scene1({ active, isMobile }: { active: boolean; isMobile: boolean }) {
             ))}
           </div>
 
+          {/* Shop section — revealed by the scroll (Design & Shop aus einer Hand) */}
+          <div style={{ marginTop: isMobile ? 12 : 16 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 7, marginBottom: isMobile ? 7 : 9 }}>
+              <span style={{ fontFamily: F, fontSize: isMobile ? 7.5 : 8.5, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: C, background: CB, border: `1px solid ${C}30`, borderRadius: 4, padding: '2px 7px' }}>Shop</span>
+              <div style={{ flex: 1, height: 1, background: 'rgba(255,255,255,0.06)' }} />
+            </div>
+            <div style={{ display: 'flex', gap: isMobile ? 7 : 10 }}>
+              {['12,90 €', '24,90 €', '8,50 €'].map((price, i) => (
+                <motion.div key={price} initial={{ opacity: 0, y: 12 }} animate={step >= 2 ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.35 + i * 0.13, type: 'spring', stiffness: 220, damping: 20 }}
+                  style={{ flex: 1, background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 8, padding: isMobile ? 7 : 9 }}>
+                  <div style={{ height: isMobile ? 26 : 36, borderRadius: 5, background: 'linear-gradient(135deg, rgba(52,211,153,0.30), rgba(52,211,153,0.08))', marginBottom: isMobile ? 5 : 7 }} />
+                  <div style={{ width: '75%', height: isMobile ? 4.5 : 5.5, background: 'rgba(255,255,255,0.22)', borderRadius: 3, marginBottom: isMobile ? 5 : 6 }} />
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <span style={{ fontFamily: FS, fontSize: isMobile ? 8.5 : 10, color: '#fff', fontWeight: 700 }}>{price}</span>
+                    <div style={{ width: isMobile ? 14 : 17, height: isMobile ? 14 : 17, borderRadius: 4, background: C, opacity: 0.9 }} />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+          </motion.div>
+
           {/* Chat widget (bottom-right) */}
           <AnimatePresence>
             {chatVisible && (
@@ -149,7 +172,7 @@ function Scene1({ active, isMobile }: { active: boolean; isMobile: boolean }) {
                   <div style={{ alignSelf: 'flex-end', background: CB, border: `1px solid ${C}30`, borderRadius: '9px 9px 2px 9px', padding: '6px 9px', fontFamily: F, fontSize: isMobile ? 10 : 11, color: 'rgba(255,255,255,0.86)', maxWidth: '92%', lineHeight: 1.4 }}>
                     Habt ihr Termine für ein Angebot?
                   </div>
-                  {step === 3 && (
+                  {step === 4 && (
                     <div style={{ alignSelf: 'flex-start', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '9px 9px 9px 2px', padding: '7px 11px', display: 'flex', gap: 4 }}>
                       {[0, 1, 2].map(i => (
                         <motion.div key={i} style={{ width: 5, height: 5, borderRadius: '50%', background: C }}
@@ -157,7 +180,7 @@ function Scene1({ active, isMobile }: { active: boolean; isMobile: boolean }) {
                       ))}
                     </div>
                   )}
-                  {step >= 4 && (
+                  {step >= 5 && (
                     <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
                       style={{ alignSelf: 'flex-start', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '9px 9px 9px 2px', padding: '6px 9px', fontFamily: F, fontSize: isMobile ? 10 : 11, color: 'rgba(255,255,255,0.86)', maxWidth: '94%', lineHeight: 1.45 }}>
                       Klar! <span style={{ color: C, fontWeight: 600 }}>Di. 14. Mai, 10:00</span> passt — gebucht ✓
@@ -169,7 +192,7 @@ function Scene1({ active, isMobile }: { active: boolean; isMobile: boolean }) {
           </AnimatePresence>
 
           {/* Booked toast (bottom-left) */}
-          {step >= 5 && (
+          {step >= 6 && (
             <motion.div initial={{ opacity: 0, scale: 0.9, y: 8 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ type: 'spring', stiffness: 240 }}
               style={{ position: 'absolute', left: isMobile ? 10 : 18, bottom: isMobile ? 10 : 18, display: 'flex', alignItems: 'center', gap: 7, background: 'rgba(52,211,153,0.12)', border: '1px solid rgba(52,211,153,0.3)', borderRadius: 10, padding: isMobile ? '7px 10px' : '9px 13px' }}>
               <span style={{ color: '#34d399', fontSize: isMobile ? 13 : 15 }}>✓</span>
@@ -410,14 +433,26 @@ function Scene3({ active, isMobile }: { active: boolean; isMobile: boolean }) {
                 <span style={{ color: '#34d399', fontSize: fs(10, 12), fontWeight: 700, flexShrink: 0 }}>✓</span>
               </motion.div>
             ))}
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.9 }}
+              style={{ fontFamily: F, fontSize: fs(8, 9.5), color: 'rgba(255,255,255,0.3)', paddingTop: 2 }}>
+              … und 16.237 weitere Firmen
+            </motion.div>
           </div>
         </motion.div>
       )}
 
-      {/* connector */}
+      {/* connector — leads flow from LeadGen into LeadTracker while the campaign runs */}
       {step >= 2 && (
-        <motion.div initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }}>
-          <svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 0 V11 M4 7 L8 13 L12 7" stroke={C} strokeWidth={1.6} fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+          style={{ position: 'relative', width: 14, height: isMobile ? 18 : 24, display: 'flex', justifyContent: 'center' }}>
+          <div style={{ width: 1.5, height: '100%', background: `${C}30`, borderRadius: 1 }} />
+          {open < 87 && [0, 1].map(i => (
+            <motion.div key={i}
+              style={{ position: 'absolute', top: -2, width: 5, height: 5, borderRadius: '50%', background: C, boxShadow: `0 0 6px ${C}` }}
+              animate={{ y: [0, isMobile ? 17 : 23], opacity: [0, 1, 1, 0] }}
+              transition={{ duration: 0.8, delay: i * 0.4, repeat: Infinity, ease: 'linear', times: [0, 0.2, 0.8, 1] }}
+            />
+          ))}
         </motion.div>
       )}
 
@@ -496,10 +531,10 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
     return () => ts.forEach(clearTimeout);
   }, [active]);
 
-  // Live timer — fast-forwards so tracked time visibly adds up
+  // Live timer — ticks calmly, one second at a time (2× real time)
   useEffect(() => {
     if (!active) return;
-    const iv = setInterval(() => setSecs(s => s + 3), 95);
+    const iv = setInterval(() => setSecs(s => s + 1), 500);
     return () => clearInterval(iv);
   }, [active]);
 
@@ -535,9 +570,12 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
         </motion.div>
       )}
 
-      {/* Logged entries */}
-      {step >= 2 && step < 5 && (
-        <div style={{ width: '100%', maxWidth: MW, display: 'flex', flexDirection: 'column', gap: 6 }}>
+      {/* Logged entries + weekly total — morph into the PDF at step 5 */}
+      <AnimatePresence mode="wait">
+      {step >= 2 && step < 5 ? (
+        <motion.div key="live" exit={{ opacity: 0, y: -12, scale: 0.98 }} transition={{ duration: 0.3, ease: 'easeIn' }}
+          style={{ width: '100%', maxWidth: MW, display: 'flex', flexDirection: 'column', gap: isMobile ? 9 : 13 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
           {TIME_ENTRIES.map((e, i) => (
             <motion.div key={i} initial={{ opacity: 0, x: -14 }} animate={{ opacity: 1, x: 0 }}
               transition={{ delay: e.delay - 1.6, type: 'spring', stiffness: 240, damping: 20 }}
@@ -549,12 +587,10 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
             </motion.div>
           ))}
         </div>
-      )}
 
-      {/* Weekly total */}
-      {step >= 3 && step < 5 && (
+        {step >= 3 && (
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-          style={{ width: '100%', maxWidth: MW, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap', paddingTop: isMobile ? 6 : 9, borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap', paddingTop: isMobile ? 6 : 9, borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <div>
             <div style={{ fontFamily: F, fontSize: isMobile ? 8 : 10, color: 'rgba(255,255,255,0.4)', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Diese Woche</div>
             <div style={{ fontFamily: FS, fontSize: isMobile ? 21 : 27, color: '#fff', fontWeight: 700, fontVariantNumeric: 'tabular-nums' }}>{total.toFixed(1).replace('.', ',')} h</div>
@@ -568,11 +604,10 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
             </motion.div>
           )}
         </motion.div>
-      )}
-
-      {/* PDF Stundenzettel — the entries become a document */}
-      {step >= 5 && (
-        <motion.div initial={{ opacity: 0, y: 16, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ type: 'spring', stiffness: 190, damping: 20 }}
+        )}
+        </motion.div>
+      ) : step >= 5 ? (
+        <motion.div key="pdf" initial={{ opacity: 0, y: 18, scale: 0.92, rotate: -1.5 }} animate={{ opacity: 1, y: 0, scale: 1, rotate: 0 }} transition={{ type: 'spring', stiffness: 190, damping: 20 }}
           style={{ width: '100%', maxWidth: MW, background: '#f4f1ea', borderRadius: 8, padding: isMobile ? '11px 13px' : '14px 18px', boxShadow: '0 16px 40px rgba(0,0,0,0.55)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, paddingBottom: isMobile ? 7 : 9, borderBottom: '1px solid rgba(0,0,0,0.1)', marginBottom: isMobile ? 7 : 9 }}>
             <FileGlyph size={isMobile ? 15 : 18} color={O} />
@@ -594,7 +629,8 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
             <span style={{ fontFamily: FS, fontSize: isMobile ? 15 : 19, color: O, fontWeight: 700, fontVariantNumeric: 'tabular-nums' }}>38,5 h</span>
           </div>
         </motion.div>
-      )}
+      ) : null}
+      </AnimatePresence>
     </div>
   );
 }
