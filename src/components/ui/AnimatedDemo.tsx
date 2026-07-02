@@ -3,7 +3,7 @@
  * 4 auto-playing scenes with per-scene durations, fully responsive.
  *
  * Play order: Lead-Pipeline (Scene3) → Zeiterfassung (Scene4) →
- *             KI-Website (Scene1) → Automatisierung (Scene2)
+ *             Webseite (Scene1) → Automatisierung (Scene2)
  */
 
 import { useEffect, useRef, useState } from 'react';
@@ -19,7 +19,7 @@ const F  = 'Inter, sans-serif';
 const FS = 'Syne, sans-serif';
 
 const TOTAL_SCENES = 4;
-// Per-scene duration (ms), same order as SCENE_LABELS / scenes: Lead-Pipeline, Zeiterfassung, KI-Website, Automatisierung
+// Per-scene duration (ms), same order as SCENE_LABELS / scenes: Lead-Pipeline, Zeiterfassung, Webseite, Automatisierung
 const SCENE_DURATIONS = [10500, 11500, 11000, 8000];
 
 // ─── Mobile detection ─────────────────────────────────────────────────────────
@@ -75,7 +75,7 @@ function Scene1({ active, isMobile }: { active: boolean; isMobile: boolean }) {
 
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: isMobile ? '34px 14px 50px' : '44px 32px 56px' }}>
-      <SceneLabel>KI-Website · Design, Shop &amp; Chatbot aus einer Hand</SceneLabel>
+      <SceneLabel>Webseite · Design, Shop &amp; Chatbot aus einer Hand</SceneLabel>
 
       {/* Browser window */}
       <motion.div initial={{ opacity: 0, y: 14, scale: 0.97 }} animate={step >= 1 ? { opacity: 1, y: 0, scale: 1 } : {}} transition={{ type: 'spring', stiffness: 160, damping: 20 }}
@@ -636,7 +636,7 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
 }
 
 // ─── Scene registry ────────────────────────────────────────────────────────────
-const SCENE_LABELS = ['Lead-Pipeline', 'Zeiterfassung', 'KI-Website', 'Automatisierung'];
+const SCENE_LABELS = ['Lead-Pipeline', 'Zeiterfassung', 'Webseite', 'Automatisierung'];
 
 // ─── AnimatedDemo (main export) ───────────────────────────────────────────────
 export function AnimatedDemo() {

@@ -40,9 +40,9 @@ const TW_WORDS = ['Zeitverlust.', 'verpassten Anfragen.', 'manueller Arbeit.', '
 const HERO_QUOTES = [
   {
     quote: 'LeadGen hat unsere Vertriebsrecherche komplett ersetzt. 5× mehr qualifizierte Kontakte, vollautomatisch bewertet.',
-    initials: 'JK',
-    name: 'Jonas K.',
-    role: 'Vertriebsleiter',
+    initials: 'AU',
+    name: 'Alfred U.',
+    role: 'Geschäftsführer',
   },
   {
     quote: 'Erstes Ergebnis nach 9 Tagen live. Kein IT-Aufwand, keine langen Abstimmungen mehr.',
@@ -179,7 +179,7 @@ const services = [
 ];
 
 const steps = [
-  { num: '01', icon: Search,     title: 'Kennenlernen & Analyse',    desc: 'In einem kostenlosen 30-Minuten-Gespräch analysieren wir eure Prozesse, identifizieren die größten Hebel und verstehen euer Ziel.' },
+  { num: '01', icon: Search,     title: 'Kennenlernen & Analyse',    desc: 'In einem ersten Meeting analysieren wir eure Prozesse, identifizieren die größten Hebel und verstehen euer Ziel — unverbindlich und auf Augenhöhe.' },
   { num: '02', icon: Cog,        title: 'Konzept & Angebot',         desc: 'Innerhalb von 48 Stunden erhaltet ihr ein maßgeschneidertes Konzept mit konkreten Lösungsvorschlägen und transparenten Kosten — ohne versteckte Posten.' },
   { num: '03', icon: TrendingUp, title: 'Umsetzung & Live-Schaltung', desc: 'Wir entwickeln, testen und implementieren. Erste automatisierte Abläufe sind in der Regel innerhalb von 1–2 Wochen live.' },
 ];
@@ -957,7 +957,7 @@ function ShowcaseSection() {
   const { headRef } = useSplitHeadline(inView);
 
   const deliverables = [
-    { icon: Globe,       label: 'KI-Website',    sub: 'c4f.bio' },
+    { icon: Globe,       label: 'Webseite',      sub: 'c4f.bio' },
     { icon: ShoppingBag, label: 'Shopify-Store', sub: 'Onlineshop' },
     { icon: Search,      label: 'LeadGen',       sub: 'Lead-Recherche' },
     { icon: Users,       label: 'LeadTracker',   sub: 'CRM & Outreach' },
@@ -1106,7 +1106,7 @@ function StatsSection() {
         <div className="text-center mb-14">
           <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
             className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white">
-            Ergebnisse, die zählen
+            Unser Versprechen
           </h2>
         </div>
 
