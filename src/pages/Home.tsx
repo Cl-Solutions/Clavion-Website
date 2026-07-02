@@ -17,7 +17,6 @@ import {
 import { Link } from 'react-router-dom';
 import {
   Clock, TrendingUp, Zap, MessageSquare,
-  RefreshCw, Link2,
   Search, Cog,
   ArrowRight, ChevronDown,
   Plus, Minus, Menu, X, Calendar,
@@ -34,7 +33,7 @@ import { AnimatedDemo } from '../components/ui/AnimatedDemo';
 
 // ─── GSAP word carousel ───────────────────────────────────────────────────────
 
-const TW_WORDS = ['Zeitverlust.', 'verpassten Anfragen.', 'manueller Arbeit.', 'langsamen Prozessen.', 'ungenutztem Potenzial.'];
+const TW_WORDS = ['Zeitverlust.', 'verpassten Anfragen.', 'manueller Arbeit.', 'langsamen Prozessen.', 'Papierkram.'];
 
 // ─── Hero social proof quotes ─────────────────────────────────────────────────
 const HERO_QUOTES = [
@@ -42,7 +41,7 @@ const HERO_QUOTES = [
     quote: 'LeadGen hat unsere Vertriebsrecherche komplett ersetzt. 5× mehr qualifizierte Kontakte, vollautomatisch bewertet.',
     initials: 'AU',
     name: 'Alfred U.',
-    role: 'Geschäftsführer',
+    role: 'Vertriebsleiter',
   },
   {
     quote: 'Erstes Ergebnis nach 9 Tagen live. Kein IT-Aufwand, keine langen Abstimmungen mehr.',
@@ -149,32 +148,32 @@ const problems = [
 
 const services = [
   {
-    id: 'automation',
-    icon: RefreshCw,
-    title: 'Prozesse automatisieren',
-    text: 'Wir verbinden eure bestehenden Tools und automatisieren Abläufe, die heute manuell laufen. Keine Datenpflege mehr. Keine verpassten Schritte. Alles läuft durch — auch wenn niemand hinschaut.',
-    tags: ['n8n', 'Make', 'Zapier', 'Python', 'REST APIs'],
+    id: 'webseite',
+    icon: Globe,
+    title: 'Webseite & Onlineshop',
+    text: 'Eine Website, die nicht nur gut aussieht, sondern Anfragen bringt: klares Design, auf Wunsch mit Onlineshop — und einem integrierten Chatbot, der Besucher rund um die Uhr qualifiziert und Termine bucht.',
+    tags: ['Design', 'Shopify', 'Chatbot', 'SEO'],
   },
   {
-    id: 'integration',
-    icon: Link2,
-    title: 'Systeme verbinden',
-    text: 'CRM, ERP, E-Mail, Kalender, Buchhaltung — wir bringen zusammen, was nicht zusammenarbeitet. Daten fließen automatisch, Fehler durch manuelle Übertragung verschwinden.',
-    tags: ['API-Integration', 'Webhooks', 'Datenpipelines', 'Custom Middleware'],
+    id: 'leads',
+    icon: Target,
+    title: 'LeadGen & LeadTracker',
+    text: 'Unser Vertriebs-Duo: LeadGen findet passende Firmen samt geprüfter Kontaktdaten. LeadTracker verschickt eure Kampagnen und zeigt, wer öffnet, klickt und antwortet — bis zum Abschluss.',
+    tags: ['Lead-Recherche', 'E-Mail-Kampagnen', 'Analytics', 'CRM'],
   },
   {
-    id: 'communication',
-    icon: MessageSquare,
-    title: 'Kommunikation automatisieren',
-    text: 'Chatbot und Voice Agent, der Anfragen entgegennimmt, qualifiziert und weiterleitet — in eurer Sprache, in eurer Markenstimme, rund um die Uhr.',
-    tags: ['Voice Agent', 'Chatbot', 'OpenAI', 'WhatsApp', 'Telefonie-Integration'],
+    id: 'zeitwerk',
+    icon: Clock,
+    title: 'ZeitWerk',
+    text: 'Zeiterfassung für Handwerksbetriebe und kleine Teams: Timer je Auftrag, Team-Übersicht, Wochenstunden auf einen Blick — und am Ende ein fertiger Stundenzettel als PDF.',
+    tags: ['Zeiterfassung', 'Aufträge', 'Team', 'PDF-Export'],
   },
   {
-    id: 'custom-ki',
+    id: 'automatisierung',
     icon: Zap,
-    title: 'Custom KI-Lösung',
-    text: 'Kein Standardtool passt? Wir entwickeln KI-Systeme, die genau auf euren Prozess zugeschnitten sind — von der Logik bis zur Integration in eure bestehende Infrastruktur.',
-    tags: ['Custom LLM', 'Fine-Tuning', 'KI-Agenten', 'RAG', 'Dokumenten-KI'],
+    title: 'Individuelle Automatisierung',
+    text: 'Kein Standardtool passt? Wir verbinden eure bestehenden Systeme und bauen Abläufe, die von allein laufen — von der Rechnung bis zur Kunden-E-Mail, zugeschnitten auf euren Prozess.',
+    tags: ['n8n', 'Make', 'APIs', 'Custom KI'],
   },
 ];
 
@@ -633,7 +632,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.9 }}
           className="font-inter text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 sm:mb-12 leading-relaxed">
-          Wir bauen KI-Systeme, die repetitive Arbeit übernehmen, Systeme verbinden und Anfragen automatisch qualifizieren — damit euer Team sich auf das konzentriert, was wirklich Wert schafft.
+          Wir bauen Webseiten, die Anfragen bringen, Vertriebstools, die neue Kunden finden, und Automatisierungen, die eure Routinearbeit erledigen — aus einer Hand, für kleine und mittlere Unternehmen.
         </motion.p>
 
         <motion.div
@@ -763,7 +762,7 @@ function ServicesSection() {
         <div className="text-center mb-12">
           <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
             className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white">
-            Wo liegt euer größter Hebel?
+            Was wir für euch bauen
           </h2>
         </div>
 
@@ -812,7 +811,7 @@ function ServicesSection() {
               ))}
             </div>
             {/* Chatbot hint — only on the communication tile */}
-            {activeIdx === 2 && (
+            {activeIdx === 0 && (
               <div className="mt-5 pt-4 border-t border-white/[0.06] flex items-center gap-2.5">
                 <MessageSquare className="w-3.5 h-3.5 text-accent flex-shrink-0" />
                 <span className="font-inter text-sm text-gray-400">
