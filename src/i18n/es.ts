@@ -45,7 +45,7 @@ export const es: Dict = {
     headlineSuffix: '',
     subline:
       'Creamos sitios web que generan solicitudes, herramientas de ventas que encuentran clientes nuevos y automatizaciones que se ocupan del trabajo rutinario — todo desde un mismo equipo, para pequeñas y medianas empresas.',
-    ctaPrimary: 'Análisis de procesos gratuito — 30 min',
+    ctaPrimary: 'Solicitar análisis gratuito',
     ctaSecondary: 'Desplazarse hacia abajo',
     badge: 'Automatización con IA · Hecho en Alemania',
     quotes: [
@@ -299,7 +299,7 @@ export const es: Dict = {
       'Conocimiento práctico sobre automatización con IA, chatbots y optimización de procesos para pymes.',
     eyebrow: 'Ideas y práctica',
     home: 'Inicio',
-    bookCta: 'Reservar primera consulta',
+    bookCta: 'Análisis gratuito',
     heading: 'Blog',
     sub: 'Conocimiento práctico sobre automatización con IA para pequeñas y medianas empresas.',
     readMore: 'Seguir leyendo',

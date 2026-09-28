@@ -63,7 +63,7 @@ export function Datenschutz() {
                 Clavion GbR<br />
                 [Adresse folgt]<br />
                 Vertreten durch: Berkay Aksoy & Marios Lysitsas<br />
-                E-Mail: webmaster@cl-solutions.pro
+                E-Mail: webmaster@clavion.pro
               </p>
             </section>
 
@@ -154,7 +154,7 @@ export function Datenschutz() {
                 gemäß Art. 15–18 DSGVO.
               </p>
               <p className="mt-4">
-                Zur Ausübung Ihrer Rechte wenden Sie sich an: kontakt@cl-solutions.pro
+                Zur Ausübung Ihrer Rechte wenden Sie sich an: webmaster@clavion.pro
               </p>
             </section>
 

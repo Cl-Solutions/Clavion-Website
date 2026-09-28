@@ -44,7 +44,7 @@ export const de: Dict = {
     headlineSuffix: '',
     subline:
       'Wir bauen Webseiten, die Anfragen bringen, Vertriebstools, die neue Kunden finden, und Automatisierungen, die eure Routinearbeit erledigen — aus einer Hand, für kleine und mittlere Unternehmen.',
-    ctaPrimary: 'Kostenlose Prozessanalyse — 30 Min.',
+    ctaPrimary: 'Kostenlose Prozessanalyse anfragen',
     ctaSecondary: 'Nach unten scrollen',
     badge: 'KI-Automatisierung · Made in Germany',
     quotes: [
@@ -299,7 +299,7 @@ export const de: Dict = {
       'Praxiswissen zu KI-Automatisierung, Chatbots und Prozessoptimierung für KMU in Deutschland.',
     eyebrow: 'Insights & Praxis',
     home: 'Startseite',
-    bookCta: 'Erstgespräch buchen',
+    bookCta: 'Kostenlose Prozessanalyse',
     heading: 'Blog',
     sub: 'Praxiswissen zu KI-Automatisierung für kleine und mittlere Unternehmen.',
     readMore: 'Weiterlesen',

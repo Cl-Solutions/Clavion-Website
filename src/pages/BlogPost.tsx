@@ -96,9 +96,7 @@ export function BlogPost() {
                 hiding the switcher would strand phone readers in one language. */}
             <LanguageSwitcher />
             <a
-              href="https://cal.eu/clavion/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/#kontakt"
               className="hidden md:inline px-5 py-2.5 bg-[#00E5FF] text-[#0a0a0a] font-inter font-medium text-sm rounded-lg hover:bg-[#00E5FF]/90 transition-colors"
             >
               {t.blog.bookCta}

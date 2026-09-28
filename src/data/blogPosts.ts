@@ -162,7 +162,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Lernen Sie Clavion kennen</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen, welche Prozesse in Ihrem Betrieb sich sofort automatisieren lassen.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
 
 <h2>Häufige Fragen zu Clavion</h2>
@@ -176,7 +176,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Bereit, mit Clavion zu automatisieren?</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden, Umsetzung in 1–2 Wochen.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Unverbindlich anfragen →</a>
 </div>
     `.trim(),
   },
@@ -209,7 +209,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Clavion auf die Probe stellen</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Stellen Sie uns die Fragen aus diesem Artikel im kostenlosen Erstgespräch – wir antworten konkret.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
 
 <h2>Wie Clavion diese Kriterien erfüllt</h2>
@@ -242,7 +242,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Welcher Kanal passt zu Ihnen?</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Wir schauen uns an, wie Ihre Kunden anfragen, und empfehlen Chatbot, Voice Agent – oder beides.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
     `.trim(),
   },
@@ -278,7 +278,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Ihren ersten Prozess automatisieren lassen</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Clavion analysiert Ihre Abläufe und richtet die passende Automatisierung ein – DSGVO-konform, Angebot in 48 Stunden.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
     `.trim(),
   },
@@ -317,7 +317,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">KI rechtssicher einführen</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Wir entwickeln alle Lösungen von Anfang an DSGVO-konform – EU-Server, AVV, dokumentierte Prozesse. In 30 Minuten klären wir, was für Ihren Betrieb gilt.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
 
 <h2>Die häufigsten DSGVO-Fehler beim KI-Einsatz</h2>
@@ -342,7 +342,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Datenschutz und KI auf den Punkt klären</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir prüfen, wie Sie KI in Ihrem Betrieb rechtssicher einsetzen.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Unverbindlich anfragen →</a>
 </div>
     `.trim(),
   },
@@ -375,7 +375,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Welches Tool passt zu Ihnen?</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Wir analysieren Ihre Prozesse und empfehlen das Tool, das zu Ihrem Volumen, Budget und Datenschutzbedarf passt – herstellerunabhängig.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
 
 <h2>Der direkte Vergleich</h2>
@@ -405,7 +405,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Automatisierung ohne Tool-Lock-in</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden, Umsetzung in 1–2 Wochen. Wir wählen das Tool, das zu Ihnen passt – nicht zu unserem Vertriebsplan.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Unverbindlich anfragen →</a>
 </div>
     `.trim(),
   },
@@ -439,7 +439,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Ihre Praxis dauerhaft erreichbar machen</p>
 <p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, wie ein KI-Telefonassistent Ihr Team entlastet – DSGVO-konform und auf Ihre Praxis abgestimmt.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
 
 <h2>Datenschutz im Gesundheitswesen</h2>
@@ -462,7 +462,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Schluss mit dem Telefonstress</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen, was für Ihre Praxis möglich ist.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Unverbindlich anfragen →</a>
 </div>
     `.trim(),
   },
@@ -508,7 +508,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Kostenlose Prozessanalyse für Ihren Betrieb</p>
 <p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, welche Abläufe in Ihrem Handwerksbetrieb sich sofort automatisieren lassen – und was das konkret einspart.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
 
 <h2>Wie Clavion Handwerksbetriebe konkret unterstützt</h2>
@@ -524,7 +524,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Lassen Sie uns Ihren Betrieb analysieren</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Kein Risiko, keine Verpflichtung. Sie schildern uns Ihren Alltag, wir zeigen Ihnen, was möglich ist – und was es kostet. Angebot innerhalb von 48 Stunden.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Unverbindlich anfragen →</a>
 </div>
 
 <h2>Häufige Fragen von Handwerksbetrieben</h2>
@@ -549,7 +549,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen genau, was für Ihren Betrieb möglich ist – und was es konkret kosten würde.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
     `.trim(),
   },
@@ -592,7 +592,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Nie wieder verpasste Anrufe – kostenlose Erstberatung</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Wir zeigen Ihnen in 30 Minuten, wie ein Anrufbot für Ihren Betrieb aussehen würde – und was er konkret einspart.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
 
 <h2>So setzt Clavion den Anrufbot für Handwerksbetriebe um</h2>
@@ -606,7 +606,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Lassen Sie uns Ihren Betrieb analysieren</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Kein Risiko, keine Verpflichtung. Angebot innerhalb von 48 Stunden.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Unverbindlich anfragen →</a>
 </div>
 
 <h2>Häufige Fragen zum Anrufbot im Handwerk</h2>
@@ -627,7 +627,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir richten Ihren Anrufbot ein – Sie stehen weiter auf der Baustelle.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
     `.trim(),
   },
@@ -670,7 +670,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">5 Stunden pro Woche zurückgewinnen – kostenlose Analyse</p>
 <p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, wie Automatisierung in Ihrem Betrieb konkret aussehen würde.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
 
 <h2>Wie Clavion die Angebotserstellung automatisiert</h2>
@@ -684,7 +684,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Lassen Sie uns Ihren Angebotsprozess analysieren</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot innerhalb von 48 Stunden. Umsetzung in 1–2 Wochen.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Unverbindlich anfragen →</a>
 </div>
 
 <h2>Häufige Fragen zur Automatisierung im Handwerksbetrieb</h2>
@@ -707,7 +707,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten Analyse. Konkretes Angebot in 48 Stunden. Erste Ergebnisse in zwei Wochen.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
     `.trim(),
   },
@@ -750,7 +750,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Nie wieder eine verpasste Reservierungsanfrage</p>
 <p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, wie ein KI-Chatbot für Ihr Restaurant konkret aussehen würde.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
 
 <h2>Wie Clavion den KI-Chatbot für Ihr Restaurant einrichtet</h2>
@@ -762,7 +762,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Kostenlose Analyse für Ihr Restaurant</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot innerhalb von 48 Stunden. Umsetzung in wenigen Tagen.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Unverbindlich anfragen →</a>
 </div>
 
 <h2>Häufige Fragen zum KI-Chatbot für Restaurants</h2>
@@ -783,7 +783,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen, was für Ihr Restaurant möglich ist.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
     `.trim(),
   },
@@ -826,7 +826,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Zwei Stunden täglich zurückgewinnen – kostenlose Erstberatung</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Wir analysieren Ihren Betrieb und zeigen, wo Automatisierung sofort greift.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
 
 <h2>Wie Clavion Gastronomiebetriebe automatisiert</h2>
@@ -840,7 +840,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Ihren Betrieb analysieren lassen</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden. Umsetzung in 1–2 Wochen.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Unverbindlich anfragen →</a>
 </div>
 
 <h2>Häufige Fragen zur Automatisierung in der Gastronomie</h2>
@@ -861,7 +861,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen, was in Ihrem Betrieb möglich ist.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
     `.trim(),
   },
@@ -902,7 +902,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Ihre Website soll 24/7 für Sie arbeiten</p>
 <p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, wie ein KI-Chatbot auf Ihrer Website konkret aussehen würde.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
 
 <h2>Wie Clavion Ihren Website-Chatbot einrichtet</h2>
@@ -914,7 +914,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Mehr aus Ihrem bestehenden Traffic herausholen</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden. Keine langen Projekte.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Unverbindlich anfragen →</a>
 </div>
 
 <h2>Häufige Fragen zum KI-Chatbot für Website-Leads</h2>
@@ -935,7 +935,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen genau, was auf Ihrer Website möglich ist.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
     `.trim(),
   },
@@ -976,7 +976,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Nie wieder Terminkoordination per E-Mail</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30-minütige Analyse, kostenlos. Wir zeigen Ihnen, wie automatisierte Terminbuchung für Sie aussieht.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
 
 <h2>Wie Clavion die Terminbuchung automatisiert</h2>
@@ -988,7 +988,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Ihr Kalender läuft sich selbst – kostenlose Analyse</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden. Umsetzung in wenigen Tagen.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Unverbindlich anfragen →</a>
 </div>
 
 <h2>Häufige Fragen zur automatisierten Terminbuchung</h2>
@@ -1009,7 +1009,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir richten Ihr System ein – Sie konzentrieren sich auf Ihre Kunden.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
     `.trim(),
   },
@@ -1050,7 +1050,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Mehr Besichtigungen, weniger verpasste Leads</p>
 <p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, wie KI Ihren Erstkontaktprozess automatisiert.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
 
 <h2>Wie Clavion Immobilienmakler konkret unterstützt</h2>
@@ -1064,7 +1064,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Kostenlose Analyse Ihres Erstkontaktprozesses</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden. Erste Ergebnisse in einer Woche.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Unverbindlich anfragen →</a>
 </div>
 
 <h2>Häufige Fragen für Immobilienmakler</h2>
@@ -1085,7 +1085,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen, was für Ihr Maklerbüro möglich ist.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
     `.trim(),
   },
@@ -1136,7 +1136,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Lassen Sie uns Ihren ROI ausrechnen</p>
 <p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, ob und wie schnell sich ein KI-Chatbot für Ihr Unternehmen rechnet.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
 
 <h2>Wie Clavion die KI-Chatbot-Kosten transparent hält</h2>
@@ -1148,7 +1148,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Transparente Kosten, messbares Ergebnis</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden. Einrichtung in 1–2 Wochen.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Unverbindlich anfragen →</a>
 </div>
 
 <h2>Häufige Fragen zu KI-Chatbot Kosten</h2>
@@ -1169,7 +1169,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten Analyse. Konkretes Angebot. Keine Verpflichtung.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
     `.trim(),
   },
@@ -1212,7 +1212,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Mehr Anfragen aus Ihrer bestehenden Website</p>
 <p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, wie ein Chatbot Ihre Conversion-Rate konkret verbessert.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
 
 <h2>Wie Clavion den Umstieg umsetzt</h2>
@@ -1224,7 +1224,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Mehr aus Ihrer Website herausholen – kostenlose Analyse</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden. Keine langen Projekte.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Unverbindlich anfragen →</a>
 </div>
 
 <h2>Häufige Fragen zum Chatbot vs. Kontaktformular Vergleich</h2>
@@ -1245,7 +1245,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen, was für Ihre Website möglich ist.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
     `.trim(),
   },
@@ -1288,7 +1288,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Kostenlose Prozessanalyse für Ihr Unternehmen</p>
 <p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, wo in Ihrem Betrieb die größten Zeitfresser stecken.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
 
 <h2>Wie Clavion Prozesse in KMU automatisiert</h2>
@@ -1302,7 +1302,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Lassen Sie Ihren Betrieb analysieren</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden. Erste Ergebnisse in einer bis zwei Wochen.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Unverbindlich anfragen →</a>
 </div>
 
 <h2>Häufige Fragen zur Prozessautomatisierung in KMU</h2>
@@ -1323,7 +1323,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen konkret, was in Ihrem Betrieb möglich ist.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
     `.trim(),
   },
@@ -1372,7 +1372,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Nie wieder verpasste Anrufe – kostenlose Erstberatung</p>
 <p style="margin:0 0 16px;color:#9ca3af;">In 30 Minuten zeigen wir Ihnen, wie ein KI-Telefonagent für Ihren Betrieb aussehen würde.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
 
 <h2>Wie Clavion den KI-Telefonagenten einrichtet</h2>
@@ -1384,7 +1384,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Ihren Betrieb analysieren lassen</p>
 <p style="margin:0 0 16px;color:#9ca3af;">Angebot in 48 Stunden. Umsetzung in 1–2 Wochen.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Termin vereinbaren →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Unverbindlich anfragen →</a>
 </div>
 
 <h2>Häufige Fragen zum KI-Telefonagenten für KMU</h2>
@@ -1405,7 +1405,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:24px;margin:32px 0;">
 <p style="margin:0 0 12px;font-weight:600;color:#fff;">Sprechen Sie heute noch mit uns</p>
 <p style="margin:0 0 16px;color:#9ca3af;">30 Minuten, kostenlos, unverbindlich. Wir zeigen Ihnen, was für Ihren Betrieb möglich ist.</p>
-<a href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Jetzt kostenloses Erstgespräch sichern →</a>
+<a href="/#kontakt" style="display:inline-block;background:#00E5FF;color:#0a0a0a;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;">Kostenlose Prozessanalyse anfragen →</a>
 </div>
     `.trim(),
   },

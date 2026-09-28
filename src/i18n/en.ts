@@ -45,7 +45,7 @@ export const en: Dict = {
     headlineSuffix: '',
     subline:
       'We build websites that bring in enquiries, sales tools that find new customers, and automations that take over your routine work — all from one team, for small and mid-sized businesses.',
-    ctaPrimary: 'Free process review — 30 min',
+    ctaPrimary: 'Request a free process review',
     ctaSecondary: 'Scroll down',
     badge: 'AI automation · Made in Germany',
     quotes: [
@@ -299,7 +299,7 @@ export const en: Dict = {
       'Practical knowledge on AI automation, chatbots and process optimisation for small and mid-sized businesses.',
     eyebrow: 'Insights & practice',
     home: 'Home',
-    bookCta: 'Book an intro call',
+    bookCta: 'Free process review',
     heading: 'Blog',
     sub: 'Practical knowledge on AI automation for small and mid-sized businesses.',
     readMore: 'Read more',

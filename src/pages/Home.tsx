@@ -19,7 +19,7 @@ import {
   Clock, TrendingUp, Zap, MessageSquare,
   Search, Cog,
   ArrowRight, ChevronDown,
-  Plus, Minus, Menu, X, Calendar,
+  Plus, Minus, Menu, X,
   Users, MapPin, Target, CheckCircle,
   Globe, ShieldCheck, Rocket, Check, ShoppingBag, ExternalLink,
 } from 'lucide-react';
@@ -31,7 +31,7 @@ import { ShimmerButton } from '../components/ui/ShimmerButton';
 import { GridBeam } from '../components/ui/GridBeam';
 import { AnimatedDemo } from '../components/ui/AnimatedDemo';
 import { LanguageSwitcher } from '../components/LanguageSwitcher';
-import { ContactForm } from '../components/ContactForm';
+import { ContactFormFields } from '../components/ContactForm';
 import { useLang } from '../i18n';
 import { usePageMeta } from '../hooks/usePageMeta';
 
@@ -589,10 +589,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.1 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <ShimmerButton
-            href="https://cal.eu/clavion/30min"
-            target="_blank"
-            rel="noopener noreferrer">
+          <ShimmerButton as="button" onClick={() => scrollToId('kontakt')}>
             {t.hero.ctaPrimary}
             <ArrowRight className="w-4 h-4" />
           </ShimmerButton>
@@ -1180,7 +1177,7 @@ function FAQSection() {
 }
 
 // ─── SECTION 11 — Finaler CTA ─────────────────────────────────────────────────
-function CTASection({ onWrite }: { onWrite: () => void }) {
+function CTASection() {
   const { t } = useLang();
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-8% 0px' });
@@ -1195,50 +1192,18 @@ function CTASection({ onWrite }: { onWrite: () => void }) {
           transition={{ duration: 0.6 }}
           className="glass-card rounded-2xl overflow-hidden">
 
-          {/* Inner two-column layout */}
-          <div className="grid lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-[rgba(0,229,255,0.12)]">
+          <div className="grid lg:grid-cols-[0.85fr_1fr] divide-y lg:divide-y-0 lg:divide-x divide-[rgba(0,229,255,0.12)]">
 
-            {/* ── Left column ── */}
+            {/* ── Left: why it is worth writing ── */}
             <div className="p-7 sm:p-10 flex flex-col">
               <h2 className="font-syne font-bold text-2xl sm:text-3xl text-white mb-4 leading-tight">
                 {t.contact.heading}
               </h2>
-              <p className="font-inter text-gray-400 text-sm sm:text-base leading-relaxed mb-1">
+              <p className="font-inter text-gray-400 text-sm sm:text-base leading-relaxed mb-7">
                 {t.contact.body}
               </p>
-              <p className="font-inter text-gray-400 text-xs sm:text-sm mb-8">
-                {t.contact.noRisk}
-              </p>
 
-              {/* Termin-Card */}
-              <div className="mt-auto space-y-3">
-                <div className="flex items-center gap-4 p-4 bg-white/[0.03] rounded-xl border border-white/[0.06]">
-                  <div className="w-11 h-11 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Calendar className="w-5 h-5 text-accent" />
-                  </div>
-                  <div>
-                    <p className="font-syne font-semibold text-white text-sm">{t.contact.bookTitle}</p>
-                    <p className="font-inter text-gray-500 text-xs">{t.contact.bookBody}</p>
-                  </div>
-                </div>
-                <ShimmerButton href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" className="w-full justify-center py-3.5">
-                  {t.contact.bookCta}
-                  <ArrowRight className="w-4 h-4" />
-                </ShimmerButton>
-              </div>
-            </div>
-
-            {/* ── Right column — softer entry point ── */}
-            <div className="p-7 sm:p-10 flex flex-col">
-              <h3 className="font-syne font-bold text-xl sm:text-2xl text-white mb-4 leading-tight">
-                {t.contact.notSureTitle}
-              </h3>
-              <p className="font-inter text-gray-400 text-sm sm:text-base leading-relaxed mb-6">
-                {t.contact.notSureBody}
-              </p>
-
-              {/* Trust bullets — fills visual space, mirrors calendar card weight on left */}
-              <ul className="space-y-3 mb-6">
+              <ul className="space-y-3 mb-7">
                 {t.contact.bullets.map((item) => (
                   <li key={item} className="flex items-center gap-3 px-4 py-2.5 bg-white/[0.03] rounded-xl border border-white/[0.06]">
                     <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
@@ -1248,14 +1213,9 @@ function CTASection({ onWrite }: { onWrite: () => void }) {
               </ul>
 
               <div className="mt-auto space-y-3">
-                <button
-                  onClick={onWrite}
-                  className="w-full justify-center py-3.5 px-6 font-inter font-semibold text-base text-white border border-white/20 rounded-xl hover:border-accent/50 hover:text-accent hover:bg-accent/5 transition-all duration-200 flex items-center gap-2">
-                  {t.contact.writeCta}
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-
-                {/* Chatbot hint */}
+                <p className="font-inter text-gray-500 text-xs sm:text-sm leading-relaxed">
+                  {t.contact.noRisk}
+                </p>
                 <div className="flex items-center gap-3 p-3.5 bg-white/[0.03] rounded-xl border border-white/[0.06]">
                   <MessageSquare className="w-4 h-4 text-accent flex-shrink-0" />
                   <p className="font-inter text-gray-400 text-xs sm:text-sm">
@@ -1263,6 +1223,17 @@ function CTASection({ onWrite }: { onWrite: () => void }) {
                   </p>
                 </div>
               </div>
+            </div>
+
+            {/* ── Right: the form itself, no click required ── */}
+            <div className="p-7 sm:p-10">
+              <h3 className="font-syne font-bold text-xl sm:text-2xl text-white mb-2 leading-tight">
+                {t.form.title}
+              </h3>
+              <p className="font-inter text-gray-400 text-sm leading-relaxed mb-6">
+                {t.form.intro}
+              </p>
+              <ContactFormFields idPrefix="cf" />
             </div>
 
           </div>
@@ -1300,7 +1271,16 @@ function GeoAboutBlock() {
 // ─── Home ─────────────────────────────────────────────────────────────────────
 export function Home() {
   const { t, lang } = useLang();
-  const [formOpen, setFormOpen] = useState(false);
+
+  // Links from the blog and llms.txt point at /#kontakt. The browser resolves
+  // a hash at document load, when this SPA has not rendered its sections yet,
+  // so nothing would scroll — re-run it once they exist.
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (!id) return;
+    const timer = window.setTimeout(() => scrollToId(id), 120);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   // Title and description follow the switcher. There is a single URL per page
   // (no /en/ or /es/ prefixes), so the canonical stays the same for all three.
@@ -1395,11 +1375,9 @@ export function Home() {
         <ProcessSection />
         <StatsSection />
         <FAQSection />
-        <CTASection onWrite={() => setFormOpen(true)} />
+        <CTASection />
         {footer}
       </div>
-
-      <ContactForm open={formOpen} onClose={() => setFormOpen(false)} />
     </div>
   );
 }
