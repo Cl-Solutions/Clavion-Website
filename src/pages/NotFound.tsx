@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { useLang } from '../i18n';
 
 export function NotFound() {
+  const { t } = useLang();
+
   usePageMeta({
-    title: '404 – Seite nicht gefunden | Clavion',
-    description: 'Die gesuchte Seite existiert nicht.',
+    title: t.notFound.metaTitle,
+    description: t.notFound.metaDescription,
     canonical: 'https://clavion.pro/',
   });
 
@@ -14,16 +17,16 @@ export function NotFound() {
         404
       </p>
       <h1 className="font-syne font-bold text-4xl sm:text-5xl text-white mb-4">
-        Seite nicht gefunden
+        {t.notFound.title}
       </h1>
       <p className="font-inter text-gray-400 text-lg mb-10 max-w-md">
-        Die gesuchte Seite existiert leider nicht. Vielleicht hilft dir die Startseite weiter.
+        {t.notFound.body}
       </p>
       <Link
         to="/"
         className="px-6 py-3 bg-[#00E5FF] text-[#0a0a0a] font-inter font-medium text-sm rounded-lg hover:bg-[#00E5FF]/90 transition-colors"
       >
-        Zurück zur Startseite
+        {t.notFound.cta}
       </Link>
     </div>
   );

@@ -30,26 +30,14 @@ import { GlowCard } from '../components/ui/GlowCard';
 import { ShimmerButton } from '../components/ui/ShimmerButton';
 import { GridBeam } from '../components/ui/GridBeam';
 import { AnimatedDemo } from '../components/ui/AnimatedDemo';
+import { LanguageSwitcher } from '../components/LanguageSwitcher';
+import { ContactForm } from '../components/ContactForm';
+import { useLang } from '../i18n';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 // ─── GSAP word carousel ───────────────────────────────────────────────────────
 
-const TW_WORDS = ['Zeitverlust.', 'verpassten Anfragen.', 'manueller Arbeit.', 'langsamen Prozessen.', 'Papierkram.'];
 
-// ─── Hero social proof quotes ─────────────────────────────────────────────────
-const HERO_QUOTES = [
-  {
-    quote: 'LeadGen hat unsere Vertriebsrecherche komplett ersetzt. 5× mehr qualifizierte Kontakte, vollautomatisch bewertet.',
-    initials: 'AU',
-    name: 'Alfred U.',
-    role: 'Vertriebsleiter',
-  },
-  {
-    quote: 'Erstes Ergebnis nach 9 Tagen live. Kein IT-Aufwand, keine langen Abstimmungen mehr.',
-    initials: 'MS',
-    name: 'Miriam S.',
-    role: 'Geschäftsführerin',
-  },
-];
 
 /**
  * GSAP-powered vertical word carousel.
@@ -108,10 +96,10 @@ function useGsapCarousel(words: string[], onCycle?: () => void) {
       timerRef.current?.kill();   // kills the pending delayedCall
       gsap.killTweensOf(el);      // kills any in-progress tweens on the element
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  // Intentionally empty: GSAP animation runs once on mount; `words` is a stable
-  // module-level constant so no re-run is needed when it "changes".
-  }, []);
+  // `words` comes from the active dictionary and keeps a stable identity for as
+  // long as the language does, so this re-runs exactly once per language switch
+  // — which is what rebuilds the carousel in the new language.
+  }, [words]);
 
   return wordRef;
 }
@@ -129,71 +117,33 @@ function scrollToId(id: string) {
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
-const NAV_ITEMS: { label: string; id?: string; href?: string }[] = [
-  { label: 'Leistungen',  id: 'leistungen' },
-  { label: 'Über uns',    id: 'ueber-uns'  },
-  { label: 'Referenzen',  id: 'showcase'   },
-  { label: 'Prozess',     id: 'prozess'    },
-  { label: 'FAQ',         id: 'faq'        },
-  { label: 'Blog',        href: '/blog'    },
-  { label: 'Kontakt',     id: 'kontakt'    },
-];
+type NavItem = { label: string; id?: string; href?: string };
 
-const problems = [
-  { icon: Clock,          title: 'Täglich Zeit verlieren',           desc: 'Routineaufgaben, manuelle Prozesse, Copy-Paste — euer Tag steckt voller Arbeit, die kein Mensch erledigen müsste.' },
-  { icon: TrendingUp,     title: 'Wachsen ohne mehr Aufwand',        desc: 'Mehr Kunden, mehr Umsatz — aber nicht proportional mehr Personal. Automatisierung ist euer stärkster Hebel.' },
-  { icon: Zap,            title: 'Systeme reden nicht miteinander',  desc: 'Tools die nicht verbunden sind. Daten die manuell übertragen werden. Das kostet täglich Zeit, Geld und Nerven.' },
-  { icon: MessageSquare,  title: 'Anfragen fallen durchs Raster',    desc: 'Keine Reaktion außerhalb der Bürozeiten. Leads die zu spät oder gar nicht bearbeitet werden.' },
-];
+// Icons stay in code and pair positionally with t.problems.items.
+const PROBLEM_ICONS = [Clock, TrendingUp, Zap, MessageSquare];
 
-const services = [
-  {
-    id: 'webseite',
-    icon: Globe,
-    title: 'Webseite & Onlineshop',
-    text: 'Eine Website, die nicht nur gut aussieht, sondern Anfragen bringt: klares Design, auf Wunsch mit Onlineshop — und einem integrierten Chatbot, der Besucher rund um die Uhr qualifiziert und Termine bucht.',
-    tags: ['Design', 'Shopify', 'Chatbot', 'SEO'],
-  },
-  {
-    id: 'leads',
-    icon: Target,
-    title: 'LeadGen & LeadTracker',
-    text: 'Unser Vertriebs-Duo: LeadGen findet passende Firmen samt geprüfter Kontaktdaten. LeadTracker verschickt eure Kampagnen und zeigt, wer öffnet, klickt und antwortet — bis zum Abschluss.',
-    tags: ['Lead-Recherche', 'E-Mail-Kampagnen', 'Analytics', 'CRM'],
-  },
-  {
-    id: 'zeitwerk',
-    icon: Clock,
-    title: 'ZeitWerk',
-    text: 'Zeiterfassung für Handwerksbetriebe und kleine Teams: Timer je Auftrag, Team-Übersicht, Wochenstunden auf einen Blick — und am Ende ein fertiger Stundenzettel als PDF.',
-    tags: ['Zeiterfassung', 'Aufträge', 'Team', 'PDF-Export'],
-  },
-  {
-    id: 'automatisierung',
-    icon: Zap,
-    title: 'Individuelle Automatisierung',
-    text: 'Kein Standardtool passt? Wir verbinden eure bestehenden Systeme und bauen Abläufe, die von allein laufen — von der Rechnung bis zur Kunden-E-Mail, zugeschnitten auf euren Prozess.',
-    tags: ['n8n', 'Make', 'APIs', 'Custom KI'],
-  },
-];
+// Paired positionally with t.services.items.
+const SERVICE_ICONS = [Globe, Target, Clock, Zap];
 
-const steps = [
-  { num: '01', icon: Search,     title: 'Kennenlernen & Analyse',    desc: 'In einem ersten Meeting analysieren wir eure Prozesse, identifizieren die größten Hebel und verstehen euer Ziel — unverbindlich und auf Augenhöhe.' },
-  { num: '02', icon: Cog,        title: 'Konzept & Angebot',         desc: 'Innerhalb von 48 Stunden erhaltet ihr ein maßgeschneidertes Konzept mit konkreten Lösungsvorschlägen und transparenten Kosten — ohne versteckte Posten.' },
-  { num: '03', icon: TrendingUp, title: 'Umsetzung & Live-Schaltung', desc: 'Wir entwickeln, testen und implementieren. Erste automatisierte Abläufe sind in der Regel innerhalb von 1–2 Wochen live.' },
+// Paired positionally with t.process.steps.
+const STEP_META = [
+  { num: '01', icon: Search },
+  { num: '02', icon: Cog },
+  { num: '03', icon: TrendingUp },
 ];
 
 type StatDef =
-  | { kind: 'count';     end: number; suffix: string; label: string }
-  | { kind: 'static';    display: string;              label: string }
-  | { kind: 'static-white'; display: string;           label: string }
-  | { kind: 'countdown';                               label: string };
+  | { kind: 'count';        end: number; suffix: string }
+  | { kind: 'static';       display: string }
+  | { kind: 'static-white'; display: string }
+  | { kind: 'countdown' };
 
+// Numbers and animation kind live here; their labels come from t.stats.labels.
 const stats: StatDef[] = [
-  { kind: 'count',        end: 48, suffix: 'h',  label: 'Bis zum ersten Angebot' },
-  { kind: 'static-white', display: '1–2',              label: 'Bis zur ersten Live-Lösung' },
-  { kind: 'count',     end: 24, suffix: '/7', label: 'Verfügbarkeit eurer KI' },
-  { kind: 'countdown',                         label: 'Manuelle Schritte nach Automatisierung' },
+  { kind: 'count',        end: 48, suffix: 'h'  },
+  { kind: 'static-white', display: '1–2'        },
+  { kind: 'count',        end: 24, suffix: '/7' },
+  { kind: 'countdown'                           },
 ];
 
 const techLogos: { type: 'img' | 'text'; src?: string; alt?: string; label?: string }[] = [
@@ -207,15 +157,6 @@ const techLogos: { type: 'img' | 'text'; src?: string; alt?: string; label?: str
   { type: 'text', label: 'Voiceflow' },
 ];
 
-const faqs = [
-  { q: 'Für welche Branchen funktioniert das?',         a: 'Prozessautomatisierung funktioniert branchenunabhängig — überall wo Aufgaben wiederholt werden, Systeme nicht verbunden sind oder Kommunikation manuell läuft. Wir haben Lösungen für Dienstleister, Handel, Handwerk und B2B-Unternehmen umgesetzt.' },
-  { q: 'Was kostet das?',                               a: 'Jedes Projekt ist individuell — Umfang, Komplexität und laufende Betreuung beeinflussen den Preis. Was wir sagen können: Ein automatisierter Prozess rechnet sich in der Regel innerhalb weniger Wochen. Im kostenlosen Erstgespräch nennen wir euch konkrete Zahlen — ohne Überraschungen danach.' },
-  { q: 'Wie lange dauert die Umsetzung?',               a: 'Erste Ergebnisse sind oft in 1–2 Wochen sichtbar. Komplexere Systeme mit mehreren Integrationen dauern entsprechend länger — das besprechen wir im Konzept transparent.' },
-  { q: 'Brauchen wir technisches Wissen?',              a: 'Nein. Ihr beschreibt euren Prozess, wir übernehmen alles Technische. Nach Übergabe bekommt ihr eine verständliche Dokumentation und Einführung.' },
-  { q: 'Ist das DSGVO-konform?',                        a: 'Ja. Wir sind ein deutsches Unternehmen und setzen alle Lösungen DSGVO-konform um. Datenspeicherung, Verarbeitung und Zugriffe werden transparent dokumentiert.' },
-  { q: 'Was passiert nach der Umsetzung?',              a: 'Wir begleiten den Go-Live, beheben Startschwierigkeiten und stehen für Anpassungen zur Verfügung. Auf Wunsch bieten wir laufende Betreuung und Weiterentwicklung.' },
-  { q: 'Was, wenn ich mit dem Ergebnis nicht zufrieden bin?', a: 'Wir arbeiten ergebnisorientiert — nicht stunden- oder projektbasiert. Wenn etwas nicht passt, passen wir es an. Das klären wir vor Projektstart vertraglich.' },
-];
 
 // ─── Utilities ───────────────────────────────────────────────────────────────
 
@@ -453,6 +394,7 @@ function FlyIn({
 
 // ─── Nav ─────────────────────────────────────────────────────────────────────
 function Nav() {
+  const { t } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [open,     setOpen]     = useState(false);
 
@@ -462,7 +404,7 @@ function Nav() {
     return () => window.removeEventListener('scroll', h);
   }, []);
 
-  const handleNav = (item: typeof NAV_ITEMS[0]) => {
+  const handleNav = (item: NavItem) => {
     if (item.id) scrollToId(item.id);
     setOpen(false);
   };
@@ -485,7 +427,7 @@ function Nav() {
           </button>
 
           <div className="hidden xl:flex items-center gap-8">
-            {NAV_ITEMS.map((item) => (
+            {t.nav.items.map((item) => (
               item.href
                 ? <Link key={item.href} to={item.href}
                     className="nav-item font-inter text-sm text-gray-400 hover:text-white transition-colors duration-150">
@@ -496,16 +438,17 @@ function Nav() {
                     {item.label}
                   </button>
             ))}
+            <LanguageSwitcher />
             <button onClick={() => scrollToId('kontakt')}
               className="px-5 py-2.5 bg-accent text-dark font-inter font-semibold text-sm rounded-lg hover:bg-accent/90 active:scale-[0.97] transition-all duration-150">
-              Prozessanalyse buchen
+              {t.nav.cta}
             </button>
           </div>
 
           <button
             className="xl:hidden text-white p-3 -mr-1 rounded-lg hover:bg-white/5 transition-colors"
             onClick={() => setOpen(!open)}
-            aria-label={open ? 'Menü schließen' : 'Menü öffnen'}
+            aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
             aria-expanded={open}>
             {open ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -518,7 +461,7 @@ function Nav() {
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
             className="fixed inset-0 z-40 bg-[#0a0a0a] pt-24 flex flex-col items-center gap-6 p-8 xl:hidden">
-            {NAV_ITEMS.map((item, i) => (
+            {t.nav.items.map((item, i) => (
               item.href
                 ? <motion.div key={item.href} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
                     <Link to={item.href} onClick={() => setOpen(false)} className="font-inter text-white text-xl">{item.label}</Link>
@@ -527,10 +470,14 @@ function Nav() {
                     onClick={() => handleNav(item)} className="font-inter text-white text-xl">{item.label}
                   </motion.button>
             ))}
-            <motion.button initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: NAV_ITEMS.length * 0.05 }}
+            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: t.nav.items.length * 0.05 }}
+              className="mt-2">
+              <LanguageSwitcher variant="inline" />
+            </motion.div>
+            <motion.button initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: (t.nav.items.length + 1) * 0.05 }}
               onClick={() => { scrollToId('kontakt'); setOpen(false); }}
-              className="mt-4 px-8 py-3 bg-accent text-dark font-inter font-semibold rounded-lg">
-              Prozessanalyse buchen
+              className="mt-2 px-8 py-3 bg-accent text-dark font-inter font-semibold rounded-lg">
+              {t.nav.cta}
             </motion.button>
           </motion.div>
         )}
@@ -541,7 +488,8 @@ function Nav() {
 
 // ─── Hero rotating quote strip ────────────────────────────────────────────────
 function HeroQuoteStrip({ idx }: { idx: number }) {
-  const q = HERO_QUOTES[idx % HERO_QUOTES.length];
+  const { t } = useLang();
+  const q = t.hero.quotes[idx % t.hero.quotes.length];
 
   return (
     /* Apex style: no card/border — raw text directly on the background */
@@ -584,12 +532,14 @@ function HeroQuoteStrip({ idx }: { idx: number }) {
 
 // ─── SECTION 1 — Hero ────────────────────────────────────────────────────────
 function HeroSection() {
+  const { t } = useLang();
   const staticRef      = useRef<HTMLSpanElement>(null);
   const gsapDone       = useRef(false);
   const [quoteIdx, setQuoteIdx] = useState(0);
+  const quoteCount     = t.hero.quotes.length;
   const wordRef        = useGsapCarousel(
-    TW_WORDS,
-    useCallback(() => setQuoteIdx((i) => (i + 1) % HERO_QUOTES.length), []),
+    t.hero.rotatingWords,
+    useCallback(() => setQuoteIdx((i) => (i + 1) % quoteCount), [quoteCount]),
   );
   const [arrowVisible, setArrowVisible] = useState(true);
 
@@ -618,11 +568,11 @@ function HeroSection() {
 
       <div className="relative z-10 max-w-5xl mx-auto text-center w-full">
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.05 }}>
-          <Label>KI-Automatisierung · Made in Germany</Label>
+          <Label>{t.hero.badge}</Label>
         </motion.div>
 
         <h1 className="font-syne font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-6 sm:mb-10">
-          <span ref={staticRef} className="block">Euer Unternehmen läuft. Schluss mit</span>
+          <span ref={staticRef} className="block">{t.hero.headlinePrefix}</span>
           <span className="hero-tw-line block" style={{ color: '#00E5FF', overflow: 'hidden' }}>
             <span ref={wordRef} style={{ display: 'inline-block' }} />
           </span>
@@ -632,7 +582,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.9 }}
           className="font-inter text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 sm:mb-12 leading-relaxed">
-          Wir bauen Webseiten, die Anfragen bringen, Vertriebstools, die neue Kunden finden, und Automatisierungen, die eure Routinearbeit erledigen — aus einer Hand, für kleine und mittlere Unternehmen.
+          {t.hero.subline}
         </motion.p>
 
         <motion.div
@@ -643,7 +593,7 @@ function HeroSection() {
             href="https://cal.eu/clavion/30min"
             target="_blank"
             rel="noopener noreferrer">
-            Kostenlose Prozessanalyse — 30 Min.
+            {t.hero.ctaPrimary}
             <ArrowRight className="w-4 h-4" />
           </ShimmerButton>
         </motion.div>
@@ -667,7 +617,7 @@ function HeroSection() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, delay: 1.8 }}
             onClick={() => scrollToId('problem')}
-            aria-label="Nach unten scrollen"
+            aria-label={t.hero.ctaSecondary}
             className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-0.5 text-accent/50 hover:text-accent/80 transition-colors animate-scroll-bounce">
             <ChevronDown className="w-5 h-5" />
             <ChevronDown className="w-5 h-5 -mt-3" />
@@ -683,12 +633,9 @@ function TrustBar() {
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-5% 0px' });
 
-  const items = [
-    { icon: MapPin,      text: 'Made in Germany' },
-    { icon: ShieldCheck, text: 'DSGVO-konform' },
-    { icon: Zap,         text: 'Angebot in 48h' },
-    { icon: Rocket,      text: 'Erste Ergebnisse in 1–2 Wochen' },
-  ];
+  const { t } = useLang();
+  const icons = [MapPin, ShieldCheck, Zap, Rocket];
+  const items = t.trustBar.map((text, i) => ({ icon: icons[i], text }));
 
   return (
     <div ref={ref} className="border-y border-white/5 bg-[rgba(0,229,255,0.02)] py-5 px-6">
@@ -713,6 +660,8 @@ function TrustBar() {
 
 // ─── SECTION 3 — Problem ─────────────────────────────────────────────────────
 function ProblemSection() {
+  const { t } = useLang();
+  const items = t.problems.items.map((p, i) => ({ ...p, icon: PROBLEM_ICONS[i] }));
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-8% 0px' });
   const { headRef } = useSplitHeadline(inView);
@@ -724,12 +673,12 @@ function ProblemSection() {
         <div className="text-center mb-14">
           <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
             className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white leading-tight">
-            Kommt euch das bekannt vor?
+            {t.problems.heading}
           </h2>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-          {problems.map((p, i) => (
+          {items.map((p, i) => (
             <FlyIn key={i} delay={0.1 + i * 0.1}>
               <GlowCard className="p-6 sm:p-7 h-full hover:-translate-y-1.5 transition-transform duration-300">
                 <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-5">
@@ -748,12 +697,14 @@ function ProblemSection() {
 
 // ─── SECTION 4 — Services / Personalisierung ─────────────────────────────────
 function ServicesSection() {
+  const { t } = useLang();
+  const items = t.services.items.map((sv, i) => ({ ...sv, icon: SERVICE_ICONS[i] }));
   const [activeIdx, setActiveIdx] = useState(0);
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-8% 0px' });
   const { headRef } = useSplitHeadline(inView);
 
-  const active = services[activeIdx];
+  const active = items[activeIdx];
 
   return (
     <section id="leistungen" style={{ scrollMarginTop: 80 }}
@@ -762,13 +713,13 @@ function ServicesSection() {
         <div className="text-center mb-12">
           <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
             className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white">
-            Was wir für euch bauen
+            {t.services.heading}
           </h2>
         </div>
 
         {/* 4 clickable tiles */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-5">
-          {services.map((s, i) => (
+          {items.map((s, i) => (
             <FlyIn key={s.id} delay={0.05 + i * 0.09} className="h-full">
               <motion.button
                 onClick={() => setActiveIdx(i)}
@@ -833,13 +784,12 @@ function ServicesSection() {
 }
 
 // ─── SECTION 5 — Über uns ─────────────────────────────────────────────────────
-const aboutHighlights = [
-  { icon: Users,  title: 'Berkay Aksoy & Marios Lysitsas', desc: 'Wir verstehen euer Business. Dann automatisieren wir es.' },
-  { icon: MapPin, title: 'Made in Germany',                 desc: 'Deutsch, zuverlässig, DSGVO-konform' },
-  { icon: Target, title: 'Ergebnisorientiert',              desc: 'Wir messen uns an eurem ROI' },
-];
+// Paired positionally with t.about.highlights.
+const ABOUT_ICONS = [Users, MapPin, Target];
 
 function AboutSection() {
+  const { t } = useLang();
+  const highlights = t.about.highlights.map((h, i) => ({ ...h, icon: ABOUT_ICONS[i] }));
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-8% 0px' });
   const { headRef } = useSplitHeadline(inView);
@@ -854,18 +804,17 @@ function AboutSection() {
           <div>
             <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
               className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white mb-4 sm:mb-6">
-              Wir sind Clavion
+              {t.about.heading}
             </h2>
             <div className="space-y-3 sm:space-y-5 font-inter text-gray-400 text-sm sm:text-base lg:text-lg leading-relaxed mb-6">
-              <p>Zwei junge Gründer mit einer klaren Mission: Deutschen Unternehmen den Zugang zu moderner KI-Technologie ermöglichen – ohne Buzzwords, ohne Überflüssiges.</p>
-              <p>Als studierte Wirtschaftsingenieure und Controller verbinden wir fundiertes technisches Know-how mit tiefem Verständnis für betriebswirtschaftliche Zusammenhänge.</p>
+              {t.about.body.split('\n\n').map((para, i) => <p key={i}>{para}</p>)}
             </div>
             <p className="font-inter text-gray-400 text-sm">Made in Germany · DSGVO-konform · Ergebnisorientiert</p>
           </div>
 
           {/* Right — 3 highlight cards + B/M avatar row (matches main layout exactly) */}
           <div className="space-y-3 sm:space-y-4">
-            {aboutHighlights.map((h, i) => (
+            {highlights.map((h, i) => (
               <FlyIn key={i} from="right" delay={0.15 + i * 0.1}>
                 <motion.div whileHover={{ y: -3 }} transition={{ type: 'spring', stiffness: 300, damping: 20 }}>
                   <GlowCard className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5">
@@ -904,6 +853,7 @@ function AboutSection() {
 
 // ─── SECTION 6 — Demo Placeholder ────────────────────────────────────────────
 function DemoSection() {
+  const { t } = useLang();
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-8% 0px' });
   const { headRef } = useSplitHeadline(inView);
@@ -915,7 +865,7 @@ function DemoSection() {
         <div className="text-center mb-10">
           <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
             className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white text-center">
-            Nicht erklären. Zeigen.
+            {t.demo.heading}
           </h2>
         </div>
 
@@ -951,6 +901,7 @@ function DemoSection() {
 
 // ─── SECTION 7 — Showcase Slideshow ──────────────────────────────────────────
 function ShowcaseSection() {
+  const { t } = useLang();
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-8% 0px' });
   const { headRef } = useSplitHeadline(inView);
@@ -969,7 +920,7 @@ function ShowcaseSection() {
         <div className="text-center mb-12">
           <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
             className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white text-center">
-            Aus der Praxis
+            {t.showcase.heading}
           </h2>
         </div>
 
@@ -985,7 +936,7 @@ function ShowcaseSection() {
               </div>
               <div className="min-w-0">
                 <h3 className="font-syne font-bold text-xl sm:text-2xl text-white leading-tight">Carbon4Future</h3>
-                <p className="font-inter text-sm text-gray-400">Nachhaltige Bodenprodukte · Pflanzenkohle</p>
+                <p className="font-inter text-sm text-gray-400">{t.showcase.caseTitle}</p>
               </div>
               <a href="https://www.c4f.bio" target="_blank" rel="noopener noreferrer"
                 className="ml-auto hidden sm:inline-flex items-center gap-1.5 font-inter text-sm text-accent hover:text-accent/70 transition-colors flex-shrink-0">
@@ -995,10 +946,7 @@ function ShowcaseSection() {
 
             {/* What we built */}
             <p className="font-inter text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
-              Für Carbon4Future haben wir die komplette digitale Präsenz aufgebaut: Website und
-              Shopify-Onlineshop für ihre CO₂-bindenden Pflanzenkohle-Produkte, dazu ein Vertriebssystem
-              aus LeadGen und LeadTracker. Damit haben wir geholfen, als Teil einer 40.000-Leads-Kampagne
-              potenzielle Kunden zu recherchieren, anzureichern und anzuschreiben.
+              {t.showcase.caseBody}
             </p>
 
             {/* Deliverables */}
@@ -1040,6 +988,8 @@ function ShowcaseSection() {
 
 // ─── SECTION 8 — Prozess ─────────────────────────────────────────────────────
 function ProcessSection() {
+  const { t } = useLang();
+  const steps = t.process.steps.map((st, i) => ({ ...st, ...STEP_META[i] }));
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '0px' });
   const { headRef } = useSplitHeadline(inView);
@@ -1052,7 +1002,7 @@ function ProcessSection() {
         <div className="text-center mb-14">
           <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
             className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white">
-            So starten wir zusammen
+            {t.process.heading}
           </h2>
         </div>
 
@@ -1093,6 +1043,7 @@ function ProcessSection() {
 
 // ─── SECTION 9 — Zahlen / Stats ──────────────────────────────────────────────
 function StatsSection() {
+  const { t } = useLang();
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-8% 0px' });
   const { headRef } = useSplitHeadline(inView);
@@ -1105,7 +1056,7 @@ function StatsSection() {
         <div className="text-center mb-14">
           <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
             className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white">
-            Unser Versprechen
+            {t.stats.heading}
           </h2>
         </div>
 
@@ -1115,13 +1066,13 @@ function StatsSection() {
             {stats.map((s, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}>
                 {s.kind === 'count'
-                  ? <Counter end={s.end} suffix={s.suffix} label={s.label} active={inView} />
+                  ? <Counter end={s.end} suffix={s.suffix} label={t.stats.labels[i]} active={inView} />
                   : s.kind === 'countdown'
-                  ? <CountdownStat label={s.label} active={inView} />
+                  ? <CountdownStat label={t.stats.labels[i]} active={inView} />
                   : <div className="text-center">
                       <div className="font-syne font-bold text-5xl sm:text-6xl md:text-7xl text-white tabular-nums leading-none">{s.display}</div>
-                      <div className="font-syne font-semibold text-lg sm:text-xl text-accent mt-1">Wochen</div>
-                      <p className="font-inter text-gray-400 text-base sm:text-lg mt-3">{s.label}</p>
+                      <div className="font-syne font-semibold text-lg sm:text-xl text-accent mt-1">{t.stats.weeksUnit}</div>
+                      <p className="font-inter text-gray-400 text-base sm:text-lg mt-3">{t.stats.labels[i]}</p>
                     </div>
                 }
               </motion.div>
@@ -1155,6 +1106,7 @@ function StatsSection() {
 
 // ─── SECTION 10 — FAQ ─────────────────────────────────────────────────────────
 function FAQSection() {
+  const { t } = useLang();
   const [open, setOpen] = useState<number | null>(0);
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-8% 0px' });
@@ -1172,7 +1124,7 @@ function FAQSection() {
           <div className="lg:sticky lg:top-28">
             <h2 ref={headRef as React.RefObject<HTMLHeadingElement>}
               className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white mb-5 leading-tight">
-              Häufige Fragen
+              {t.faq.heading}
             </h2>
             <p className="font-inter text-gray-400 text-sm sm:text-base leading-relaxed mb-6">
               Noch etwas unklar? Schreib uns einfach — wir antworten innerhalb von 24h.
@@ -1186,7 +1138,7 @@ function FAQSection() {
 
           {/* ── Right: accordion ── */}
           <div className="space-y-2">
-            {faqs.map((faq, i) => (
+            {t.faq.items.map((faq, i) => (
               <FlyIn key={i} delay={0.07 + i * 0.06}>
               <div
                 className="glass-card rounded-xl px-5 hover:border-accent/25 hover:shadow-[0_0_20px_rgba(0,212,255,0.06)] transition-all duration-300">
@@ -1228,20 +1180,10 @@ function FAQSection() {
 }
 
 // ─── SECTION 11 — Finaler CTA ─────────────────────────────────────────────────
-function CTASection() {
+function CTASection({ onWrite }: { onWrite: () => void }) {
+  const { t } = useLang();
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-8% 0px' });
-
-  useEffect(() => {
-    // Avoid double-loading if Tally is already present
-    if (document.querySelector('script[src*="tally.so"]')) return;
-    const script = document.createElement('script');
-    script.src   = 'https://tally.so/widgets/embed.js';
-    script.async = true;
-    script.onerror = () => console.warn('Tally form script failed to load.');
-    document.body.appendChild(script);
-    return () => { if (document.body.contains(script)) document.body.removeChild(script); };
-  }, []);
 
   return (
     <section id="kontakt" style={{ scrollMarginTop: 80 }}
@@ -1259,13 +1201,13 @@ function CTASection() {
             {/* ── Left column ── */}
             <div className="p-7 sm:p-10 flex flex-col">
               <h2 className="font-syne font-bold text-2xl sm:text-3xl text-white mb-4 leading-tight">
-                Zeigt uns einen Prozess, der euch täglich Zeit kostet.
+                {t.contact.heading}
               </h2>
               <p className="font-inter text-gray-400 text-sm sm:text-base leading-relaxed mb-1">
-                In 30 Minuten analysieren wir gemeinsam, was sich automatisieren lässt — konkret, kostenlos, ohne Verkaufsgespräch.
+                {t.contact.body}
               </p>
               <p className="font-inter text-gray-400 text-xs sm:text-sm mb-8">
-                Kein Risiko — das Erstgespräch ist kostenlos &amp; vollständig unverbindlich.
+                {t.contact.noRisk}
               </p>
 
               {/* Termin-Card */}
@@ -1275,12 +1217,12 @@ function CTASection() {
                     <Calendar className="w-5 h-5 text-accent" />
                   </div>
                   <div>
-                    <p className="font-syne font-semibold text-white text-sm">Termin vereinbaren</p>
-                    <p className="font-inter text-gray-500 text-xs">30 Min., kostenlos &amp; unverbindlich</p>
+                    <p className="font-syne font-semibold text-white text-sm">{t.contact.bookTitle}</p>
+                    <p className="font-inter text-gray-500 text-xs">{t.contact.bookBody}</p>
                   </div>
                 </div>
                 <ShimmerButton href="https://cal.eu/clavion/30min" target="_blank" rel="noopener noreferrer" className="w-full justify-center py-3.5">
-                  Jetzt Termin buchen
+                  {t.contact.bookCta}
                   <ArrowRight className="w-4 h-4" />
                 </ShimmerButton>
               </div>
@@ -1289,19 +1231,15 @@ function CTASection() {
             {/* ── Right column — softer entry point ── */}
             <div className="p-7 sm:p-10 flex flex-col">
               <h3 className="font-syne font-bold text-xl sm:text-2xl text-white mb-4 leading-tight">
-                Noch nicht sicher?
+                {t.contact.notSureTitle}
               </h3>
               <p className="font-inter text-gray-400 text-sm sm:text-base leading-relaxed mb-6">
-                Schreib uns kurz, was euch beschäftigt — wir schauen gemeinsam, ob und wie wir helfen können.
+                {t.contact.notSureBody}
               </p>
 
               {/* Trust bullets — fills visual space, mirrors calendar card weight on left */}
               <ul className="space-y-3 mb-6">
-                {[
-                  'Antwort innerhalb von 24h',
-                  'Kein Formular, kein Verkaufsgespräch',
-                  'Ihr müsst nichts vorbereiten',
-                ].map((item) => (
+                {t.contact.bullets.map((item) => (
                   <li key={item} className="flex items-center gap-3 px-4 py-2.5 bg-white/[0.03] rounded-xl border border-white/[0.06]">
                     <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
                     <span className="font-inter text-sm text-gray-300">{item}</span>
@@ -1311,22 +1249,17 @@ function CTASection() {
 
               <div className="mt-auto space-y-3">
                 <button
-                  onClick={() => {
-                    const el = document.querySelector('[data-tally-open="2Evere"]') as HTMLElement;
-                    if (el) { el.click(); } else { window.open('https://tally.so/r/2Evere', '_blank', 'noopener,noreferrer'); }
-                  }}
+                  onClick={onWrite}
                   className="w-full justify-center py-3.5 px-6 font-inter font-semibold text-base text-white border border-white/20 rounded-xl hover:border-accent/50 hover:text-accent hover:bg-accent/5 transition-all duration-200 flex items-center gap-2">
-                  Unverbindlich schreiben
+                  {t.contact.writeCta}
                   <ArrowRight className="w-4 h-4" />
                 </button>
-                {/* Hidden trigger for Tally */}
-                <button data-tally-open="2Evere" className="hidden" aria-hidden />
 
                 {/* Chatbot hint */}
                 <div className="flex items-center gap-3 p-3.5 bg-white/[0.03] rounded-xl border border-white/[0.06]">
                   <MessageSquare className="w-4 h-4 text-accent flex-shrink-0" />
                   <p className="font-inter text-gray-400 text-xs sm:text-sm">
-                    Schnelle Antwort? Unser KI-Chatbot rechts unten ist sofort da.
+                    {t.contact.chatbotHint}
                   </p>
                 </div>
               </div>
@@ -1342,6 +1275,7 @@ function CTASection() {
 // ─── GEO: AI-crawlable about block ───────────────────────────────────────────
 // Visually hidden (sr-only), fully readable by AI crawlers and search engines.
 function GeoAboutBlock() {
+  const { t } = useLang();
   return (
     <div
       aria-hidden="true"
@@ -1357,41 +1291,25 @@ function GeoAboutBlock() {
         border: 0,
       }}
     >
-      <h2>Über Clavion – KI-Automatisierung für deutsche Unternehmen</h2>
-      <p>
-        Clavion ist eine deutsche KI-Automatisierungsagentur mit Sitz in Deutschland, gegründet
-        von Berkay Aksoy und Marios Lysitsas. Wir helfen kleinen und mittelständischen Unternehmen
-        (KMU), Handwerkern und Dienstleistern in Deutschland, Österreich und der Schweiz (DACH),
-        manuelle Arbeitsprozesse durch KI-gestützte Automatisierung zu ersetzen.
-      </p>
-      <p>
-        Unsere Leistungen umfassen: Prozessautomatisierung mit n8n, Make und Zapier;
-        System-Integration via REST APIs und Webhooks; KI-Chatbots und Voice Agents für
-        24/7-Kundenservice und Terminvereinbarung; sowie individuelle Custom-KI-Lösungen mit
-        LLM-Agenten, RAG und Dokumenten-KI.
-      </p>
-      <p>
-        Alle Lösungen sind DSGVO-konform und werden auf EU-Servern betrieben. Projekte starten
-        ab 2.000 EUR. Nach einem kostenlosen 30-minütigen Erstgespräch erhalten Kunden innerhalb
-        von 48 Stunden ein transparentes Angebot. Erste Ergebnisse sind typischerweise in 1–2
-        Wochen sichtbar.
-      </p>
-      <p>
-        Gründer: Berkay Aksoy und Marios Lysitsas – Wirtschaftsingenieure mit Spezialisierung auf
-        KI-Technologie und betriebswirtschaftliche Prozessoptimierung. Clavion arbeitet
-        ergebnisorientiert: Messbare Zeitersparnis und ROI für Kunden sind das primäre Ziel.
-      </p>
-      <p>
-        Hauptkeywords: KI-Automatisierung Deutschland, Prozessautomatisierung KMU,
-        KI-Chatbot deutsches Unternehmen, Workflow Automatisierung DACH, Voice Agent Deutschland,
-        n8n Automatisierung Agentur, KI Agentur DACH.
-      </p>
+      <h2>{t.geo.heading}</h2>
+      {t.geo.paragraphs.map((para, i) => <p key={i}>{para}</p>)}
     </div>
   );
 }
 
 // ─── Home ─────────────────────────────────────────────────────────────────────
 export function Home() {
+  const { t, lang } = useLang();
+  const [formOpen, setFormOpen] = useState(false);
+
+  // Title and description follow the switcher. There is a single URL per page
+  // (no /en/ or /es/ prefixes), so the canonical stays the same for all three.
+  usePageMeta({
+    title: t.meta.title,
+    description: t.meta.description,
+    canonical: 'https://clavion.pro/',
+  });
+
   const rawMouseX = useMotionValue(0);
   const rawMouseY = useMotionValue(0);
   const mouseX    = useSpring(rawMouseX, { stiffness: 60, damping: 25 });
@@ -1412,14 +1330,14 @@ export function Home() {
               <span className="font-syne font-bold text-lg text-white">Clavion</span>
             </div>
             <p className="font-inter text-gray-500 leading-relaxed max-w-sm text-sm">
-              KI-Automatisierung für deutsche Unternehmen. Wir machen Technologie nutzbar — ohne Buzzwords.
+              {t.footer.tagline}
             </p>
           </div>
 
           <div>
-            <h4 className="font-syne font-semibold text-white mb-4 text-sm">Navigation</h4>
+            <h4 className="font-syne font-semibold text-white mb-4 text-sm">{t.footer.navHeading}</h4>
             <ul className="space-y-3">
-              {NAV_ITEMS.map((item) => (
+              {t.nav.items.map((item) => (
                 <li key={item.href ?? item.id}>
                   {item.href
                     ? <Link to={item.href} className="font-inter text-gray-500 hover:text-accent transition-colors text-sm">{item.label}</Link>
@@ -1431,17 +1349,17 @@ export function Home() {
           </div>
 
           <div>
-            <h4 className="font-syne font-semibold text-white mb-4 text-sm">Rechtliches</h4>
+            <h4 className="font-syne font-semibold text-white mb-4 text-sm">{t.footer.legalHeading}</h4>
             <ul className="space-y-3">
-              <li><Link to="/impressum"   className="font-inter text-gray-500 hover:text-accent transition-colors text-sm">Impressum</Link></li>
-              <li><Link to="/datenschutz" className="font-inter text-gray-500 hover:text-accent transition-colors text-sm">Datenschutz</Link></li>
+              <li><Link to="/impressum"   className="font-inter text-gray-500 hover:text-accent transition-colors text-sm">{t.footer.imprint}</Link></li>
+              <li><Link to="/datenschutz" className="font-inter text-gray-500 hover:text-accent transition-colors text-sm">{t.footer.privacy}</Link></li>
             </ul>
           </div>
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-inter text-gray-600 text-sm">© {new Date().getFullYear()} Clavion. Alle Rechte vorbehalten.</p>
-          <p className="font-inter text-gray-600 text-sm">DSGVO-konform · Made in Germany · Remote-first</p>
+          <p className="font-inter text-gray-600 text-sm">© {new Date().getFullYear()} Clavion. {t.footer.rights}</p>
+          <p className="font-inter text-gray-600 text-sm">{t.footer.badges}</p>
         </div>
       </div>
     </footer>
@@ -1460,8 +1378,11 @@ export function Home() {
           style={{ background: 'radial-gradient(ellipse at center, transparent 32%, rgba(10,10,10,0.82) 100%)' }} />
       </div>
 
-      {/* All content above starfield */}
-      <div className="relative z-10">
+      {/* All content above starfield.
+          Keyed on `lang` so every section remounts on a language switch —
+          SplitText and the GSAP carousel bake their text in at mount, and
+          re-running them is far simpler than teaching each to re-split. */}
+      <div className="relative z-10" key={lang}>
         <GeoAboutBlock />
         <Nav />
         <HeroSection />
@@ -1474,9 +1395,11 @@ export function Home() {
         <ProcessSection />
         <StatsSection />
         <FAQSection />
-        <CTASection />
+        <CTASection onWrite={() => setFormOpen(true)} />
         {footer}
       </div>
+
+      <ContactForm open={formOpen} onClose={() => setFormOpen(false)} />
     </div>
   );
 }

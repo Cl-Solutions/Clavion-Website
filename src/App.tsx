@@ -1,6 +1,7 @@
 import { Component, lazy, Suspense, type ReactNode } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { MotionConfig } from 'framer-motion';
+import { LanguageProvider } from './i18n';
 
 const Home        = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
 const Impressum   = lazy(() => import('./pages/Impressum').then(m => ({ default: m.Impressum })));
@@ -75,18 +76,20 @@ function App() {
   return (
     <ErrorBoundary>
       <MotionConfig reducedMotion="user">
-        <BrowserRouter>
-          <Suspense fallback={<PageFallback />}>
-            <Routes>
-              <Route path="/"            element={<Home />} />
-              <Route path="/impressum"   element={<Impressum />} />
-              <Route path="/datenschutz" element={<Datenschutz />} />
-              <Route path="/blog"        element={<Blog />} />
-              <Route path="/blog/:slug"  element={<BlogPost />} />
-              <Route path="*"            element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
+        <LanguageProvider>
+          <BrowserRouter>
+            <Suspense fallback={<PageFallback />}>
+              <Routes>
+                <Route path="/"            element={<Home />} />
+                <Route path="/impressum"   element={<Impressum />} />
+                <Route path="/datenschutz" element={<Datenschutz />} />
+                <Route path="/blog"        element={<Blog />} />
+                <Route path="/blog/:slug"  element={<BlogPost />} />
+                <Route path="*"            element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+        </LanguageProvider>
       </MotionConfig>
     </ErrorBoundary>
   );

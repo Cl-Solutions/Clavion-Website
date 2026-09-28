@@ -4,6 +4,8 @@ import DOMPurify from 'dompurify';
 import { getPostBySlug, formatDate } from '../data/blogPosts';
 import { CustomCursor } from '../components/CustomCursor';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { LanguageSwitcher } from '../components/LanguageSwitcher';
+import { useLang } from '../i18n';
 
 function BlogPostMeta({ post }: { post: NonNullable<ReturnType<typeof getPostBySlug>> }) {
   usePageMeta({
@@ -60,6 +62,7 @@ function BlogPostMeta({ post }: { post: NonNullable<ReturnType<typeof getPostByS
 }
 
 export function BlogPost() {
+  const { t } = useLang();
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getPostBySlug(slug) : undefined;
 
@@ -82,20 +85,23 @@ export function BlogPost() {
             <img src="/logo.png" alt="Clavion" className="h-16 w-auto" height={64} />
             <span className="font-syne font-bold text-lg text-white">Clavion</span>
           </Link>
-          <div className="hidden md:flex items-center gap-8">
-            <Link to="/" className="nav-item font-inter text-sm text-gray-400 hover:text-white transition-colors duration-150">
-              Startseite
+          <div className="flex items-center gap-4 md:gap-8">
+            <Link to="/" className="hidden md:inline nav-item font-inter text-sm text-gray-400 hover:text-white transition-colors duration-150">
+              {t.blog.home}
             </Link>
-            <Link to="/blog" className="nav-item font-inter text-sm text-[#00E5FF] transition-colors duration-150">
-              Blog
+            <Link to="/blog" className="hidden md:inline nav-item font-inter text-sm text-[#00E5FF] transition-colors duration-150">
+              {t.blog.heading}
             </Link>
+            {/* Kept outside the md: gate — this nav has no mobile menu, so
+                hiding the switcher would strand phone readers in one language. */}
+            <LanguageSwitcher />
             <a
               href="https://cal.eu/clavion/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 bg-[#00E5FF] text-[#0a0a0a] font-inter font-medium text-sm rounded-lg hover:bg-[#00E5FF]/90 transition-colors"
+              className="hidden md:inline px-5 py-2.5 bg-[#00E5FF] text-[#0a0a0a] font-inter font-medium text-sm rounded-lg hover:bg-[#00E5FF]/90 transition-colors"
             >
-              Erstgespräch buchen
+              {t.blog.bookCta}
             </a>
           </div>
         </div>
@@ -105,7 +111,7 @@ export function BlogPost() {
       <div className="md:hidden fixed top-20 left-0 right-0 z-40 px-4 py-2 bg-[rgba(10,10,10,0.85)] backdrop-blur-sm">
         <Link
           to="/blog"
-          aria-label="Zurück zum Blog"
+          aria-label={t.blog.backToBlog}
           className="inline-flex items-center gap-1.5 font-inter text-sm text-[#00E5FF]"
         >
           <span aria-hidden="true">←</span>
@@ -123,7 +129,7 @@ export function BlogPost() {
             className="inline-flex items-center gap-2 font-inter text-sm text-gray-500 hover:text-[#00E5FF] transition-colors duration-150 mb-10"
           >
             <span>←</span>
-            <span>Zurück zum Blog</span>
+            <span>{t.blog.backToBlog}</span>
           </Link>
 
           {/* Meta */}
@@ -136,7 +142,7 @@ export function BlogPost() {
             </span>
             <span className="font-inter text-xs text-gray-600">·</span>
             <span className="font-inter text-xs text-gray-500">
-              {post.readingTime} Lesezeit
+              {post.readingTime}
             </span>
           </div>
 
@@ -160,14 +166,14 @@ export function BlogPost() {
       <footer className="border-t border-white/10 py-10 px-6">
         <div className="max-w-[720px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-inter text-gray-600 text-sm">
-            © {new Date().getFullYear()} Clavion. Alle Rechte vorbehalten.
+            © {new Date().getFullYear()} Clavion. {t.footer.rights}
           </p>
           <div className="flex items-center gap-6">
             <Link to="/impressum" className="font-inter text-gray-600 hover:text-gray-400 text-sm transition-colors">
-              Impressum
+              {t.footer.imprint}
             </Link>
             <Link to="/datenschutz" className="font-inter text-gray-600 hover:text-gray-400 text-sm transition-colors">
-              Datenschutz
+              {t.footer.privacy}
             </Link>
           </div>
         </div>

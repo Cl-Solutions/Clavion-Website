@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { CustomCursor } from '../components/CustomCursor';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { useLang } from '../i18n';
 
 export function Impressum() {
+  const { t, lang } = useLang();
   usePageMeta({
     title: 'Impressum | Clavion',
     description: 'Impressum der Clavion GbR, Mühlacker – Angaben gemäß § 5 TMG.',
@@ -31,12 +33,18 @@ export function Impressum() {
             className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors mb-8 font-inter"
           >
             <ArrowLeft className="w-4 h-4" />
-            Zurück zur Startseite
+            {t.legal.backHome}
           </Link>
 
           <h1 className="font-syne font-bold text-4xl md:text-5xl text-white mb-12">
             Impressum
           </h1>
+
+          {lang !== 'de' && (
+            <p className="mb-10 rounded-xl border border-white/10 bg-white/[0.03] p-5 font-inter text-sm text-gray-400 leading-relaxed">
+              {t.legal.germanBindingNotice}
+            </p>
+          )}
 
           <div className="space-y-8 font-inter text-gray-400 leading-relaxed">
             <section>

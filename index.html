@@ -2,6 +2,39 @@
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
+
+    <!--
+      Set the document language before anything else runs.
+
+      The React LanguageProvider sets this too, but only once it has mounted —
+      by which point the Chatbase widget below has already read <html lang> and
+      locked in its own interface language (it passes it through as `hostLang`).
+      Running the same detection here, first, keeps the chatbot in step with the
+      language switcher on a cold load. Must stay in sync with src/i18n/index.tsx.
+    -->
+    <script>
+      (function () {
+        var LANGS = ['de', 'en', 'es'];
+        var pick = 'de';
+        try {
+          var stored = localStorage.getItem('clavion.lang');
+          if (LANGS.indexOf(stored) !== -1) {
+            pick = stored;
+          } else {
+            var prefs = (navigator.languages && navigator.languages.length)
+              ? navigator.languages
+              : [navigator.language || 'de'];
+            for (var i = 0; i < prefs.length; i++) {
+              var base = String(prefs[i]).slice(0, 2).toLowerCase();
+              if (LANGS.indexOf(base) !== -1) { pick = base; break; }
+            }
+          }
+        } catch (e) {
+          /* private mode or no navigator languages — keep the default */
+        }
+        document.documentElement.lang = pick;
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- ─── Primary Meta Tags ──────────────────────────────────────────────── -->
