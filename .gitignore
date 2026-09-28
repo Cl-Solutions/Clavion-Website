@@ -6,3 +6,8 @@ dist
 *.log
 .DS_Store
 .vite
+
+# Claude Code local tooling
+.claude/launch.json
+.claude/settings.local.json
+.claude/worktrees/
