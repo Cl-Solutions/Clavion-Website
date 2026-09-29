@@ -1,7 +1,10 @@
 User-agent: *
 Allow: /
-Disallow: /assets/
 Disallow: /*.json$
+
+# /assets/ is deliberately NOT disallowed. This site renders entirely on the
+# client, so a crawler that cannot fetch the JS and CSS bundles sees an empty
+# <div id="root"> and none of the page text.
 
 # AI Search Crawlers – explicitly allowed
 User-agent: GPTBot

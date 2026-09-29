@@ -90,10 +90,6 @@
   transform-origin: left;
 }
 
-/* Hide scrollbar on the services scroll container while keeping functionality */
-[data-scroll-no-bar]::-webkit-scrollbar {
-  display: none;
-}
 
 @keyframes tw-blink {
   0%, 100% { opacity: 1; }

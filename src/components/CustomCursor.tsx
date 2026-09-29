@@ -23,12 +23,20 @@ export function CustomCursor() {
       setVisible(true);
     };
 
+    // Named, so the cleanup can actually remove them. They used to be inline
+    // arrow functions, which meant a fresh reference every mount and no way to
+    // detach — each page navigation left two more behind on document.body.
+    const onLeave = () => setVisible(false);
+    const onEnter = () => setVisible(true);
+
     window.addEventListener('mousemove', onMove);
-    document.body.addEventListener('mouseleave', () => setVisible(false));
-    document.body.addEventListener('mouseenter', () => setVisible(true));
+    document.body.addEventListener('mouseleave', onLeave);
+    document.body.addEventListener('mouseenter', onEnter);
 
     return () => {
       window.removeEventListener('mousemove', onMove);
+      document.body.removeEventListener('mouseleave', onLeave);
+      document.body.removeEventListener('mouseenter', onEnter);
     };
   }, []);
 
