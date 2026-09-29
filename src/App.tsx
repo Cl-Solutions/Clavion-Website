@@ -1,5 +1,5 @@
-import { Component, lazy, Suspense, type ReactNode } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Component, lazy, Suspense, useEffect, type ReactNode } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { MotionConfig } from 'framer-motion';
 import { LanguageProvider } from './i18n';
 
@@ -9,6 +9,24 @@ const Datenschutz = lazy(() => import('./pages/Datenschutz').then(m => ({ defaul
 const Blog        = lazy(() => import('./pages/Blog').then(m => ({ default: m.Blog })));
 const BlogPost    = lazy(() => import('./pages/BlogPost').then(m => ({ default: m.BlogPost })));
 const NotFound    = lazy(() => import('./pages/NotFound').then(m => ({ default: m.NotFound })));
+
+/**
+ * Reset the scroll position on navigation.
+ *
+ * React Router keeps the window's scroll offset across route changes, so
+ * clicking "Blog" halfway down the home page used to land the reader halfway
+ * down the blog. A hash is left alone — Home scrolls to it on purpose.
+ */
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) return;
+    window.scrollTo(0, 0);
+  }, [pathname, hash]);
+
+  return null;
+}
 
 const PageFallback = () => (
   <div style={{ minHeight: '100vh', background: '#0a0a0a' }} />
@@ -78,6 +96,7 @@ function App() {
       <MotionConfig reducedMotion="user">
         <LanguageProvider>
           <BrowserRouter>
+            <ScrollToTop />
             <Suspense fallback={<PageFallback />}>
               <Routes>
                 <Route path="/"            element={<Home />} />

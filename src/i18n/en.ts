@@ -142,6 +142,52 @@ export const en: Dict = {
   demo: {
     heading: 'Less explaining. More showing.',
     sub: '',
+    chatbotHintPrefix: 'Try the AI chatbot for yourself — ',
+    chatbotHintLink: 'open it bottom right ↓',
+    aboutBadges: 'Made in Germany · GDPR-compliant · Results-driven',
+    foundersRole: 'Founders, Clavion',
+    caseStatLeads: 'Leads · research & outreach',
+    caseStatServices: 'Services from one team',
+    caseShopLive: 'Shop live at c4f.bio',
+    techIntro: 'What we work with',
+  },
+
+  demoScenes: {
+    tabs: ['Lead pipeline', 'Time tracking', 'Website', 'Automation'],
+    website: {
+      label: 'Website · Design, shop & chatbot from one team',
+      shopBadge: 'Shop',
+      assistant: 'AI assistant',
+      online: 'online',
+      visitorMsg: 'Do you have a slot for a quote?',
+      botReplyPrefix: 'Of course! ',
+      botReplySlot: 'Tue 14 May, 10:00',
+      botReplySuffix: ' works — booked ✓',
+      bookedToast: 'Appointment booked & in the calendar',
+    },
+    automation: {
+      label: 'Process automation · No manual work',
+      trigger: 'Trigger',
+      triggerEvent: 'New order received',
+      processing: 'AI processing',
+      actions: ['Invoice created', 'Stock updated', 'Shipping triggered', 'Customer email sent'],
+    },
+    leads: {
+      label: 'Lead pipeline · LeadGen → LeadTracker',
+      leadsCaption: 'Leads · with email',
+      stats: ['Sent', 'Opened', 'Replied'],
+    },
+    time: {
+      label: 'ZeitWerk · Time tracking for jobs & teams',
+      running: 'Running · Job Bad Müller',
+      thisWeek: 'This week',
+      generating: 'Creating timesheet…',
+      sheetTitle: 'Timesheet · week 27',
+      totalThisWeek: 'Total · this week',
+      entries: ['Bathroom refit Müller', 'Travel to site', 'Lunch break', 'Heating Wagner'],
+      projectWork: 'Work',
+      projectBreak: 'Break',
+    },
   },
 
   showcase: {

@@ -11,6 +11,8 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Search, Send } from 'lucide-react';
 
 // ─── Design tokens ────────────────────────────────────────────────────────────
+import { useLang } from '../../i18n';
+
 const C  = '#00E5FF';
 const CL = 'rgba(0,229,255,0.14)';
 const CB = 'rgba(0,229,255,0.07)';
@@ -55,6 +57,7 @@ function SceneLabel({ children, color = C }: { children: React.ReactNode; color?
 
 // ─── SCENE 1 — KI-Website (Chatbot im Browser) ───────────────────────────────
 function Scene1({ active, isMobile }: { active: boolean; isMobile: boolean }) {
+  const { t } = useLang();
   const [step, setStep] = useState(0);
 
   useEffect(() => {
@@ -75,7 +78,7 @@ function Scene1({ active, isMobile }: { active: boolean; isMobile: boolean }) {
 
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: isMobile ? '34px 14px 50px' : '44px 32px 56px' }}>
-      <SceneLabel>Webseite · Design, Shop &amp; Chatbot aus einer Hand</SceneLabel>
+      <SceneLabel>{t.demoScenes.website.label}</SceneLabel>
 
       {/* Browser window */}
       <motion.div initial={{ opacity: 0, y: 14, scale: 0.97 }} animate={step >= 1 ? { opacity: 1, y: 0, scale: 1 } : {}} transition={{ type: 'spring', stiffness: 160, damping: 20 }}
@@ -139,7 +142,7 @@ function Scene1({ active, isMobile }: { active: boolean; isMobile: boolean }) {
           {/* Shop section — revealed by the scroll (Design & Shop aus einer Hand) */}
           <div style={{ marginTop: isMobile ? 12 : 16 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 7, marginBottom: isMobile ? 7 : 9 }}>
-              <span style={{ fontFamily: F, fontSize: isMobile ? 7.5 : 8.5, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: C, background: CB, border: `1px solid ${C}30`, borderRadius: 4, padding: '2px 7px' }}>Shop</span>
+              <span style={{ fontFamily: F, fontSize: isMobile ? 7.5 : 8.5, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: C, background: CB, border: `1px solid ${C}30`, borderRadius: 4, padding: '2px 7px' }}>{t.demoScenes.website.shopBadge}</span>
               <div style={{ flex: 1, height: 1, background: 'rgba(255,255,255,0.06)' }} />
             </div>
             <div style={{ display: 'flex', gap: isMobile ? 7 : 10 }}>
@@ -165,12 +168,12 @@ function Scene1({ active, isMobile }: { active: boolean; isMobile: boolean }) {
                 style={{ position: 'absolute', right: isMobile ? 8 : 14, bottom: isMobile ? 8 : 14, width: isMobile ? 172 : 208, background: 'rgba(5,7,9,0.97)', border: `1px solid ${C}45`, borderRadius: 12, overflow: 'hidden', boxShadow: `0 12px 32px rgba(0,0,0,0.55)` }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '8px 11px', background: CL, borderBottom: `1px solid ${C}25` }}>
                   <div style={{ width: 7, height: 7, borderRadius: '50%', background: '#34d399', boxShadow: '0 0 6px #34d399' }} />
-                  <span style={{ fontFamily: FS, fontSize: isMobile ? 10 : 11, color: '#fff', fontWeight: 600 }}>KI-Assistent</span>
-                  <span style={{ marginLeft: 'auto', fontFamily: F, fontSize: isMobile ? 7.5 : 8.5, color: 'rgba(255,255,255,0.4)' }}>online</span>
+                  <span style={{ fontFamily: FS, fontSize: isMobile ? 10 : 11, color: '#fff', fontWeight: 600 }}>{t.demoScenes.website.assistant}</span>
+                  <span style={{ marginLeft: 'auto', fontFamily: F, fontSize: isMobile ? 7.5 : 8.5, color: 'rgba(255,255,255,0.4)' }}>{t.demoScenes.website.online}</span>
                 </div>
                 <div style={{ padding: 10, display: 'flex', flexDirection: 'column', gap: 6 }}>
                   <div style={{ alignSelf: 'flex-end', background: CB, border: `1px solid ${C}30`, borderRadius: '9px 9px 2px 9px', padding: '6px 9px', fontFamily: F, fontSize: isMobile ? 10 : 11, color: 'rgba(255,255,255,0.86)', maxWidth: '92%', lineHeight: 1.4 }}>
-                    Habt ihr Termine für ein Angebot?
+                    {t.demoScenes.website.visitorMsg}
                   </div>
                   {step === 4 && (
                     <div style={{ alignSelf: 'flex-start', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '9px 9px 9px 2px', padding: '7px 11px', display: 'flex', gap: 4 }}>
@@ -183,7 +186,7 @@ function Scene1({ active, isMobile }: { active: boolean; isMobile: boolean }) {
                   {step >= 5 && (
                     <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
                       style={{ alignSelf: 'flex-start', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '9px 9px 9px 2px', padding: '6px 9px', fontFamily: F, fontSize: isMobile ? 10 : 11, color: 'rgba(255,255,255,0.86)', maxWidth: '94%', lineHeight: 1.45 }}>
-                      Klar! <span style={{ color: C, fontWeight: 600 }}>Di. 14. Mai, 10:00</span> passt — gebucht ✓
+                      {t.demoScenes.website.botReplyPrefix}<span style={{ color: C, fontWeight: 600 }}>{t.demoScenes.website.botReplySlot}</span>{t.demoScenes.website.botReplySuffix}
                     </motion.div>
                   )}
                 </div>
@@ -196,7 +199,7 @@ function Scene1({ active, isMobile }: { active: boolean; isMobile: boolean }) {
             <motion.div initial={{ opacity: 0, scale: 0.9, y: 8 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ type: 'spring', stiffness: 240 }}
               style={{ position: 'absolute', left: isMobile ? 10 : 18, bottom: isMobile ? 10 : 18, display: 'flex', alignItems: 'center', gap: 7, background: 'rgba(52,211,153,0.12)', border: '1px solid rgba(52,211,153,0.3)', borderRadius: 10, padding: isMobile ? '7px 10px' : '9px 13px' }}>
               <span style={{ color: '#34d399', fontSize: isMobile ? 13 : 15 }}>✓</span>
-              <span style={{ fontFamily: F, fontSize: isMobile ? 9.5 : 12, color: '#34d399', fontWeight: 600, lineHeight: 1.3 }}>Termin gebucht &amp; im Kalender</span>
+              <span style={{ fontFamily: F, fontSize: isMobile ? 9.5 : 12, color: '#34d399', fontWeight: 600, lineHeight: 1.3 }}>{t.demoScenes.website.bookedToast}</span>
             </motion.div>
           )}
         </div>
@@ -206,14 +209,16 @@ function Scene1({ active, isMobile }: { active: boolean; isMobile: boolean }) {
 }
 
 // ─── SCENE 2 — Prozessautomatisierung ────────────────────────────────────────
+// Paired positionally with t.demoScenes.automation.actions.
 const PROC_ACTIONS = [
-  { label: 'Rechnung erstellt',      icon: '🧾', delay: 2.2 },
-  { label: 'Lager aktualisiert',     icon: '📦', delay: 2.8 },
-  { label: 'Versand ausgelöst',      icon: '🚚', delay: 3.4 },
-  { label: 'Kunden-E-Mail gesendet', icon: '✉️', delay: 4.0 },
+  { icon: '🧾', delay: 2.2 },
+  { icon: '📦', delay: 2.8 },
+  { icon: '🚚', delay: 3.4 },
+  { icon: '✉️', delay: 4.0 },
 ];
 
 function Scene2({ active, isMobile }: { active: boolean; isMobile: boolean }) {
+  const { t } = useLang();
   const [step, setStep] = useState(0);
 
   useEffect(() => {
@@ -229,7 +234,7 @@ function Scene2({ active, isMobile }: { active: boolean; isMobile: boolean }) {
   if (isMobile) {
     return (
       <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 0, padding: '36px 16px 50px' }}>
-        <SceneLabel>Prozessautomatisierung · Kein manueller Aufwand</SceneLabel>
+        <SceneLabel>{t.demoScenes.automation.label}</SceneLabel>
 
         {/* Trigger */}
         {step >= 1 && (
@@ -238,8 +243,8 @@ function Scene2({ active, isMobile }: { active: boolean; isMobile: boolean }) {
             style={{ width: '100%', display: 'flex', alignItems: 'center', gap: 8, background: 'rgba(255,180,0,0.08)', border: '1px solid rgba(255,180,0,0.25)', borderRadius: 10, padding: '8px 14px', marginBottom: 0 }}>
             <span style={{ fontSize: 14 }}>⚡</span>
             <div>
-              <div style={{ fontFamily: F, fontSize: 8, color: 'rgba(255,180,0,0.7)', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Trigger</div>
-              <div style={{ fontFamily: FS, fontSize: 12, color: 'white', fontWeight: 600 }}>Neue Bestellung eingegangen</div>
+              <div style={{ fontFamily: F, fontSize: 8, color: 'rgba(255,180,0,0.7)', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>{t.demoScenes.automation.trigger}</div>
+              <div style={{ fontFamily: FS, fontSize: 12, color: 'white', fontWeight: 600 }}>{t.demoScenes.automation.triggerEvent}</div>
             </div>
           </motion.div>
         )}
@@ -254,7 +259,7 @@ function Scene2({ active, isMobile }: { active: boolean; isMobile: boolean }) {
               style={{ background: CB, border: `1.5px solid ${C}60`, borderRadius: 10, padding: '6px 18px', display: 'flex', alignItems: 'center', gap: 8 }}>
               <motion.div animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 1.2, repeat: Infinity }}
                 style={{ width: 6, height: 6, borderRadius: '50%', background: C }} />
-              <span style={{ fontFamily: FS, fontSize: 11, color: C, fontWeight: 700 }}>KI verarbeitet</span>
+              <span style={{ fontFamily: FS, fontSize: 11, color: C, fontWeight: 700 }}>{t.demoScenes.automation.processing}</span>
             </motion.div>
             <div style={{ width: 1.5, height: 12, background: 'rgba(0,212,255,0.3)', margin: '0 auto' }} />
 
@@ -267,7 +272,7 @@ function Scene2({ active, isMobile }: { active: boolean; isMobile: boolean }) {
                   transition={{ delay: action.delay - 1.5, type: 'spring', stiffness: 220, damping: 18 }}
                   style={{ background: 'rgba(0,0,0,0.4)', border: `1px solid rgba(0,212,255,0.18)`, borderRadius: 8, padding: '7px 12px', display: 'flex', alignItems: 'center', gap: 8, width: '100%' }}>
                   <span style={{ fontSize: 14 }}>{action.icon}</span>
-                  <span style={{ flex: 1, fontFamily: F, fontSize: 11, color: 'rgba(255,255,255,0.75)', fontWeight: 500 }}>{action.label}</span>
+                  <span style={{ flex: 1, fontFamily: F, fontSize: 11, color: 'rgba(255,255,255,0.75)', fontWeight: 500 }}>{t.demoScenes.automation.actions[i]}</span>
                   <motion.span
                     initial={{ scale: 0 }} animate={{ scale: 1 }}
                     transition={{ delay: action.delay - 1.5 + 0.3, type: 'spring', stiffness: 300 }}
@@ -291,15 +296,15 @@ function Scene2({ active, isMobile }: { active: boolean; isMobile: boolean }) {
   // Desktop layout
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 18, padding: '50px 28px 60px' }}>
-      <SceneLabel>Prozessautomatisierung · Kein manueller Aufwand</SceneLabel>
+      <SceneLabel>{t.demoScenes.automation.label}</SceneLabel>
       {step >= 1 && (
         <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }}
           transition={{ type: 'spring', stiffness: 200, damping: 18 }}
           style={{ display: 'flex', alignItems: 'center', gap: 12, background: 'rgba(255,180,0,0.08)', border: '1px solid rgba(255,180,0,0.25)', borderRadius: 12, padding: '10px 24px' }}>
           <span style={{ fontSize: 22 }}>⚡</span>
           <div>
-            <div style={{ fontFamily: F, fontSize: 12, color: 'rgba(255,180,0,0.7)', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Trigger</div>
-            <div style={{ fontFamily: FS, fontSize: 16, color: 'white', fontWeight: 600 }}>Neue Bestellung eingegangen</div>
+            <div style={{ fontFamily: F, fontSize: 12, color: 'rgba(255,180,0,0.7)', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>{t.demoScenes.automation.trigger}</div>
+            <div style={{ fontFamily: FS, fontSize: 16, color: 'white', fontWeight: 600 }}>{t.demoScenes.automation.triggerEvent}</div>
           </div>
         </motion.div>
       )}
@@ -313,7 +318,7 @@ function Scene2({ active, isMobile }: { active: boolean; isMobile: boolean }) {
             style={{ background: CB, border: `1.5px solid ${C}60`, borderRadius: 12, padding: '8px 28px', display: 'flex', alignItems: 'center', gap: 10 }}>
             <motion.div animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 1.2, repeat: Infinity }}
               style={{ width: 9, height: 9, borderRadius: '50%', background: C }} />
-            <span style={{ fontFamily: FS, fontSize: 15, color: C, fontWeight: 700 }}>KI verarbeitet</span>
+            <span style={{ fontFamily: FS, fontSize: 15, color: C, fontWeight: 700 }}>{t.demoScenes.automation.processing}</span>
           </motion.div>
           <div style={{ width: 2, height: 20, background: 'rgba(0,212,255,0.3)' }} />
           <svg viewBox="0 0 360 28" style={{ width: 360, height: 28, overflow: 'visible' }}>
@@ -338,7 +343,7 @@ function Scene2({ active, isMobile }: { active: boolean; isMobile: boolean }) {
               style={{ background: 'rgba(0,0,0,0.4)', border: `1px solid rgba(0,212,255,0.18)`, borderRadius: 12, padding: '11px 16px', display: 'flex', alignItems: 'center', gap: 10, minWidth: 152 }}>
               <span style={{ fontSize: 18 }}>{action.icon}</span>
               <div style={{ flex: 1 }}>
-                <div style={{ fontFamily: F, fontSize: 13, color: 'rgba(255,255,255,0.75)', fontWeight: 500, lineHeight: 1.3 }}>{action.label}</div>
+                <div style={{ fontFamily: F, fontSize: 13, color: 'rgba(255,255,255,0.75)', fontWeight: 500, lineHeight: 1.3 }}>{t.demoScenes.automation.actions[i]}</div>
               </div>
               <motion.span initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: action.delay - 1.5 + 0.35, type: 'spring', stiffness: 300 }}
@@ -365,6 +370,9 @@ const LEADGEN_ROWS = [
 ];
 
 function Scene3({ active, isMobile }: { active: boolean; isMobile: boolean }) {
+  const { t } = useLang();
+  // Thousands separator should follow the reader's language, not the content's.
+  const locale = { de: 'de-DE', en: 'en-GB', es: 'es-ES' }[useLang().lang];
   const [step,  setStep]  = useState(0);
   const [found, setFound] = useState(0);
   const [open,  setOpen]  = useState(0);
@@ -412,7 +420,7 @@ function Scene3({ active, isMobile }: { active: boolean; isMobile: boolean }) {
 
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: isMobile ? 8 : 12, padding: isMobile ? '38px 16px 50px' : '44px 28px 56px' }}>
-      <SceneLabel>Lead-Pipeline · LeadGen → LeadTracker</SceneLabel>
+      <SceneLabel>{t.demoScenes.leads.label}</SceneLabel>
 
       {/* LeadGen — scrapt Firmen, extrahiert E-Mails */}
       {step >= 1 && (
@@ -422,7 +430,7 @@ function Scene3({ active, isMobile }: { active: boolean; isMobile: boolean }) {
             <Search size={fs(13, 15)} color={C} strokeWidth={2.2} style={{ flexShrink: 0 }} />
             <span style={{ fontFamily: FS, fontSize: fs(11, 13), color: '#fff', fontWeight: 700 }}>LeadGen</span>
             <span style={{ marginLeft: 'auto', fontFamily: FS, fontSize: fs(14, 17), color: C, fontWeight: 700, fontVariantNumeric: 'tabular-nums' }}>{found.toLocaleString('de-DE')}</span>
-            <span style={{ fontFamily: F, fontSize: fs(8, 9), color: 'rgba(255,255,255,0.4)' }}>Leads · mit E-Mail</span>
+            <span style={{ fontFamily: F, fontSize: fs(8, 9), color: 'rgba(255,255,255,0.4)' }}>{t.demoScenes.leads.leadsCaption}</span>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
             {LEADGEN_ROWS.map((r, i) => (
@@ -472,9 +480,9 @@ function Scene3({ active, isMobile }: { active: boolean; isMobile: boolean }) {
           </div>
           <div style={{ display: 'flex', gap: isMobile ? 8 : 16 }}>
             {[
-              { label: 'Gesendet',    val: found.toLocaleString('de-DE'), col: '#fff' },
-              { label: 'Geöffnet',    val: open + '%',  col: C },
-              { label: 'Geantwortet', val: reply + '%', col: '#34d399' },
+              { label: t.demoScenes.leads.stats[0], val: found.toLocaleString(locale), col: '#fff' },
+              { label: t.demoScenes.leads.stats[1], val: open + '%',  col: C },
+              { label: t.demoScenes.leads.stats[2], val: reply + '%', col: '#34d399' },
             ].map((s, i) => (
               <div key={i} style={{ flex: 1 }}>
                 <div style={{ fontFamily: FS, fontSize: fs(17, 23), fontWeight: 700, color: s.col, fontVariantNumeric: 'tabular-nums', lineHeight: 1 }}>{s.val}</div>
@@ -489,11 +497,12 @@ function Scene3({ active, isMobile }: { active: boolean; isMobile: boolean }) {
 }
 
 // ─── SCENE 4 — Zeiterfassung ──────────────────────────────────────────────────
+// Labels come from t.demoScenes.time.entries; `work` picks the project chip.
 const TIME_ENTRIES = [
-  { label: 'Bad-Sanierung Müller', project: 'Arbeit', dur: '3:20', delay: 2.0 },
-  { label: 'Anfahrt Baustelle',    project: 'Arbeit', dur: '0:35', delay: 2.5 },
-  { label: 'Mittagspause',         project: 'Pause',  dur: '0:30', delay: 3.0 },
-  { label: 'Heizung Wagner',       project: 'Arbeit', dur: '2:15', delay: 3.5 },
+  { work: true,  dur: '3:20', delay: 2.0 },
+  { work: true,  dur: '0:35', delay: 2.5 },
+  { work: false, dur: '0:30', delay: 3.0 },
+  { work: true,  dur: '2:15', delay: 3.5 },
 ];
 
 function ClockGlyph({ size, color }: { size: number; color: string }) {
@@ -515,6 +524,7 @@ function FileGlyph({ size, color }: { size: number; color: string }) {
 }
 
 function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
+  const { t } = useLang();
   const [secs,  setSecs]  = useState(7531);  // running timer base ≈ 2:05:31
   const [step,  setStep]  = useState(0);
   const [total, setTotal] = useState(0);
@@ -554,7 +564,7 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
 
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: isMobile ? 9 : 13, padding: isMobile ? '38px 16px 50px' : '46px 32px 56px' }}>
-      <SceneLabel color={O}>ZeitWerk · Zeiterfassung für Aufträge &amp; Team</SceneLabel>
+      <SceneLabel color={O}>{t.demoScenes.time.label}</SceneLabel>
 
       {/* Running timer */}
       {step >= 1 && (
@@ -563,7 +573,7 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
           <motion.div animate={{ opacity: [1, 0.25, 1] }} transition={{ duration: 1.4, repeat: Infinity }}
             style={{ width: 9, height: 9, borderRadius: '50%', background: '#34d399', flexShrink: 0, boxShadow: '0 0 8px #34d399' }} />
           <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ fontFamily: F, fontSize: isMobile ? 8 : 9, color: 'rgba(255,255,255,0.45)', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Läuft · Auftrag Bad Müller</div>
+            <div style={{ fontFamily: F, fontSize: isMobile ? 8 : 9, color: 'rgba(255,255,255,0.45)', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>{t.demoScenes.time.running}</div>
             <div style={{ fontFamily: FS, fontSize: isMobile ? 23 : 30, color: '#fff', fontWeight: 700, letterSpacing: '0.02em', lineHeight: 1.05, fontVariantNumeric: 'tabular-nums' }}>{timer}</div>
           </div>
           <span style={{ fontFamily: F, fontSize: isMobile ? 8 : 10, color: '#34d399', fontWeight: 700, background: 'rgba(52,211,153,0.12)', border: '1px solid rgba(52,211,153,0.3)', borderRadius: 6, padding: '4px 8px', letterSpacing: '0.06em', flexShrink: 0 }}>● REC</span>
@@ -581,8 +591,8 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
               transition={{ delay: e.delay - 1.6, type: 'spring', stiffness: 240, damping: 20 }}
               style={{ display: 'flex', alignItems: 'center', gap: isMobile ? 8 : 10, background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 8, padding: isMobile ? '7px 11px' : '9px 14px' }}>
               <ClockGlyph size={isMobile ? 13 : 15} color={O} />
-              <span style={{ flex: 1, fontFamily: F, fontSize: isMobile ? 11 : 13, color: 'rgba(255,255,255,0.8)', fontWeight: 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{e.label}</span>
-              <span style={{ fontFamily: F, fontSize: isMobile ? 8 : 10, color: 'rgba(255,255,255,0.35)', background: 'rgba(255,255,255,0.05)', borderRadius: 4, padding: '2px 6px', flexShrink: 0 }}>{e.project}</span>
+              <span style={{ flex: 1, fontFamily: F, fontSize: isMobile ? 11 : 13, color: 'rgba(255,255,255,0.8)', fontWeight: 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{t.demoScenes.time.entries[i]}</span>
+              <span style={{ fontFamily: F, fontSize: isMobile ? 8 : 10, color: 'rgba(255,255,255,0.35)', background: 'rgba(255,255,255,0.05)', borderRadius: 4, padding: '2px 6px', flexShrink: 0 }}>{e.work ? t.demoScenes.time.projectWork : t.demoScenes.time.projectBreak}</span>
               <span style={{ fontFamily: FS, fontSize: isMobile ? 12 : 14, color: O, fontWeight: 700, fontVariantNumeric: 'tabular-nums', flexShrink: 0 }}>{e.dur}</span>
             </motion.div>
           ))}
@@ -592,7 +602,7 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap', paddingTop: isMobile ? 6 : 9, borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <div>
-            <div style={{ fontFamily: F, fontSize: isMobile ? 8 : 10, color: 'rgba(255,255,255,0.4)', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Diese Woche</div>
+            <div style={{ fontFamily: F, fontSize: isMobile ? 8 : 10, color: 'rgba(255,255,255,0.4)', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase' }}>{t.demoScenes.time.thisWeek}</div>
             <div style={{ fontFamily: FS, fontSize: isMobile ? 21 : 27, color: '#fff', fontWeight: 700, fontVariantNumeric: 'tabular-nums' }}>{total.toFixed(1).replace('.', ',')} h</div>
           </div>
           {step >= 4 && (
@@ -600,7 +610,7 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
               style={{ display: 'flex', alignItems: 'center', gap: 7, background: 'rgba(232,112,10,0.1)', border: `1px solid ${O}45`, borderRadius: 10, padding: isMobile ? '7px 11px' : '9px 14px' }}>
               <motion.div animate={{ rotate: 360 }} transition={{ duration: 0.9, repeat: Infinity, ease: 'linear' }}
                 style={{ width: isMobile ? 11 : 13, height: isMobile ? 11 : 13, borderRadius: '50%', border: `2px solid ${O}`, borderTopColor: 'transparent', flexShrink: 0 }} />
-              <span style={{ fontFamily: F, fontSize: isMobile ? 10 : 12, color: O, fontWeight: 600, lineHeight: 1.3 }}>Stundenzettel wird erstellt…</span>
+              <span style={{ fontFamily: F, fontSize: isMobile ? 10 : 12, color: O, fontWeight: 600, lineHeight: 1.3 }}>{t.demoScenes.time.generating}</span>
             </motion.div>
           )}
         </motion.div>
@@ -611,21 +621,21 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
           style={{ width: '100%', maxWidth: MW, background: '#f4f1ea', borderRadius: 8, padding: isMobile ? '11px 13px' : '14px 18px', boxShadow: '0 16px 40px rgba(0,0,0,0.55)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, paddingBottom: isMobile ? 7 : 9, borderBottom: '1px solid rgba(0,0,0,0.1)', marginBottom: isMobile ? 7 : 9 }}>
             <FileGlyph size={isMobile ? 15 : 18} color={O} />
-            <span style={{ fontFamily: FS, fontSize: isMobile ? 12 : 14, color: '#1a1a1a', fontWeight: 700 }}>Stundenzettel · KW 27</span>
+            <span style={{ fontFamily: FS, fontSize: isMobile ? 12 : 14, color: '#1a1a1a', fontWeight: 700 }}>{t.demoScenes.time.sheetTitle}</span>
             <span style={{ marginLeft: 'auto', fontFamily: F, fontSize: isMobile ? 8 : 9, color: '#fff', fontWeight: 700, background: '#d64545', borderRadius: 3, padding: '2px 6px', letterSpacing: '0.04em' }}>PDF</span>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: isMobile ? 3 : 4 }}>
             {TIME_ENTRIES.map((e, i) => (
               <motion.div key={i} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + i * 0.1 }}
                 style={{ display: 'flex', alignItems: 'center', fontSize: isMobile ? 9.5 : 11 }}>
-                <span style={{ flex: 1, fontFamily: F, color: '#333', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{e.label}</span>
-                <span style={{ fontFamily: F, color: '#999', marginRight: isMobile ? 8 : 14 }}>{e.project}</span>
+                <span style={{ flex: 1, fontFamily: F, color: '#333', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{t.demoScenes.time.entries[i]}</span>
+                <span style={{ fontFamily: F, color: '#999', marginRight: isMobile ? 8 : 14 }}>{e.work ? t.demoScenes.time.projectWork : t.demoScenes.time.projectBreak}</span>
                 <span style={{ fontFamily: FS, color: '#1a1a1a', fontWeight: 700, fontVariantNumeric: 'tabular-nums' }}>{e.dur}</span>
               </motion.div>
             ))}
           </div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: isMobile ? 7 : 9, paddingTop: isMobile ? 6 : 8, borderTop: '1px solid rgba(0,0,0,0.12)' }}>
-            <span style={{ fontFamily: F, fontSize: isMobile ? 9 : 11, color: '#555', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Gesamt · Diese Woche</span>
+            <span style={{ fontFamily: F, fontSize: isMobile ? 9 : 11, color: '#555', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{t.demoScenes.time.totalThisWeek}</span>
             <span style={{ fontFamily: FS, fontSize: isMobile ? 15 : 19, color: O, fontWeight: 700, fontVariantNumeric: 'tabular-nums' }}>38,5 h</span>
           </div>
         </motion.div>
@@ -636,10 +646,11 @@ function Scene4({ active, isMobile }: { active: boolean; isMobile: boolean }) {
 }
 
 // ─── Scene registry ────────────────────────────────────────────────────────────
-const SCENE_LABELS = ['Lead-Pipeline', 'Zeiterfassung', 'Webseite', 'Automatisierung'];
+
 
 // ─── AnimatedDemo (main export) ───────────────────────────────────────────────
 export function AnimatedDemo() {
+  const { t } = useLang();
   const [scene,    setScene]    = useState(0);
   const [running,  setRunning]  = useState(false);
   const [timerKey, setTimerKey] = useState(0);
@@ -709,7 +720,7 @@ export function AnimatedDemo() {
         display: 'flex', alignItems: 'center', gap: isMobile ? 4 : 6,
         padding: isMobile ? '0 8px 10px' : '0 14px 12px',
       }}>
-        {SCENE_LABELS.map((label, i) => (
+        {t.demoScenes.tabs.map((label, i) => (
           <button key={i} onClick={() => goToScene(i)} style={{
             flex: 1,
             height: isMobile ? 26 : 28,

@@ -142,6 +142,52 @@ export const es: Dict = {
   demo: {
     heading: 'Menos explicar. Más mostrar.',
     sub: '',
+    chatbotHintPrefix: 'Prueben el chatbot con IA — ',
+    chatbotHintLink: 'ábranlo abajo a la derecha ↓',
+    aboutBadges: 'Hecho en Alemania · Conforme al RGPD · Orientados a resultados',
+    foundersRole: 'Fundadores, Clavion',
+    caseStatLeads: 'Leads · investigación y contacto',
+    caseStatServices: 'Servicios de un mismo equipo',
+    caseShopLive: 'Tienda en marcha en c4f.bio',
+    techIntro: 'Con qué trabajamos',
+  },
+
+  demoScenes: {
+    tabs: ['Pipeline de leads', 'Control horario', 'Sitio web', 'Automatización'],
+    website: {
+      label: 'Sitio web · Diseño, tienda y chatbot de un mismo equipo',
+      shopBadge: 'Tienda',
+      assistant: 'Asistente IA',
+      online: 'en línea',
+      visitorMsg: '¿Tienen hueco para un presupuesto?',
+      botReplyPrefix: '¡Claro! ',
+      botReplySlot: 'Mar 14 de mayo, 10:00',
+      botReplySuffix: ' les va bien — reservado ✓',
+      bookedToast: 'Cita reservada y en el calendario',
+    },
+    automation: {
+      label: 'Automatización de procesos · Sin trabajo manual',
+      trigger: 'Disparador',
+      triggerEvent: 'Nuevo pedido recibido',
+      processing: 'La IA procesa',
+      actions: ['Factura creada', 'Stock actualizado', 'Envío iniciado', 'Correo al cliente enviado'],
+    },
+    leads: {
+      label: 'Pipeline de leads · LeadGen → LeadTracker',
+      leadsCaption: 'Leads · con correo',
+      stats: ['Enviados', 'Abiertos', 'Respondidos'],
+    },
+    time: {
+      label: 'ZeitWerk · Control horario para encargos y equipo',
+      running: 'En curso · Encargo Bad Müller',
+      thisWeek: 'Esta semana',
+      generating: 'Creando el parte de horas…',
+      sheetTitle: 'Parte de horas · semana 27',
+      totalThisWeek: 'Total · esta semana',
+      entries: ['Reforma de baño Müller', 'Desplazamiento a obra', 'Pausa para comer', 'Calefacción Wagner'],
+      projectWork: 'Trabajo',
+      projectBreak: 'Pausa',
+    },
   },
 
   showcase: {

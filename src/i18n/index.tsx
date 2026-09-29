@@ -60,14 +60,26 @@ interface LanguageValue {
   lang: Lang;
   setLang: (next: Lang) => void;
   t: Dict;
+  /**
+   * True once the visitor has switched language at least this session.
+   *
+   * Switching remounts the whole section tree (SplitText and the GSAP carousel
+   * bake their text in at mount), which replays every entrance animation and
+   * reads as a stutter. Components use this to render straight to their final
+   * state on a switch, while a first-time visitor still gets the intro.
+   */
+  switched: boolean;
 }
 
 const LanguageContext = createContext<LanguageValue | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(detectLang);
+  const [switched, setSwitched] = useState(false);
 
   const setLang = useCallback((next: Lang) => {
+    // Any call here came from the switcher, so the intro has been seen.
+    setSwitched(true);
     setLangState(next);
     try {
       localStorage.setItem(STORAGE_KEY, next);
@@ -87,8 +99,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }, [lang]);
 
   const value = useMemo<LanguageValue>(
-    () => ({ lang, setLang, t: DICTS[lang] }),
-    [lang, setLang]
+    () => ({ lang, setLang, t: DICTS[lang], switched }),
+    [lang, setLang, switched]
   );
 
   return (

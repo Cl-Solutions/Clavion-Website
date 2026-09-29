@@ -207,16 +207,19 @@ function MouseGlow() {
 function useSplitHeadline(inView: boolean) {
   const headRef = useRef<HTMLElement>(null);
   const done    = useRef(false);
+  // After a language switch the tree remounts and every headline would split
+  // and fly in again, which reads as a stutter. Skip straight to the end state.
+  const { switched } = useLang();
 
   useLayoutEffect(() => {
-    if (headRef.current) headRef.current.style.opacity = '0';
-  }, []);
+    if (headRef.current) headRef.current.style.opacity = switched ? '1' : '0';
+  }, [switched]);
 
   useEffect(() => {
     if (!inView || done.current) return;
     done.current = true;
     const head = headRef.current;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (switched || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       if (head) gsap.set(head, { opacity: 1 });
       return;
     }
@@ -234,7 +237,7 @@ function useSplitHeadline(inView: boolean) {
         transformPerspective: 600,
       });
     }
-  }, [inView]);
+  }, [inView, switched]);
 
   return { headRef };
 }
@@ -806,7 +809,7 @@ function AboutSection() {
             <div className="space-y-3 sm:space-y-5 font-inter text-gray-400 text-sm sm:text-base lg:text-lg leading-relaxed mb-6">
               {t.about.body.split('\n\n').map((para, i) => <p key={i}>{para}</p>)}
             </div>
-            <p className="font-inter text-gray-400 text-sm">Made in Germany · DSGVO-konform · Ergebnisorientiert</p>
+            <p className="font-inter text-gray-400 text-sm">{t.demo.aboutBadges}</p>
           </div>
 
           {/* Right — 3 highlight cards + B/M avatar row (matches main layout exactly) */}
@@ -836,7 +839,7 @@ function AboutSection() {
                 </div>
                 <div>
                   <p className="font-inter text-white text-sm">Berkay &amp; Marios</p>
-                  <p className="font-inter text-gray-500 text-xs">Gründer, Clavion</p>
+                  <p className="font-inter text-gray-500 text-xs">{t.demo.foundersRole}</p>
                 </div>
               </div>
             </FlyIn>
@@ -883,11 +886,11 @@ function DemoSection() {
         >
           <MessageSquare className="w-4 h-4 text-accent flex-shrink-0" />
           <p className="font-inter text-sm text-gray-400">
-            Den KI-Chatbot live erleben —{' '}
+            {t.demo.chatbotHintPrefix}
             <button
               onClick={() => (window as Window & { chatbase?: (a: string) => void }).chatbase?.('open')}
               className="text-accent hover:text-accent/70 transition-colors font-medium">
-              jetzt rechts unten öffnen ↓
+              {t.demo.chatbotHintLink}
             </button>
           </p>
         </motion.div>
@@ -965,14 +968,14 @@ function ShowcaseSection() {
             <div className="flex flex-wrap items-center gap-x-8 gap-y-3 pt-5 border-t border-white/[0.06]">
               <div>
                 <div className="font-syne font-bold text-2xl sm:text-3xl leading-none" style={{ color: '#00E5FF' }}>40.000</div>
-                <div className="font-inter text-gray-300 text-xs mt-1 font-medium">Leads · Recherche &amp; Outreach</div>
+                <div className="font-inter text-gray-300 text-xs mt-1 font-medium">{t.demo.caseStatLeads}</div>
               </div>
               <div>
                 <div className="font-syne font-bold text-2xl sm:text-3xl leading-none" style={{ color: '#00E5FF' }}>4</div>
-                <div className="font-inter text-gray-300 text-xs mt-1 font-medium">Leistungen aus einer Hand</div>
+                <div className="font-inter text-gray-300 text-xs mt-1 font-medium">{t.demo.caseStatServices}</div>
               </div>
               <span className="sm:ml-auto font-inter text-xs font-semibold text-emerald-400 bg-emerald-400/10 border border-emerald-400/25 px-3 py-1.5 rounded-full inline-flex items-center gap-1.5">
-                <Check className="w-3.5 h-3.5 flex-shrink-0" /> Shop live auf c4f.bio
+                <Check className="w-3.5 h-3.5 flex-shrink-0" /> {t.demo.caseShopLive}
               </span>
             </div>
           </GlowCard>
@@ -1078,7 +1081,7 @@ function StatsSection() {
 
           {/* Tech logo scrolling banner */}
           <div className="border-t border-white/10 pt-8 overflow-hidden">
-            <p className="font-inter text-gray-500 text-sm text-center mb-5">Womit wir arbeiten</p>
+            <p className="font-inter text-gray-500 text-sm text-center mb-5">{t.demo.techIntro}</p>
             <div className="relative" style={{
               maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
               WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',

@@ -67,6 +67,58 @@ export interface Dict {
   demo: {
     heading: string;
     sub: string;
+    /** Loose bits of chrome around the demo, case study and tech strip. */
+    chatbotHintPrefix: string;
+    chatbotHintLink: string;
+    aboutBadges: string;
+    foundersRole: string;
+    caseStatLeads: string;
+    caseStatServices: string;
+    caseShopLive: string;
+    techIntro: string;
+  };
+
+  /**
+   * The animated product demo. Company names inside it stay German on purpose
+   * — they illustrate German trade businesses, which is the point of the scene
+   * — but every label around them follows the switcher.
+   */
+  demoScenes: {
+    tabs: string[];
+    website: {
+      label: string;
+      shopBadge: string;
+      assistant: string;
+      online: string;
+      visitorMsg: string;
+      botReplyPrefix: string;
+      botReplySlot: string;
+      botReplySuffix: string;
+      bookedToast: string;
+    };
+    automation: {
+      label: string;
+      trigger: string;
+      triggerEvent: string;
+      processing: string;
+      actions: string[];
+    };
+    leads: {
+      label: string;
+      leadsCaption: string;
+      stats: string[];
+    };
+    time: {
+      label: string;
+      running: string;
+      thisWeek: string;
+      generating: string;
+      sheetTitle: string;
+      totalThisWeek: string;
+      entries: string[];
+      projectWork: string;
+      projectBreak: string;
+    };
   };
 
   showcase: {

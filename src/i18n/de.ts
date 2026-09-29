@@ -141,6 +141,52 @@ export const de: Dict = {
   demo: {
     heading: 'Nicht erklären. Zeigen.',
     sub: '',
+    chatbotHintPrefix: 'Den KI-Chatbot live erleben — ',
+    chatbotHintLink: 'jetzt rechts unten öffnen ↓',
+    aboutBadges: 'Made in Germany · DSGVO-konform · Ergebnisorientiert',
+    foundersRole: 'Gründer, Clavion',
+    caseStatLeads: 'Leads · Recherche & Outreach',
+    caseStatServices: 'Leistungen aus einer Hand',
+    caseShopLive: 'Shop live auf c4f.bio',
+    techIntro: 'Womit wir arbeiten',
+  },
+
+  demoScenes: {
+    tabs: ['Lead-Pipeline', 'Zeiterfassung', 'Webseite', 'Automatisierung'],
+    website: {
+      label: 'Webseite · Design, Shop & Chatbot aus einer Hand',
+      shopBadge: 'Shop',
+      assistant: 'KI-Assistent',
+      online: 'online',
+      visitorMsg: 'Habt ihr Termine für ein Angebot?',
+      botReplyPrefix: 'Klar! ',
+      botReplySlot: 'Di. 14. Mai, 10:00',
+      botReplySuffix: ' passt — gebucht ✓',
+      bookedToast: 'Termin gebucht & im Kalender',
+    },
+    automation: {
+      label: 'Prozessautomatisierung · Kein manueller Aufwand',
+      trigger: 'Trigger',
+      triggerEvent: 'Neue Bestellung eingegangen',
+      processing: 'KI verarbeitet',
+      actions: ['Rechnung erstellt', 'Lager aktualisiert', 'Versand ausgelöst', 'Kunden-E-Mail gesendet'],
+    },
+    leads: {
+      label: 'Lead-Pipeline · LeadGen → LeadTracker',
+      leadsCaption: 'Leads · mit E-Mail',
+      stats: ['Gesendet', 'Geöffnet', 'Geantwortet'],
+    },
+    time: {
+      label: 'ZeitWerk · Zeiterfassung für Aufträge & Team',
+      running: 'Läuft · Auftrag Bad Müller',
+      thisWeek: 'Diese Woche',
+      generating: 'Stundenzettel wird erstellt…',
+      sheetTitle: 'Stundenzettel · KW 27',
+      totalThisWeek: 'Gesamt · Diese Woche',
+      entries: ['Bad-Sanierung Müller', 'Anfahrt Baustelle', 'Mittagspause', 'Heizung Wagner'],
+      projectWork: 'Arbeit',
+      projectBreak: 'Pause',
+    },
   },
 
   showcase: {
