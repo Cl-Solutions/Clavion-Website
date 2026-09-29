@@ -96,6 +96,8 @@ export const es: Dict = {
   },
 
   services: {
+    chatbotLivePrefix: 'Nuestro chatbot con IA está activo — ',
+    chatbotLiveLink: 'pruébenlo abajo a la derecha ↓',
     heading: 'Lo que construimos para ustedes',
     items: [
       {
@@ -234,6 +236,8 @@ export const es: Dict = {
   },
 
   faq: {
+    stillUnclear: '¿Les queda alguna duda? Escríbannos sin más — respondemos en 24 horas.',
+    askCta: 'Hacer una pregunta →',
     heading: 'Preguntas frecuentes',
     items: [
       {

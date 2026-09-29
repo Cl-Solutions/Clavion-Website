@@ -95,6 +95,8 @@ export const de: Dict = {
   },
 
   services: {
+    chatbotLivePrefix: 'Unser KI-Chatbot ist live — ',
+    chatbotLiveLink: 'jetzt rechts unten testen ↓',
     heading: 'Was wir für euch bauen',
     items: [
       {
@@ -233,6 +235,8 @@ export const de: Dict = {
   },
 
   faq: {
+    stillUnclear: 'Noch etwas unklar? Schreib uns einfach — wir antworten innerhalb von 24h.',
+    askCta: 'Frage stellen →',
     heading: 'Häufige Fragen',
     items: [
       {

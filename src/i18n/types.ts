@@ -54,6 +54,9 @@ export interface Dict {
   };
 
   services: {
+    /** Shown under the website tile, where the live chatbot is the proof. */
+    chatbotLivePrefix: string;
+    chatbotLiveLink: string;
     heading: string;
     items: { id: string; title: string; text: string; tags: string[] }[];
   };
@@ -149,6 +152,9 @@ export interface Dict {
   };
 
   faq: {
+    /** Sticky column beside the accordion. */
+    stillUnclear: string;
+    askCta: string;
     heading: string;
     items: { q: string; a: string }[];
   };

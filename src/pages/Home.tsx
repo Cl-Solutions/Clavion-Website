@@ -766,11 +766,11 @@ function ServicesSection() {
               <div className="mt-5 pt-4 border-t border-white/[0.06] flex items-center gap-2.5">
                 <MessageSquare className="w-3.5 h-3.5 text-accent flex-shrink-0" />
                 <span className="font-inter text-sm text-gray-400">
-                  Unser KI-Chatbot ist live —{' '}
+                  {t.services.chatbotLivePrefix}
                   <button
                     onClick={() => (window as Window & { chatbase?: (a: string) => void }).chatbase?.('open')}
                     className="text-accent hover:text-accent/70 transition-colors font-medium">
-                    jetzt rechts unten testen ↓
+                    {t.services.chatbotLiveLink}
                   </button>
                 </span>
               </div>
@@ -1127,12 +1127,12 @@ function FAQSection() {
               {t.faq.heading}
             </h2>
             <p className="font-inter text-gray-400 text-sm sm:text-base leading-relaxed mb-6">
-              Noch etwas unklar? Schreib uns einfach — wir antworten innerhalb von 24h.
+              {t.faq.stillUnclear}
             </p>
             <button
               onClick={() => scrollToId('kontakt')}
               className="inline-flex items-center gap-2 font-inter text-sm text-accent hover:text-accent/80 transition-colors font-medium">
-              Frage stellen →
+              {t.faq.askCta}
             </button>
           </div>
 
