@@ -166,6 +166,9 @@ export const es: Dict = {
       bookedToast: 'Cita reservada y en el calendario',
     },
     automation: {
+      tasksCount: '4 tareas',
+      tasksAuto: 'hechas automáticamente',
+      tasksManual: '0 minutos a mano',
       label: 'Automatización de procesos · Sin trabajo manual',
       trigger: 'Disparador',
       triggerEvent: 'Nuevo pedido recibido',
@@ -173,6 +176,9 @@ export const es: Dict = {
       actions: ['Factura creada', 'Stock actualizado', 'Envío iniciado', 'Correo al cliente enviado'],
     },
     leads: {
+      moreCompanies: '… y {count} empresas más',
+      campaignRunning: '● Campaña en curso',
+      campaignDone: '✓ Campaña finalizada',
       label: 'Pipeline de leads · LeadGen → LeadTracker',
       leadsCaption: 'Leads · con correo',
       stats: ['Enviados', 'Abiertos', 'Respondidos'],

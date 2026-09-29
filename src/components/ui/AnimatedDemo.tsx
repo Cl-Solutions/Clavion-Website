@@ -197,9 +197,23 @@ function Scene1({ active, isMobile }: { active: boolean; isMobile: boolean }) {
           {/* Booked toast (bottom-left) */}
           {step >= 6 && (
             <motion.div initial={{ opacity: 0, scale: 0.9, y: 8 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ type: 'spring', stiffness: 240 }}
-              style={{ position: 'absolute', left: isMobile ? 10 : 18, bottom: isMobile ? 10 : 18, display: 'flex', alignItems: 'center', gap: 7, background: 'rgba(52,211,153,0.12)', border: '1px solid rgba(52,211,153,0.3)', borderRadius: 10, padding: isMobile ? '7px 10px' : '9px 13px' }}>
+              style={{
+                position: 'absolute', left: isMobile ? 10 : 18, bottom: isMobile ? 10 : 18,
+                display: 'flex', alignItems: 'center', gap: 7,
+                // Opaque, not a 12%-alpha tint: this sits on top of the shop
+                // cards, and the product rows behind it used to show straight
+                // through the text. The blur is a fallback for browsers that
+                // composite the layer differently.
+                background: 'rgba(6,20,15,0.97)',
+                backdropFilter: 'blur(8px)',
+                border: '1px solid rgba(52,211,153,0.55)',
+                boxShadow: '0 6px 20px rgba(0,0,0,0.55)',
+                borderRadius: 10,
+                padding: isMobile ? '7px 10px' : '9px 13px',
+                maxWidth: isMobile ? 'calc(100% - 20px)' : '62%',
+              }}>
               <span style={{ color: '#34d399', fontSize: isMobile ? 13 : 15 }}>✓</span>
-              <span style={{ fontFamily: F, fontSize: isMobile ? 9.5 : 12, color: '#34d399', fontWeight: 600, lineHeight: 1.3 }}>{t.demoScenes.website.bookedToast}</span>
+              <span style={{ fontFamily: F, fontSize: isMobile ? 9.5 : 12, color: '#4ade80', fontWeight: 600, lineHeight: 1.35 }}>{t.demoScenes.website.bookedToast}</span>
             </motion.div>
           )}
         </div>
@@ -286,7 +300,7 @@ function Scene2({ active, isMobile }: { active: boolean; isMobile: boolean }) {
         {step >= 3 && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}
             style={{ fontFamily: F, fontSize: 10, color: 'rgba(255,255,255,0.35)', textAlign: 'center', marginTop: 6 }}>
-            4 Aufgaben · <span style={{ color: '#34d399' }}>automatisch erledigt</span>
+            {t.demoScenes.automation.tasksCount} · <span style={{ color: '#34d399' }}>{t.demoScenes.automation.tasksAuto}</span>
           </motion.div>
         )}
       </div>
@@ -355,7 +369,7 @@ function Scene2({ active, isMobile }: { active: boolean; isMobile: boolean }) {
       {step >= 3 && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}
           style={{ fontFamily: F, fontSize: 13, color: 'rgba(255,255,255,0.35)', textAlign: 'center' }}>
-          4 Aufgaben · <span style={{ color: '#34d399' }}>automatisch erledigt</span> · 0 Minuten manuell
+          {t.demoScenes.automation.tasksCount} · <span style={{ color: '#34d399' }}>{t.demoScenes.automation.tasksAuto}</span> · {t.demoScenes.automation.tasksManual}
         </motion.div>
       )}
     </div>
@@ -443,7 +457,7 @@ function Scene3({ active, isMobile }: { active: boolean; isMobile: boolean }) {
             ))}
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.9 }}
               style={{ fontFamily: F, fontSize: fs(8, 9.5), color: 'rgba(255,255,255,0.3)', paddingTop: 2 }}>
-              … und 16.237 weitere Firmen
+              {t.demoScenes.leads.moreCompanies.replace('{count}', (16237).toLocaleString(locale))}
             </motion.div>
           </div>
         </motion.div>
@@ -472,10 +486,10 @@ function Scene3({ active, isMobile }: { active: boolean; isMobile: boolean }) {
             <Send size={fs(13, 15)} color={C} strokeWidth={2.2} style={{ flexShrink: 0 }} />
             <span style={{ fontFamily: FS, fontSize: fs(11, 13), color: '#fff', fontWeight: 700 }}>LeadTracker</span>
             {open >= 87 ? (
-              <span style={{ marginLeft: 'auto', fontFamily: F, fontSize: fs(8, 10), color: '#34d399', fontWeight: 700 }}>✓ Kampagne abgeschlossen</span>
+              <span style={{ marginLeft: 'auto', fontFamily: F, fontSize: fs(8, 10), color: '#34d399', fontWeight: 700 }}>{t.demoScenes.leads.campaignDone}</span>
             ) : (
               <motion.span animate={{ opacity: [1, 0.4, 1] }} transition={{ duration: 1.4, repeat: Infinity }}
-                style={{ marginLeft: 'auto', fontFamily: F, fontSize: fs(8, 10), color: '#34d399', fontWeight: 600 }}>● Kampagne läuft</motion.span>
+                style={{ marginLeft: 'auto', fontFamily: F, fontSize: fs(8, 10), color: '#34d399', fontWeight: 600 }}>{t.demoScenes.leads.campaignRunning}</motion.span>
             )}
           </div>
           <div style={{ display: 'flex', gap: isMobile ? 8 : 16 }}>

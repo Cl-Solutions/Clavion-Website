@@ -97,6 +97,10 @@ export interface Dict {
       bookedToast: string;
     };
     automation: {
+      /** "4 Aufgaben · automatisch erledigt · 0 Minuten manuell" */
+      tasksCount: string;
+      tasksAuto: string;
+      tasksManual: string;
       label: string;
       trigger: string;
       triggerEvent: string;
@@ -104,6 +108,10 @@ export interface Dict {
       actions: string[];
     };
     leads: {
+      /** "… und 16.237 weitere Firmen" — {count} is substituted. */
+      moreCompanies: string;
+      campaignRunning: string;
+      campaignDone: string;
       label: string;
       leadsCaption: string;
       stats: string[];
